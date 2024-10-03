@@ -147,13 +147,65 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('talentechVideo');
+    const muteBtn = document.getElementById('muteBtn');
+    const muteIcon = muteBtn.querySelector('img');
 
-    <div class="video-container container">
-        <div class="square-video">
-<iframe src="https://www.youtube.com/embed/2efVVUn1gPY?playlist=2efVVUn1gPY&controls=1&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playsinline=1" 
-frameborder="0" allowfullscreen></iframe>
+    // Function to toggle video play/pause
+    const togglePlayPause = () => {
+        if (video.paused || video.ended) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    };
+
+    // Setup Intersection Observer for autoplay/pause based on visibility
+    // This part will now work on all devices
+    const observer = new IntersectionObserver((entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }, {
+        root: null,
+        threshold: 0.5
+    });
+
+    observer.observe(video);
+
+    // Check if we are on desktop before adding event listeners for play/pause and mute controls
+    if (window.innerWidth > 992) {
+        // Click event for the video itself
+        video.addEventListener('click', () => {
+            togglePlayPause();
+        });
+
+        // Event listener for the mute button
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteIcon.src = video.muted ? "/files/volume-xmark-thin.svg" : "/files/volume-off-thin.svg";
+            muteIcon.alt = video.muted ? "Mute" : "Unmute";
+        });
+    }
+});
+</script>
+
+<div class="talentech-section pb-4 mb-5 m-mb-3">
+    <div class="container mt-4 pt-2 mb-5 pb-3 video-container m-my-0">
+        <video id="talentechVideo" class="rounded-video" playsinline autoplay loop muted>
+            <source src="/files/This-is-us-TT.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-controls">
+            <button id="muteBtn"><img src="/files/volume-xmark-thin.svg" alt="Mute"></button>
         </div>
     </div>
+</div>
 	
 
 
