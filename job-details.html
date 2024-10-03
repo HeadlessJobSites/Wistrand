@@ -1,33 +1,100 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stillingsannonse</title>
-    <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://career.talentech.com/css/job-details-style.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/ca38a06270.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script type="text/javascript" src="https://web103.reachmee.com/customerjs/helper.js"></script>
-	
-  <meta property="og:title" content="Ledig stilling">
-  <meta property="og:image" content="https://career.talentech.com/files/Career-preview.jpg">
-  <meta property="og:url" content="https://career.talentech.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://career.talentech.com/css/job-details-style.css">
+    <link rel="stylesheet" href="./css/cms-job-details.css">
+    <link rel="stylesheet" href="./css/cms-index.css">
+    <link rel="icon" type="image/x-icon" href="./files/NAF-logo.jpeg">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/ca38a06270.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script type="text/javascript" src="https://web106.reachmee.com/customerjs/helper.js"></script>
+
+  <meta property="og:title" content="Ledig stilling hos NAF">
+  <meta property="og:description" content="Vil du være med å ta oss inn i fremtiden? Neste kapittel i vår 100 år lange historie starter med deg!">
+  <meta property="og:image" content="https://jobb.naf.no/files/NAF-social.jpg">
+  <meta property="og:url" content="https://jobb.naf.no/job-details.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ledig stilling">
-  <meta name="twitter:image" content="https://career.talentech.com/files/Career-preview.jpg">
+  <meta name="twitter:title" content="Ledig stilling hos NAF">
+  <meta name="twitter:description" content="Vil du være med å ta oss inn i fremtiden? Neste kapittel i vår 100 år lange historie starter med deg!">
+  <meta name="twitter:image" content="https://jobb.naf.no/files/NAF-social.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 
-	
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM fully loaded and parsed");
+            
+            const params = new URLSearchParams(window.location.search);
+            const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
+            console.log("Job ID:", jobId);
+
+            fetch('https://api.talentech.io/reachmee/feed/naf')
+                .then(response => response.json())
+                .then(jobs => {
+                    console.log("Jobs fetched:", jobs);
+                    const job = jobs.find(job => job.ad_id === jobId);
+                    if (job) {
+                        console.log("Job found:", job);
+
+                        // Update meta tags for social media sharing
+                        let ogTitle = document.querySelector('meta[property="og:title"]');
+                        let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+                        let ogDescription = document.querySelector('meta[property="og:description"]');
+                        let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+                        
+                        if (!ogTitle) {
+                            ogTitle = document.createElement('meta');
+                            ogTitle.setAttribute('property', 'og:title');
+                            document.head.appendChild(ogTitle);
+                        }
+                        if (!twitterTitle) {
+                            twitterTitle = document.createElement('meta');
+                            twitterTitle.setAttribute('name', 'twitter:title');
+                            document.head.appendChild(twitterTitle);
+                        }
+                        if (!ogDescription) {
+                            ogDescription = document.createElement('meta');
+                            ogDescription.setAttribute('property', 'og:description');
+                            document.head.appendChild(ogDescription);
+                        }
+                        if (!twitterDescription) {
+                            twitterDescription = document.createElement('meta');
+                            twitterDescription.setAttribute('name', 'twitter:description');
+                            document.head.appendChild(twitterDescription);
+                        }
+
+                        ogTitle.setAttribute('content', job.title);
+                        twitterTitle.setAttribute('content', job.title);
+                        ogDescription.setAttribute('content', job.description);
+                        twitterDescription.setAttribute('content', job.description);
+
+                        console.log("Meta tags updated");
+                        console.log("og:title", ogTitle);
+                        console.log("twitter:title", twitterTitle);
+                        console.log("og:description", ogDescription);
+                        console.log("twitter:description", twitterDescription);
+
+                        // Optionally, also update the document title
+                        document.title = job.title;
+                        console.log("Document title updated");
+                    } else {
+                        console.error('Job not found.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching job details:', error);
+                });
+        });
+    </script>
 </head>
 
 
@@ -49,36 +116,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.0);">
     <div class="container m-py-0">
-        <a class="navbar-brand" href="/" aria-label="Home">
-            <img src="https://career.talentech.com/files/TT-2.png" height="40" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" href="./" aria-label="Home">
+            <img src="./files/NAF-logo.jpeg" height="40" class="d-inline-block align-top" alt="">
         </a>
         <div class="d-flex justify-content-end align-items-center flex-grow-1">
-            <a class="nav-link ml-auto d-lg-none btn btn-primary apply-btn m-mr-2" href="#appform-header">Apply</a>
+            <a class="nav-link ml-auto d-lg-none btn btn-primary apply-btn m-mr-2" href="#appform-header">Søk nå</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div class="d-flex d-lg-none my-2 mobile-only">
-            <a class="nav-link new-link mr-1" href="#tt-talentech-section-2">Meet the Team <i class="fa-thin fa-arrow-down"></i></a>
-            <a class="nav-link new-link ml-1" href="#our-process">Recruitment Process <i class="fa-thin fa-arrow-down"></i></a>
+            <!--<a class="nav-link new-link mr-1" href="#tt-talentech-section-2">Møt folka <i class="fa-thin fa-arrow-down"></i></a>-->
+            <a class="nav-link new-link ml-1" href="#recruitment-process">Rekrutteringsprosess <i class="fa-thin fa-arrow-down"></i></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./">Hjem <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#appform-header">Apply</a>
+                    <a class="nav-link" href="#appform-header">Søk her</a>
+                </li><!--
+                <li class="nav-item">
+                    <a class="nav-link" href="#tt-talentech-section-2">Møt folka</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#recruitment-process">Rekrutteringsprosess</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#tt-talentech-section-2">Meet the Team</a>
+                    <a class="nav-link" href="https://web106.reachmee.com/ext/I020/787/profile?site=58&validator=8bd450e11350447150df52325f46f68b&lang=NO">Logg inn</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#our-process">Recruitment Process</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="blank" href="https://talentech.com">talentech.com <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" target="blank" href="https://naf.no">naf.no <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
@@ -121,36 +191,72 @@ $(document).ready(function() {
 
 
     <div class="hero-section">
-        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" class="hero-video">
-            <source src="/files/Compressed-3-TT.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
+<div class="naf-hero"></div>
+	    <div class="hero-content">
             <div class="job-title2" id="position-title"> </div>
             <p id="position-title-meta" style="font-size: 1.25rem;"><span class="organization-unit"> </span> • <span class="city"> </span></p>
         </div>
+        <img src="./files/NAF-logo.jpeg" alt="NAF Logo" class="hero-logo">
     </div>
 
 
-<script src="/js/hero-background.js"></script>
-	
+<!--
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
+
+    fetch('https://api.talentech.io/reachmee/feed/naf')
+        .then(response => response.json())
+        .then(jobs => {
+            const job = jobs.find(job => job.ad_id === jobId);
+            if (job) {
+                // Your existing code to populate job details...
+
+                // Check the occupation_area_id and modify the hero section if it's 28
+                if (job.occupation_area_id === 28) {
+                    const heroSection = document.querySelector('.hero-section');
+                    heroSection.innerHTML = `
+                        <div class="naf-hero"></div>
+                        <video playsinline autoplay loop muted class="hero-video">
+                            <source src="./files/NAF-senterne.mp4" type="video/mp4">
+                        </video>
+                        <div class="hero-content">
+                            <div class="job-title2" id="position-title"> </div>
+                            <p id="position-title-meta" style="font-size: 1.25rem;">
+                                <span class="organization-unit"> </span> • <span class="city"> </span>
+                            </p>
+                        </div>
+                    `;
+                }
+            } else {
+                console.error('Job not found.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching job details:', error);
+        });
+});
+</script>
+-->	
 	
 <div id="tt-job-section" class="job-section">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-6 job-info">
                 <span class="job-info-title">Team</span>
-                <span class="organization-unit">Team</span>
+                <span class="organization-unit">NAF-folka</span>
             </div>
             <div class="col-md-3 col-6 job-info">
-                <span class="job-info-title">Location</span>
+                <span class="job-info-title">Sted</span>
                 <span class="city">Location</span>
             </div>
             <div class="col-md-3 col-6 job-info">
-                <span class="job-info-title">Application due</span>
-                <span class="expiration-date">Application due</span>
+                <span class="job-info-title">Søknadsfrist</span>
+                <span class="expiration-date">Søknadsfrist</span>
             </div>
             <div class="col-md-3 col-6 text-center apply-btn-header">
-<a href="#appform-header" class="btn btn-primary apply-btn" role="">Apply for the job</a>
+<a href="#appform-header" class="btn btn-primary apply-btn" role="">Søk på stillingen</a>
             </div>
         </div>
     </div>
@@ -188,7 +294,7 @@ $(document).ready(function() {
     </div>
 
             <div class="text-center centerd-apply-btn">
-<a href="#appform-header" class="btn btn-primary apply-btn" role="">Apply for the job</a>
+<a href="#appform-header" class="btn btn-primary apply-btn" role="">Søk på stillingen</a>
             </div>
 </div>
 
@@ -206,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function loadExternalScriptAndBuildIframe() {
     var script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://web103.reachmee.com/customerjs/I019-834-19.js';
+    script.src = 'https://web106.reachmee.com/customerjs/I020-787-58.js';
     script.onload = function() {
         buildIframe();
     };
@@ -214,11 +320,11 @@ function loadExternalScriptAndBuildIframe() {
 }
 
 function buildIframe() {
-    var iFrameUrl = 'https://web103.reachmee.com/ext/';
-    var validator = 'fa38d2eb8febb7bc22c8a91e10a1e9de';
-    var iid = 'I019';
-    var customer = '834';
-    var site = '19';
+    var iFrameUrl = 'https://web106.reachmee.com/ext/';
+    var validator = '8bd450e11350447150df52325f46f68b';
+    var iid = 'I020';
+    var customer = '787';
+    var site = '58';
     var iHelperUrl = 'https://career.talentech.com/job-details.html?';
     var height = '4000';
     var langDef = 'UK';
@@ -260,84 +366,75 @@ function buildIframe() {
 
 	
 
-
-<section id="tt-talentech-section-2" class="team-section py-5 mb-5 pb-4 m-my-0 m-py-5">
-        <center><h2 class="container mb-0 pb-0">Meet the <span class="organization-unit" style="font-weight: 800;"></span><span style="font-weight: 800;"> team</span></h2></center>
-    <div class="container mt-0 pt-2 m-ml-0 m-px-0">
-        <div class="row mt-3 m-mt-2 m-mx-0">
+<!--
+<section id="tt-talentech-section-2" class="team-section py-5 mb-0 pb-4 m-my-0 m-py-5">
+        <center><h2 class="container mb-0 pt-5 pb-0"><div class="pt-4">Møt folka hos <span class="organization-unit" style="font-weight: 800;"></span></div></h2></center>
+    <div class="container mt-0 pt-2 pb-5 m-ml-0 m-px-0"><div class="pb-3">
+        <div class="row mt-3 pb-4 m-mt-2 m-mx-0">
 <div id="gobi-section"></div>		
+	</div>
         </div>
     </div>
 </section>
-	
+-->	
 
 
 
 
 
 
-<section id="our-process" class="process-section mb-5 py-5 m-my-0 m-pt-0 m-pb-4" style="background-color: #eeeef2;">
+<section class="process-section mb-5 py-5 m-my-0 m-pt-0 m-pb-4 recruitment-process-naf-senter" id="recruitment-process" style="">
     <div class="container pt-5 m-px-4 m-pb-2">
-        <h2>Our <span style="font-weight: 800;">recruitment process</span></h2>
+        <h2>Vår <span style="font-weight: 800;">rekrutterings&shy;prosess</span></h2>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 px-0">
+            <!--<div class="col-md-4 px-0">
 <script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
 
-<div class="gobi-collection" data-gobi-collection-id="j2jom"></div>
-            </div>
+<div class="gobi-collection" data-gobi-collection-id="585tn"></div>
+            </div>-->
             <!-- Existing Content in Right Column -->
-            <div class="col-md-8 pl-5 m-px-4">
+            <div class="col-md-12 m-px-4">
                 <div class="row process-row">
                     <!-- Benefit 1 -->
-                    <div class="col-md-4 col-sm-4 process-item">
+                    <div class="col-md-3 col-sm-4 process-item">
                         <div class="process-icon">
                             <h3>1</h3>
                         </div>
                         <div class="process-content">
-                            <h3>Submit Your Application</h3>
-                            <p>Start your journey by applying through our career portal; upload your CV and share a bit about yourself.</p>
+                            <h3>Send søknad</h3>
+                            <p>Start reisen din ved å legge inn en enkel søknad gjennom vår karriereportal.</p>
                         </div>
                     </div>
                     <!-- Benefit 2 -->
-                    <div class="col-md-4 col-sm-4 process-item">
+                    <div class="col-md-3 col-sm-4 process-item">
                         <div class="process-icon">
                             <h3>2</>
                         </div>
                         <div class="process-content">
-                            <h3>Initial Screening</h3>
-                            <p>We will review your application to assess the alignment between your skills and the job requirements.</p>
+                            <h3>Gjennomgang av søkere</h3>
+                            <p>Vi går igjennom alle søknadene, og kaller inn til intervju med aktuelle kandidater.</p>
                         </div>
                     </div>
                     <!-- Benefit 3 -->
-                    <div class="col-md-4 col-sm-4 process-item">
+                    <div class="col-md-3 col-sm-4 process-item">
                         <div class="process-icon">
                             <h3>3</h3>
                         </div>
                         <div class="process-content">
-                            <h3>Interview Process</h3>
-                            <p>Engage with us through one or more interviews to discuss your experiences, skills, and aspirations.</p>
+                            <h3>Intervjuprosess</h3>
+                            <p>Vi tar en prat sammen om dine erfaringer, kompetanse, tanker om rollen, og NAF som arbeidsplass.</p>
                         </div>
                     </div>
                     <!-- Benefit 4 -->
-                    <div class="col-md-4 col-sm-4 process-item">
+                    <div class="col-md-3 col-sm-4 process-item">
                         <div class="process-icon">
                             <h3>4</h3>
                         </div>
                         <div class="process-content">
-                            <h3>Assessment</h3>
-                            <p>Depending on the role, you may be invited to complete assignments or assessments to showcase your capabilities.</p>
-                        </div>
-                    </div>
-                    <!-- Benefit 5 -->
-                    <div class="col-md-4 col-sm-4 process-item">
-                        <div class="process-icon">
-                            <h3>5</h3>
-                        </div>
-                        <div class="process-content">
-                            <h3>Offer & Onboarding</h3>
-                            <p>If it's a match, we'll extend an offer. Once accepted, we'll guide you through every step of your onboarding journey.</p>
+                            <h3>Tilbud og onboarding</h3>
+                            <p>Hvis det er en match, vil vi gi et tilbud. Når det er akseptert, vil vi guide deg gjennom onboarding-prosessen.</p>
                         </div>
                     </div>
                 </div>
@@ -348,17 +445,64 @@ function buildIframe() {
 
 
 
+    <div class="container my-5 service-box-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <div class="service-box p-5 mx-3">
+                    <div class="service-content">
+                        <h6>Om NAF sentrene</h6>
+                        <h2>Bli bedre kjent med oss</h2>
+                        <p>NAF sentrene er en del av Norges Automobil-Forbund, og som en av Norges største egeneide bilverkstedkjede utfører vi EU-kontroller, NAF-tester, servicer og reparasjoner for både NAF-medlemmer, privat- og næringskunder.</p>
+                        <a href="./naf-senter.html"><button class="btn btn-primary apply-btn">Les mer om NAF sentrene</button></a>
+                    </div>
+                    <div class="service-image">
+                        <img src="./files/NAF-senter-4.jpg" alt="NAF Senter">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
+
+    fetch('https://api.talentech.io/reachmee/feed/naf')
+        .then(response => response.json())
+        .then(jobs => {
+            const job = jobs.find(job => job.ad_id === jobId);
+            if (job) {
+                // Your existing code to populate job details...
+
+                // Check the occupation_area_id and hide sections if it's not 28
+                if (job.occupation_area_id !== 28) {
+                    document.querySelector('.service-box-wrapper').style.display = 'none';
+                    document.querySelector('.recruitment-process-naf-senter').style.display = 'none';
+                    document.querySelector('.new-link').style.display = 'none';
+                }
+            } else {
+                console.error('Job not found.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching job details:', error);
+        });
+});
+
+</script>
 
 
 
-<section class="process-section mb-5 m-my-0 m-pt-0 m-pb-4">
-    <h2 id="appform-header" class="container pt-5 m-px-3 m-pb-2" id="appFormWrapper">Application <span style="font-weight: 800;">form</span></h2>
-    <!-- Application form or alternative message -->
+
+<section class="process-section mb-5 m-my-0 m-pt-0 m-pb-4" style="">
+    <h2 id="appform-header" class="container pt-5 m-px-3 m-pb-2" id="appFormWrapper"><span style="font-weight: 800;">Søknadsskjema</span></h2>
+    <!-- Application form -->
     <div id="originalContentContainer">
         <div id="applicationFormContainer"></div>
     </div>
 </section>
-
+	
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
@@ -366,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const jobId = params.get('rmjob') || params.get('jobId');
 
     // Fetch job details (assuming you have an endpoint to get job details by jobId)
-    fetch(`https://api.talentech.io/reachmee/feed/`) // Replace with your actual API endpoint
+    fetch(`https://api.talentech.io/reachmee/feed/NAF`) // Replace with your actual API endpoint
         .then(response => response.json())
         .then(jobs => {
             const job = jobs.find(job => job.ad_id === parseInt(jobId));
@@ -374,8 +518,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Display the message and button if hide_apply_button is true
                 const messageContainer = document.createElement('div');
                 messageContainer.innerHTML = `
-                    <center><p>Application form is disabled for this job. Please see job description for details on applying.</p>
-                    <a href="#tt-talentech-section-1" class="btn btn-primary">See job description</a></center>
+                    <center><p>Søknadsskjema er deaktivert for denne stillingen. Se stillingsbeskrivelsen for å sende inn søknad.</p>
+                    <a href="#tt-talentech-section-1" class="btn btn-primary">Se stillingstekst</a></center>
                 `;
                 document.getElementById('applicationFormContainer').appendChild(messageContainer);
             } else {
@@ -385,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     iframe.style.width = "100%";
                     iframe.style.border = "none";
                     iframe.id = "applicationFormIframe";
-                    const iframeSrc = `https://web103.reachmee.com/ext/I019/834/apply?job_id=${jobId}&site=19&validator=fa38d2eb8febb7bc22c8a91e10a1e9de&lang=UK&ihelper=${encodeURIComponent('https://career.talentech.com/jobs/rm?rmpage=job&rmjob=' + jobId)}`;
+                    const iframeSrc = `https://web106.reachmee.com/ext/I020/787/apply?job_id=${jobId}&site=58&validator=8bd450e11350447150df52325f46f68b&lang=NO&ihelper=${encodeURIComponent('https://naf.attract.reachmee.com/jobs/rm?rmpage=job&rmjob=' + jobId)}`;
                     iframe.setAttribute('src', iframeSrc);
                     document.getElementById('applicationFormContainer').appendChild(iframe);
                 }
@@ -399,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Consolidate message listener, adding security check
 window.addEventListener('message', function(event) {
     // Verify the origin of your iframe content
-    const expectedOrigin = 'https://web103.reachmee.com';
+    const expectedOrigin = 'https://web106.reachmee.com';
     if (event.origin === expectedOrigin && typeof event.data === 'string' && event.data.startsWith('resize::')) {
         const height = event.data.split('resize::')[1];
         if (height) {
@@ -408,10 +552,6 @@ window.addEventListener('message', function(event) {
     }
 }, false);
 </script>
-
-
-
-
 
 
 
@@ -429,26 +569,26 @@ window.addEventListener('message', function(event) {
 	
 <div id="tt-feature-section" class="feature-section mb-5 pt-3 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
 <div class="container mt-3 mb-5 m-mb-0">
-    <h2 class="my-5 m-my-0">Similar <span style="font-weight: 800">jobs</span></h2>
+    <h2 class="my-5 m-my-0">Lignende <span style="font-weight: 800">jobber</span></h2>
     <div class="row my-3">
         <div class="col-md-3 mb-3">
-            <label for="locationFilter">Location</label>
+            <label for="locationFilter">Steder</label>
             <select id="locationFilter" class="form-control">
-                <option value="All">All locations</option>
+                <option value="All">Alle steder</option>
                 <!-- Location options will be dynamically added here -->
             </select>
         </div>
         <div class="col-md-3 mb-3">
-            <label for="jobTypeFilter">Job type</label>
+            <label for="jobTypeFilter">Stillingstyper</label>
             <select id="jobTypeFilter" class="form-control">
-                <option value="All">All job types</option>
+                <option value="All">Alle stillingstyper</option>
                 <!-- Job type options will be dynamically added here -->
             </select>
         </div>
     </div>
     <div id="jobList" class="row"></div>
 	<div class="text-center mt-2">
-    <button id="loadMore" class="btn btn-primary">Load more</button>
+    <button id="loadMore" class="btn btn-primary">Se flere</button>
 	</div>
 </div>
 </div>
@@ -456,15 +596,15 @@ window.addEventListener('message', function(event) {
 
 
 <div class="container my-5 py-5 m-my-0 m-pt-0" style="text-align: center;">
-    <div class="">
-        <h2>Couldn't find the job you were looking for?</h2>
+    <div class="agent-wrapper">
+        <h2>Fant du ikke stillingen for deg?</h2>
         <div class="mt-4 mb-2">
-		<p>Sign up and you'll get an e-mail when there is any position available similar to your prenumeration.</p>
+		<p>Abonner på stillinger, så får du en e-post når det er en ledig stilling som passer dine preferanser.</p>
 		</div>
     </div>
  
 
-    <button id="agent" class="mt-3 btn btn-primary" style="font-weight:800">Sign up</button>
+    <button id="agent" class="mt-3 btn btn-primary" style="font-weight:800">Registrer deg</button>
 
 
 <div class="modal fade modal-fullscreen-90w" id="exampleModal" tabindex="-1" aria-hidden="true">
@@ -485,7 +625,7 @@ window.addEventListener('message', function(event) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('agent').addEventListener('click', function() {
-        var iframeUrl = "https://web103.reachmee.com/ext/I019/834/subscribe?site=19&lang=UK&validator=fa38d2eb8febb7bc22c8a91e10a1e9de";
+        var iframeUrl = "https://web106.reachmee.com/ext/I020/787/subscribe?site=58&lang=NO&validator=8bd450e11350447150df52325f46f68b";
         document.getElementById('modalIframe').src = iframeUrl;
         $('#exampleModal').modal('show');
     });
@@ -496,42 +636,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+
 <section class="text-center bg-dark text-light py-5">
-    <div class="container">
-        <img src="https://career.talentech.com/files/TT-2.png" alt="Talentech Logo" class="mb-3" style="max-width: 180px;">
+    <div class="container naf-footer">
+        <img src="./files/NAF-logo.jpeg" alt="NAF Logo" class="mb-3" style="max-width: 120px;">
                 <div class="mt-3 mb-4" style="max-width: 600px; margin: auto;">
-		 <p style="font-size: 1.25rem;">Talentech facilitates the full talent journey on a scalable platform with a tailored ecosystem of HR tech solutions.</p>
+		 <p style="font-size: 1.25rem;">NAF er en av Norges mest kjente organisasjoner, med over 750.000 medlemmer og kunder. Det skal vi fortsette å være fremover, og da trenger vi flere gode medarbeidere, både i Forbundet, på våre øvingsbaner og ute på NAF-sentrene!</p>
 		</div>
         <div class="">
-            <!-- Replace these src attributes with your actual SVG paths -->
-            <a href="https://www.facebook.com/talentechnorway"><img src="/files/TT-f.svg" alt="Icon 1" class="mx-2" style="width: 30px; height: 30px;"></a>
-            <a href="https://www.linkedin.com/company/talentech-norway"><img src="/files/TT-l.svg" alt="Icon 2" class="mx-2" style="width: 30px; height: 30px;"></a>
-            <a href="https://talentech.com/no/kontakt"><img src="/files/TT-e.svg" alt="Icon 4" class="mx-2" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.facebook.com/nafnorge"><img src="./files/TT-f.svg" alt="Icon 1" class="mx-2" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.linkedin.com/company/norges-automobil-forbund/"><img src="./files/TT-l.svg" alt="Icon 2" class="mx-2" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.naf.no/kundeservice" target="_blank"><img src="./files/TT-e.svg" alt="Icon 4" class="mx-2" style="width: 30px; height: 30px;"></a>
         </div>
     </div>
 </section>
-
-
-
-
-
-<section class="bg-light text-dark">
-    <div class="container my-0 py-1 m-py-2">
-        <div class="d-flex align-items-center">
-            <span class="mr-1">Powered by</span>
-            <img src="/files/TT-fav.svg" alt="Talentech Logo" style="width: 20px; vertical-align: middle; position: relative; bottom: 1px;">
-			<span class="ml-1" style="">Talentech</span>
-        </div>
-    </div>
-</section>
-
 
 
 
 
 
 	
-
 
 <script>
 $(document).ready(function () {
@@ -565,13 +692,13 @@ $(document).ready(function () {
 
 	    
 	// Populate location filter
-        $('#locationFilter').html('<option value="All">All locations</option>');
+        $('#locationFilter').html('<option value="All">Alle steder</option>');
         locationSet.forEach(country => {
             $('#locationFilter').append(`<option value="${country}">${country}</option>`);
         });
 
         // Populate job type filter
-        $('#jobTypeFilter').html('<option value="All">All job types</option>');
+        $('#jobTypeFilter').html('<option value="All">Alle stillingstytper</option>');
         jobTypeSet.forEach(type => {
             $('#jobTypeFilter').append(`<option value="${type}">${type}</option>`);
         });
@@ -615,7 +742,7 @@ $(document).ready(function () {
                 <h5 class="card-title">${job.title}</h5>
                 <p class="card-text">${job.country}</p>
 			    <a href="${jobDetailUrl}" class="stretched-link">
-                <img src="/files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
+                <img src="./files/arrow-right-regular.svg" class="" alt="Details" style="">
 		</a>
             </div>
         </div>
@@ -639,7 +766,7 @@ $(document).ready(function () {
 });
 
 function fetchJobs(currentJobId) {
-    fetch('https://api.talentech.io/reachmee/feed/')
+    fetch('https://api.talentech.io/reachmee/feed/naf')
         .then(response => response.json())
         .then(data => {
             jobs = data.filter(job => job.ad_id !== parseInt(currentJobId));
@@ -684,7 +811,6 @@ function fetchJobs(currentJobId) {
 
 
 
-
 	
 <script>
 $(document).ready(function() {
@@ -692,13 +818,13 @@ $(document).ready(function() {
     // Get 'rmjob' if present, otherwise get 'jobId'
     const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
 
-    fetch('https://api.talentech.io/reachmee/feed/')
+    fetch('https://api.talentech.io/reachmee/feed/naf')
         .then(response => response.json())
         .then(jobs => {
             const job = jobs.find(job => job.ad_id === jobId);
             if (job) {
-                const organizationUnit = job.organizations && job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit || 'Not specified';
-                const city = job.areas && job.areas.length > 0 ? job.areas[0].name : 'Not specified';
+                const organizationUnit = job.organizations && job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit || 'Ikke spesifisert';
+                const city = job.areas && job.areas.length > 0 ? job.areas[0].name : ' ';
 
                 const applicationLink = job.link.replace("rmpage=job", "rmpage=apply");
                 $('#applyButton').attr('onclick', `window.location.href='${applicationLink}'`);
@@ -711,7 +837,7 @@ $(document).ready(function() {
                 const titleWords = job.title.split(' ');
                 const firstWord = titleWords.shift();
                 const restOfTitle = titleWords.join(' ');
-                $('.job-title').html(`<span style="font-weight:400;">${firstWord}</span> <span style="font-weight:800;">${restOfTitle}</span>`);
+                $('.job-title').html(`<span style="font-weight:600;">${firstWord}</span> <span style="font-weight:600;">${restOfTitle}</span>`);
 
                 // Update elements with job details
                 $('.job-title2').html(job.title);
@@ -736,11 +862,11 @@ $(document).ready(function() {
                 // Handle additional dynamic elements
                 let collectionId = 'no'; // Default to "no"
                 if (organizationUnit === "Finance") {
-                    collectionId = 'mnnvj'; // Specific ID for "Finance"
+                    collectionId = 'xdjc4'; // Specific ID for "Finance"
                 } else if (organizationUnit === "Sales") {
-                    collectionId = '7zxwk'; // Example ID for "Sales"
+                    collectionId = 'xdjc4'; // Example ID for "Sales"
                 } else {
-                    collectionId = '7zxwk'; // Other org units
+                    collectionId = 'xdjc4'; // Other org units
                 }
                 const newDiv = $('<div class="gobi-collection"></div>').attr('data-gobi-collection-id', collectionId);
                 newDiv.insertAfter('#gobi-section');
@@ -777,7 +903,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (openApplication !== null) {
         // Change the src of the iframe
         const applicationFormIframe = document.getElementById('applicationFormIframe');
-        applicationFormIframe.src = "https://web103.reachmee.com/ext/I019/834/apply?site=6&lang=UK&validator=319e0c2d95b73a9b706010e4fb40c3e6&job_id=-1";
+        applicationFormIframe.src = "https://web106.reachmee.com/ext/I020/787/apply?site=58&lang=NO&validator=8bd450e11350447150df52325f46f68b&job_id=-1";
         
         // Hide the job description and metadata
         document.getElementById('our-process').style.display = 'none';
@@ -797,11 +923,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-
-
-
 	
-<script src="/js/share-some.js"></script>	
+<script src="./js/share-some.js"></script>	
 </body>
 
 </html>
