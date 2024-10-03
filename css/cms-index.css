@@ -1,0 +1,231 @@
+.navbar .navbar-brand {
+    visibility: hidden;
+}
+.navbar-dark.bg-dark .navbar-brand {
+    visibility: inherit;
+}
+.hero-section {
+    height: 75vh;
+}
+.hero-content {
+    top: 40%;
+    transform: translateY(-40%);
+} 
+.hero-section .naf-hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+	background: url(../files/NAF-forside.jpg);
+	background-size: cover;
+    background-position: center;
+}
+.ovingsbaner .hero-section .naf-hero {
+	background-image: url(../files/Øvingsbaner.jpg);
+}
+.hero-logo {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    width: 80px;
+    height: auto;
+}
+.blockquote-footer, 
+.blockquote p {
+    color: #e9f3e6;
+}
+.talentech-section h2 {
+    font-size: 2rem;
+}
+#noJobsMessage,
+#noOtherJobsMessage {
+    padding-bottom: 90px;
+    max-width: 560px;
+    text-align: left !important;
+}
+#noJobsMessage {
+    padding-bottom: 40px;
+}
+.department .talentech-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.department .carousel-inner .row {
+        flex-wrap: wrap;
+}
+.btn-primary {
+	background-color: rgb(255, 219, 22) !important;
+	border-radius: 5px;
+    color: rgb(6, 46, 42) !important;
+}
+.square-video {
+    width: 100%;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+.square-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.leaflet-container a.leaflet-popup-close-button {
+    width: 26px;
+    height: 14px;
+}
+.leaflet-popup-content {
+    margin: 0 !important;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: #062e2a !important;
+}
+.leaflet-container a.leaflet-popup-close-button {
+    color: #e9f3e8 !important;
+}
+.department-split a,
+.team-member a {
+	color: #000 !important;
+}
+.department-split .role {
+	font-weight: bold;
+}
+.process-content {
+	background-color: rgb(241, 241, 241);
+	border-radius: 2px;
+}
+.benefit-content {
+    background-color: rgb(233, 243, 230);
+    border-radius: 2px;
+}
+.benefit-icon {
+	background-color: rgb(6, 46, 42);
+	color: rgb(233, 243, 230);
+}
+.quote-section .container {
+	max-width: 1000px;
+}
+.team-background-image {
+    border-radius: 2px;
+}
+.quote-section {
+    background-color: rgb(6, 46, 42);
+}
+.max-width-container {
+    max-width: 1600px;
+}
+.card {
+	outline: rgb(232, 232, 232) solid 1px;
+	border-radius: 2px;
+}
+.stretched-link {
+    background: rgb(211, 234, 194);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.stretched-link img {
+    width: 17px;
+}
+.agent-wrapper h2 {
+	font-size: 2em;
+}
+.bg-dark {
+    background-color: rgb(6, 46, 42) !important;
+}
+.carousel-indicators {
+  bottom: 30px;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+.benefits-section h4 div {
+    max-width: 540px;
+    line-height: 1.4em;
+    font-size: 1.25rem;
+    /*margin: 0 auto;
+    text-align: center;*/
+}
+
+.benefits-section h4 .values-heading {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+    max-width: 720px;
+    margin-bottom: 60px;
+}	
+.benefits-section h4 div.offer-subtitle {
+    /*font-size: 2.25rem;
+    font-weight: 700;*/
+}
+}
+
+@media (max-width: 768px) {
+
+.benefits-section h4 .values-heading {
+    font-size: 1.25rem;
+    margin-bottom: 48px !important;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.4;
+}	
+body {
+	font-size: 0.9rem;
+}
+h2 {
+	font-size: 1.75rem;
+}
+h4 {
+	font-size: 1rem;
+}
+.blockquote-footer,
+.blockquote p {
+	font-size: 1rem;
+}
+.card-title {
+    font-size: 1.2rem;
+}
+.agent-wrapper h2 {
+    font-size: 1.1rem;
+}
+.process-content {
+    font-size: 0.8rem;
+}
+.naf-footer p {
+    font-size: 1rem !important;
+}
+.hero-logo {
+    bottom: 18px;
+    left: 18px;
+    width: 70px;
+}
+.front-page h1 {
+font-size: 2.75rem;
+}
+.department h1 {
+font-size: 2rem;
+}
+.department .talentech-section h2 {
+    font-size: 2rem;
+}
+.talentech-section h2 {
+    font-size: 1.5rem;
+}
+}
+

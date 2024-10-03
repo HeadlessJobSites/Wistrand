@@ -1,0 +1,65 @@
+.leaflet-container a {
+    color: #000 !important;
+}
+.leaflet-popup-content {
+    margin: 20px !important;
+}
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.team-section .container {
+    max-width: 1600px;
+    background: #062e2a;
+    color: rgb(233, 243, 230);
+}
+.service-box {
+    background-color: #FFF8E1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    border-radius: 2px;
+}
+.service-content {
+    flex: 1;
+    max-width: 70%;
+}
+.service-image {
+    flex-shrink: 0;
+    position: absolute;
+    right: -50px; /* Ensure image overlaps */
+    top: 50%;
+    transform: translateY(-50%);
+}
+.service-image img {
+    height: 200px; /* Set the desired height */
+    width: auto; /* Maintain aspect ratio */
+}
+@media (max-width: 992px) {
+    .mobile-only {
+        justify-content: right;
+    }
+}
+@media (max-width: 768px) {
+    .service-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 20px 40px; /* Extra padding to make space for image */
+    }
+    .service-content {
+        max-width: 100%;
+        order: 2; /* Ensure content is below the image */
+    }
+    .service-image {
+        position: static;
+        transform: none;
+        margin-bottom: 20px; /* Space between image and text */
+        order: 1; /* Ensure image is above the content */
+    }
+    .service-image img {
+        width: 100%;
+        max-width: 100%;
+        height: auto; /* Adjust height to be responsive */
+    }
+}
