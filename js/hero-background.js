@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function setHeroBackgroundImage(imageUrl) {
     // Remove the video element
-    var videoElement = document.querySelector('.hero-video');
+    var videoElement = document.querySelector('.naf-hero');
     if (videoElement) {
         videoElement.parentNode.removeChild(videoElement);
     }
