@@ -56,6 +56,9 @@
 	border-radius: 50px;
     color: #ffff !important;
 }
+.video-controls button {
+    margin-right: 2px;
+}
 .square-video {
     width: 100%;
     border-radius: 2px;
