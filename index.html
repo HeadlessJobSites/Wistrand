@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledige stillinger</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://career.talentech.com/css/index-style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/ca38a06270.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
+
+	
+  <meta property="og:title" content="Talentech Career Portal">
+  <meta property="og:description" content="See available jobs at Talentech.">
+  <meta property="og:image" content="https://career.talentech.com/files/Career-preview.jpg">
+  <meta property="og:url" content="https://career.talentech.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Talentech Career Portal">
+  <meta name="twitter:description" content="See available jobs at Talentech.">
+  <meta name="twitter:image" content="https://career.talentech.com/files/Career-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+	
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.0);">
+    <div class="container">
+        <a class="navbar-brand" href="/" aria-label="Home">
+            <img src="/files/TT-2.png" height="40" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/#jobs-anchor">Jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#meet-the-team">Meet the Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#recruitment-process">Recruitment Process</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" target="blank" href="https://talentech.com">talentech.com <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<script>
+$(document).ready(function() {
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 56) {
+      $(".navbar").addClass("bg-dark");
+    } else {
+      $(".navbar").removeClass("bg-dark");
+    }
+  });
+  $(".navbar-toggler").click(function() {
+    if (!$(".navbar-collapse").hasClass("show")) {
+      $(".navbar").addClass("bg-dark");
+    } else {
+      if ($(window).scrollTop() < 56) {
+        $(".navbar").removeClass("bg-dark");
+      } else {
+      }
+    }
+  });
+});
+</script>
+
+
+
+
+    <div class="hero-section">
+        <video playsinline autoplay loop muted class="hero-video">
+            <source src="https://career.talentech.com/files/Compressed-TT.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Join our <span style="font-weight: 800;">journey</span></h1>
+            <a href="#jobs-anchor" class="btn btn-primary btn-lg"><strong>See available positions</strong></a>
+        </div>
+    </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Fetch the jobs from the feed
+  fetch('https://api.talentech.io/reachmee/feed/')
+    .then(response => response.json())
+    .then(jobs => {
+      const positionsCount = jobs.length; // Get the count of jobs from the feed
+      const btnText = positionsCount === 1 ? 'See 1 available position' : `See ${positionsCount} available positions`; // Update button text based on count
+      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'See available positions';
+    })
+    .catch(error => {
+      console.error('Error fetching job details:', error);
+      // If there is an error fetching the jobs, show default text
+      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = 'See available positions';
+    });
+});
+</script>
+
+
+<div class="gobi-stories-container" id="gobi-stories-container">
+  <button aria-label="Close video" class="close-btn" onclick="document.getElementById('gobi-stories-container').style.display='none';"><i class="fa-regular fa-xmark"></i></button>
+<script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
+
+<div class="gobi-collection" data-gobi-collection-id="pncc7"></div>
+  <a href="#company-section" aria-label="Get to know us"><div class="gobi-stories-text">Get to know us</div></a>
+</div>
+
+	
+	
+	<div class="talentech-section" id="company-section">
+    <div class="container mt-5 pt-4 m-mt-2">
+        <h2 class="m-px-2">Life at <span style="font-weight: 800;">Talentech</span></h2>
+        <p class="my-4  m-px-2">Talentech has set out to become the largest and most innovative HR tech company of its kind. The product suite today spans the entire talent pipeline from recruitment, to onboarding and talent management with our products Talent Recruiter, ReachMee, Webcruiter, Talmundo, Weekli, irecommend and ontame.</p>
+        <p class="m-px-2">We know that great HR makes a difference and we want to be a part of shaping the future with the vision that all companies should know that Talent Comes First. To reach our goals we need you! Talentech as a workplace is characterized by a lot of great and engaged colleges that really believe in what we do.</p>
+    </div>
+</div>
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('talentechVideo');
+    const muteBtn = document.getElementById('muteBtn');
+    const muteIcon = muteBtn.querySelector('img');
+
+    // Function to toggle video play/pause
+    const togglePlayPause = () => {
+        if (video.paused || video.ended) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    };
+
+    // Setup Intersection Observer for autoplay/pause based on visibility
+    // This part will now work on all devices
+    const observer = new IntersectionObserver((entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }, {
+        root: null,
+        threshold: 0.5
+    });
+
+    observer.observe(video);
+
+    // Check if we are on desktop before adding event listeners for play/pause and mute controls
+    if (window.innerWidth > 992) {
+        // Click event for the video itself
+        video.addEventListener('click', () => {
+            togglePlayPause();
+        });
+
+        // Event listener for the mute button
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteIcon.src = video.muted ? "/files/volume-xmark-thin.svg" : "/files/volume-off-thin.svg";
+            muteIcon.alt = video.muted ? "Mute" : "Unmute";
+        });
+    }
+});
+</script>
+
+<div class="talentech-section pb-4 mb-5 m-mb-3">
+    <div class="container mt-4 pt-2 mb-5 pb-3 video-container m-my-0">
+        <video id="talentechVideo" class="rounded-video" playsinline autoplay loop muted>
+            <source src="/files/This-is-us-TT.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-controls">
+            <button id="muteBtn"><img src="/files/volume-xmark-thin.svg" alt="Mute"></button>
+        </div>
+    </div>
+</div>
+
+
+
+	
+
+
+<section class="team-section my-2 py-5 m-my-0" id="meet-the-team" style="background-color: #eeeef2;">
+        <h2 class="container pt-5 mb-0 pb-0 m-px-4">Meet the <span style="font-weight: 800;">team</span></h2>
+    <div class="container mt-0 pt-2">
+        <div class="row mt-3 m-mt-2 m-mx-1">
+            <!-- team 1 -->
+		    <script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
+
+<div class="gobi-collection" data-gobi-collection-id="tavnb"></div>
+		    
+    </div>
+</section>
+
+
+	
+
+	
+
+
+
+<div class="feature-section" style="">
+    <div class="container py-5 m-py-0">
+        <h2 class="pt-5 m-px-2">Our <span style="font-weight: 800;">culture</span></h2>
+        <div class="row align-items-center mt-5 mb-5 pb-3 flex-lg-row m-mt-4 m-mb-0"> <!-- Changes for mobile first -->
+            <div class="col-lg-7">
+                <div class="background-image rounded-image m-mb-0" style="background-image: url('/files/TT-fabian-3.jpg');"></div>
+            </div>
+            <div class="col-lg-5 text-padding m-p-4"> <!-- text-padding class for more padding -->
+                <h3 style="font-size: 24px;font-weight: 800;">Fabian Söderström</h3>
+				<p><strong>Advertising Manager</strong></p>
+				<p>"Working on new products where my work has real impact on technical decision is really inspirational. At Talentech a programmer is more of a partner when it comes to decision making, so your voice is heard and that truly matters. But Talentech isn’t only work – it’s the people you work with - and that's the main reason why I love to work at Talentech."</p>
+            </div>
+        </div>
+<div class="row align-items-center mt-5 mb-5 pt-5 pb-3 m-my-0 m-pt-0">
+    <div class="col-lg-5 text-padding m-p-4 order-2 order-lg-1">
+        <h3 style="font-size: 24px;font-weight: 800;">Carolina Asp</h3>
+        <p><strong>Senior Implementation Consultant</strong></p>
+        <p>"The biggest reason why I work at Talentech is the opportunity you have to evolve and constantly learn while working across countries, departments and with a wide range of different customers, all with their own experience and a goal to be as awesome as possible. Plus you have the most amazing colleagues. At Talentech new ideas are always welcome and there is always someone who can help in our team of ambitious Talentecher’s."</p>
+    </div>
+    <div class="col-lg-7 order-1 order-lg-2">
+        <div class="background-image rounded-image m-mb-0" style="background-image: url('/files/TT-carolina-1.jpg');"></div>
+    </div>
+</div>
+        <div class="row align-items-center mt-5 mb-5 pb-3 pt-5 flex-lg-row m-mt-0 m-pt-0 m-mb-0 m-pb-4"> <!-- Changes for mobile first -->
+            <div class="col-lg-7">
+                <div class="background-image rounded-image m-mb-0" style="background-image: url('/files/TT-roger-1.jpg');"></div>
+            </div>
+            <div class="col-lg-5 text-padding m-p-4"> <!-- text-padding class for more padding -->
+                <h3 style="font-size: 24px;font-weight: 800;">Roger Larsson</h3>
+				<p><strong>Head of Group IT Operations</strong></p>
+				<p>"I work with various projects both internally and externally, which helps to develop me both personally and professionally. We have a lot of social events and we have so much fun together across all departments."</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="quote-section py-5">
+    <div class="container py-5 mt-3 m-py-2">
+        <blockquote class="blockquote text-center">
+            <p class="mb-4">"Starting at Talentech, I immediately felt welcomed and part of a dynamic, innovative team."</p>
+            <footer class="blockquote-footer">Henrik Moberg</footer>
+        </blockquote>
+    </div>
+</div>
+
+
+
+
+
+<section class="process-section mb-5 py-5 m-my-0 m-pt-0 m-pb-4" id="recruitment-process" style="background-color: #eeeef2;">
+    <div class="container pt-5 m-px-4 m-pb-2">
+        <h2>Our <span style="font-weight: 800;">recruitment process</span></h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 px-0">
+<script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
+
+<div class="gobi-collection" data-gobi-collection-id="j2jom"></div>
+            </div>
+            <!-- Existing Content in Right Column -->
+            <div class="col-md-8 pl-5 m-px-4">
+                <div class="row process-row">
+                    <!-- Benefit 1 -->
+                    <div class="col-md-4 col-sm-4 process-item">
+                        <div class="process-icon">
+                            <h3>1</h3>
+                        </div>
+                        <div class="process-content">
+                            <h3>Submit Your Application</h3>
+                            <p>Start your journey by applying through our career portal; upload your CV and share a bit about yourself.</p>
+                        </div>
+                    </div>
+                    <!-- Benefit 2 -->
+                    <div class="col-md-4 col-sm-4 process-item">
+                        <div class="process-icon">
+                            <h3>2</>
+                        </div>
+                        <div class="process-content">
+                            <h3>Initial Screening</h3>
+                            <p>We will review your application to assess the alignment between your skills and the job requirements.</p>
+                        </div>
+                    </div>
+                    <!-- Benefit 3 -->
+                    <div class="col-md-4 col-sm-4 process-item">
+                        <div class="process-icon">
+                            <h3>3</h3>
+                        </div>
+                        <div class="process-content">
+                            <h3>Interview Process</h3>
+                            <p>Engage with us through one or more interviews to discuss your experiences, skills, and aspirations.</p>
+                        </div>
+                    </div>
+                    <!-- Benefit 4 -->
+                    <div class="col-md-4 col-sm-4 process-item">
+                        <div class="process-icon">
+                            <h3>4</h3>
+                        </div>
+                        <div class="process-content">
+                            <h3>Assessment</h3>
+                            <p>Depending on the role, you may be invited to complete assignments or assessments to showcase your capabilities.</p>
+                        </div>
+                    </div>
+                    <!-- Benefit 5 -->
+                    <div class="col-md-4 col-sm-4 process-item">
+                        <div class="process-icon">
+                            <h3>5</h3>
+                        </div>
+                        <div class="process-content">
+                            <h3>Offer & Onboarding</h3>
+                            <p>If it's a match, we'll extend an offer. Once accepted, we'll guide you through every step of your onboarding journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+	
+	
+	
+	
+        <h2 class="container pt-5 mt-5 m-my-0 m-px-4 m-pb-0">Job <span style="font-weight: 800;">categories</span></h2>
+	<div id="teamCarousel" class="carousel slide" data-interval="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row ">
+                    <!-- Team Member 1 -->
+                    <div class="col-md-4 team-member">
+<div class="team-background-image mb-3" alt="" style="background-image: url('/files/HR-image.jpg')"></div>
+                        <p class="role mb-3">Software Development</p>
+                        <p>Join our Software Development team to innovate and build cutting-edge technology solutions that revolutionize talent management.</p>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="col-md-4 team-member">
+<div class="team-background-image mb-3" alt="" style="background-image: url('/files/cat-2.jpg')"></div>
+                        <p class="role mb-3">Customer Success</p>
+                        <p>Be a part of our Customer Success team, where your efforts directly contribute to our clients' growth and satisfaction.</p>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="col-md-4 team-member">
+<div class="team-background-image mb-3" alt="" style="background-image: url('/files/Data-1.jpg')"></div>
+                        <p class="role mb-3">Sales and Marketing</p>
+                        <p>Drive growth and build meaningful relationships in our Sales and Marketing team, connecting clients with the solutions they need.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- New Carousel Item -->
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row ">
+                    <!-- Additional Team Member -->
+                    <div class="col-md-4 team-member">
+<div class="team-background-image mb-3" alt="" style="background-image: url('/files/cat-4.jpg')"></div>
+                        <p class="role mb-3">Product Management</p>
+                        <p>Shape the future of our offerings as a member of the Product Management team, where you can transform the talent  landscape.</p>
+                    </div>
+                    <div class="col-md-4 team-member">
+<div class="team-background-image mb-3" alt="" style="background-image: url('/files/cat-1.jpg')"></div>
+                        <p class="role mb-3">Human Resources</p>
+                        <p>Empower and enrich our company culture as part of the Human Resources team, focusing on talent development and organizational growth.</p>
+                    </div>
+                    <div class="col-md-4 team-member">
+<div class="team-background-image mb-3" alt="" style="background-image: url('/files/cat-3.jpg')"></div>
+                        <p class="role mb-3">Data Analysis & Insights</p>
+                        <p>Join our Data Analysis & Insights team to harness the power of data, driving strategic decisions and enhancing our product offerings.</p>
+                    </div>
+                    <!-- You can duplicate previous members here or add new ones -->
+                    <!-- Placeholder for additional team members if needed -->
+                    <div class="col-md-4 team-member"> <!-- Placeholder if you want more than one member per slide -->
+                        <!-- Content for another member -->
+                    </div>
+                    <div class="col-md-4 team-member"> <!-- Placeholder if you want more than one member per slide -->
+                        <!-- Content for another member -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of New Carousel Item -->
+    </div>
+    <a class="carousel-control-prev" href="#teamCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#teamCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+
+<section class="benefits-section my-5 pb-4 m-py-0 m-mt-0">
+        <h2 class="container pt-5 m-pt-4 m-px-4 m-pb-2">Some of our <span style="font-weight: 800;">local Benefits</span></h2>
+    <div class="container">
+        <div class="row">
+            <!-- Benefit 1 -->
+            <div class="col-md-3 col-sm-4 benefit-item">
+                <div class="benefit-icon">
+				<i class="fa-solid fa-display-code"></i>
+                </div>
+    <div class="benefit-content">
+                <strong>Home office</strong>
+                <p>You get necessary equipment for your home office</p>
+            </div>
+            </div>
+            <!-- Benefit 2 -->
+            <div class="col-md-3 col-sm-4 benefit-item">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-notes-medical"></i>
+                </div>
+    <div class="benefit-content">
+                <strong>Wellness</strong>
+                <p>Health allowance for gym memberships, etc</p>
+            </div>
+            </div>
+            <!-- Benefit 3 -->
+            <div class="col-md-3 col-sm-4 benefit-item">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-laptop"></i>
+                </div>
+    <div class="benefit-content">
+                <strong>PC or Mac</strong>
+                <p>Choose your preferred work equipment</p>
+            </div>
+            </div>
+            <!-- Benefit 4 -->
+            <div class="col-md-3 col-sm-4 benefit-item">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+    <div class="benefit-content">
+                <strong>Vacation days</strong>
+                <p>Enjoy additional vacation days  beyond market norms</p>
+            </div>
+            </div>
+            <!-- Benefit 5 -->
+            <div class="col-md-3 col-sm-4 benefit-item">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-pot-food"></i>
+                </div>
+    <div class="benefit-content">
+                <strong>Lunch discount</strong>
+                <p>Discount on lunches – paid by us!</p>
+            </div>
+            </div>
+            <!-- Benefit 6 -->
+            <div class="col-md-3 col-sm-4 benefit-item">
+                <div class="benefit-icon">
+                    	<i class="fa-solid fa-house-building"></i>
+                </div>
+    <div class="benefit-content">
+                <strong>Hybrid work</strong>
+                <p>Work both from our nice offices as well as remote</p>
+            </div>
+            </div>
+            <!-- Benefit 7 -->
+            <div class="col-md-3 col-sm-6 benefit-item">
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-dog"></i>
+                </div>
+    <div class="benefit-content">
+                <strong>Dog friendly</strong>
+                <p>Dogs are welcome in the office</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+	
+
+	
+<div class=" mt-5">
+    <div id="mapid" style="height: 400px; overflow: hidden;"></div>
+</div>
+	
+
+
+
+	
+<div class="feature-section pt-3 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
+<div class="container mt-3 mb-0 m-mb-0">
+    <h2 class="my-5 m-px-2 m-my-0">Available <span style="font-weight: 800">jobs</span></h2>
+    <div class="row my-3">
+        <div class="col-md-3 mb-3">
+            <label for="locationFilter">Location</label>
+            <select id="locationFilter" class="form-control">
+                <option value="All">All locations</option>
+                <!-- Location options will be dynamically added here -->
+            </select>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="jobTypeFilter">Job type</label>
+            <select id="jobTypeFilter" class="form-control">
+                <option value="All">All job types</option>
+                <!-- Job type options will be dynamically added here -->
+            </select>
+        </div>
+    </div>
+    <div id="jobList" class="row"></div>
+	<div class="text-center mt-2">
+    <button id="loadMore" class="btn btn-primary">Load more</button>
+	</div>
+</div>
+</div>
+
+
+<!-- DISABLED DUE TO POSITION UNPUBLISHED
+<div class="feature-section mb-5 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
+<div class="container mb-5 m-mb-0">
+    <h3 class="mb-5 m-px-2 m-mb-4">Join our <span style="font-weight: 800">talent pool</span></h3>
+
+    <div id="" class="row">
+
+<div class="col-12 col-md-4 col-lg-4 mb-4">
+    <a href="/job-details.html?open-application" class="" style="text-decoration: none; color: inherit;" aria-label="Open application">
+        <div class="card h-100">
+            <div class="card-body">
+		        <div class="card-category"><span>General</span></div>
+                <div class="card-title">Unsolicited application</div>
+                <p class="card-text">Talentech</p>
+			    <a href="/job-details.html?open-application" class="stretched-link">
+                <img src="/files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
+		</a>
+            </div>
+        </div>
+    </a>
+</div>
+	    
+    </div>
+</div>
+</div>
+ -->	
+
+
+
+
+<div class="container my-5 py-5 m-my-0" style="text-align: center;">
+    <div class="">
+        <h2>Couldn't find the job you were looking for?</h2>
+        <div class="mt-4 mb-2">
+		<p>Sign up and you'll get an e-mail when there is any position available similar to your prenumeration.</p>
+		</div>
+    </div>
+ 
+
+    <button id="agent" class="mt-3 btn btn-primary" style="font-weight:800">Sign up</button>
+
+
+<div class="modal fade modal-fullscreen-90w" id="exampleModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="closeModalButton" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe id="modalIframe" src="" style="border: none; width: 100%; height: 450px;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('agent').addEventListener('click', function() {
+        var iframeUrl = "https://web103.reachmee.com/ext/I019/834/subscribe?site=19&lang=UK&validator=fa38d2eb8febb7bc22c8a91e10a1e9de";
+        document.getElementById('modalIframe').src = iframeUrl;
+        $('#exampleModal').modal('show');
+    });
+});
+</script>
+
+</div>
+
+
+
+
+
+<section class="text-center bg-dark text-light py-5">
+    <div class="container">
+        <img src="/files/TT-2.png" alt="Talentech Logo" class="mb-3" style="max-width: 180px;">
+                <div class="mt-3 mb-4" style="max-width: 600px; margin: auto;">
+		 <p style="font-size: 1.25rem;">Talentech facilitates the full talent journey on a scalable platform with a tailored ecosystem of HR tech solutions.</p>
+		</div>
+        <div class="">
+            <!-- Replace these src attributes with your actual SVG paths -->
+            <a href="https://www.facebook.com/talentechnorway"><img src="/files/TT-f.svg" alt="Icon 1" class="mx-2" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.linkedin.com/company/talentech-norway"><img src="/files/TT-l.svg" alt="Icon 2" class="mx-2" style="width: 30px; height: 30px;"></a>
+            <a href="https://talentech.com/no/kontakt"><img src="/files/TT-e.svg" alt="Icon 4" class="mx-2" style="width: 30px; height: 30px;"></a>
+        </div>
+    </div>
+</section>
+
+
+<div class="container my-0 py-1 m-py-2">
+    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center"><!-- updated flex classes -->
+        <!-- "Powered by" section -->
+        <div>
+            <span class="mr-1">Powered by</span>
+            <img src="/files/TT-fav.svg" alt="Talentech Logo" style="width: 20px; vertical-align: middle; position: relative; bottom: 1px;">
+            <span class="ml-1" style="">Talentech</span>
+        </div>
+
+        <!-- Share section -->
+        <div class="share-container mt-2 mt-sm-0 ml-sm-auto"><!-- updated margin and alignment classes -->
+            <span class="d-block d-sm-inline mb-1"><!-- updated responsive classes -->
+                Share on social media: 
+                <a href="#" id="facebook-share-link" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/facebook.svg" alt="Share on Facebook" width="16" height="16">
+                </a>
+                <a href="#" id="twitter-share-link" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/x.svg" alt="Share on X" width="16" height="16">
+                </a>
+                <a href="#" id="linkedin-share-link" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/linkedin.svg" alt="Share on LinkedIn" width="16" height="16">
+                </a>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to dynamically set the URLs for social media sharing
+    function setSocialMediaShareUrls() {
+        var facebookShareLink = document.getElementById('facebook-share-link');
+        var twitterShareLink = document.getElementById('twitter-share-link');
+        var linkedinShareLink = document.getElementById('linkedin-share-link');
+        var currentUrl = encodeURIComponent(window.location.href);
+
+        facebookShareLink.href = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
+        twitterShareLink.href = 'https://twitter.com/intent/tweet?url=' + currentUrl;
+        linkedinShareLink.href = 'https://www.linkedin.com/shareArticle?url=' + currentUrl;
+    }
+
+    // Call the function to set social media share URLs
+    setSocialMediaShareUrls();
+</script>
+
+
+
+
+	
+	
+
+<script>
+$(document).ready(function () {
+    let jobs = []; // Array to store all jobs
+    let displayedJobs = 0; // Counter for the number of jobs currently displayed
+    const jobsToShowDesktop = 12; // Number of jobs to show on desktop before "Load More"
+    const jobsToShowMobile = 6; // Number of jobs to show on mobile before "Load More"
+    let jobsToShow = window.innerWidth > 768 ? jobsToShowDesktop : jobsToShowMobile;
+
+    // Adjust jobsToShow based on window resize
+    $(window).resize(function() {
+        jobsToShow = window.innerWidth > 768 ? jobsToShowDesktop : jobsToShowMobile;
+        displayedJobs = Math.min(jobsToShow, jobs.length); // Adjust displayedJobs based on new jobsToShow
+        displayJobs(); // Redisplay jobs based on new size
+        updateLoadMoreVisibility(); // Update button visibility after resize
+    });
+
+    // Function to populate filter dropdowns based on jobs
+    function populateFilters() {
+        const locationSet = new Set();
+        const jobTypeSet = new Set();
+
+        jobs.forEach(job => {
+            if (job.country) { // Check if job has a country
+                locationSet.add(job.country);
+            }
+            if (job.title) { // Check if job has a title
+                jobTypeSet.add(job.title);
+            }
+        });
+
+	    
+	// Populate location filter
+        $('#locationFilter').html('<option value="All">All locations</option>');
+        locationSet.forEach(country => {
+            $('#locationFilter').append(`<option value="${country}">${country}</option>`);
+        });
+
+        // Populate job type filter
+        $('#jobTypeFilter').html('<option value="All">All job types</option>');
+        jobTypeSet.forEach(type => {
+            $('#jobTypeFilter').append(`<option value="${type}">${type}</option>`);
+        });
+    }
+
+    // Function to display jobs based on filters
+    function displayJobs() {
+        $('#jobList').empty(); // Clear current jobs
+
+        let filteredJobs = jobs.slice(0, displayedJobs); // Get the subset of jobs to be displayed
+
+        // Apply filters
+        const selectedCountry = $('#locationFilter').val();
+        const selectedJobType = $('#jobTypeFilter').val();
+        filteredJobs = filteredJobs.filter(job => {
+            return (selectedCountry === 'All' || job.country === selectedCountry) &&
+                   (selectedJobType === 'All' || job.title === selectedJobType);
+        });
+
+        // Add job cards to the DOM
+        filteredJobs.forEach(job => {
+            $('#jobList').append(buildJobCard(job));
+        });
+
+        updateLoadMoreVisibility(); // Update the visibility of the "Load More" button
+    }
+
+    // Function to build HTML for a job card
+    function buildJobCard(job) {
+    // Assuming job-details.html is your detail page and it can handle job IDs
+    // Adjust accordingly if your detail page has a different URL structure
+    const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
+        // Use the second organization unit if available, otherwise use the first one
+        const organizationUnitName = job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit || 'Not specified';
+        return `
+<div class="col-12 col-md-4 col-lg-4 mb-4">
+    <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="Job details">
+        <div class="card h-100">
+            <div class="card-body">
+		        <div class="card-category"><span>${organizationUnitName}</span></div>
+                <div class="card-title">${job.title}</div>
+                <p class="card-text">${job.country}</p>
+			    <a href="${jobDetailUrl}" class="stretched-link">
+                <img src="/files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
+		</a>
+            </div>
+        </div>
+    </a>
+</div>`;
+    }
+
+    // Function to update the visibility of the "Load More" button
+    function updateLoadMoreVisibility() {
+        if (displayedJobs >= jobs.length) {
+            $('#loadMore').hide();
+        } else {
+            $('#loadMore').show();
+        }
+    }
+
+    // Function to fetch jobs from the API
+    function fetchJobs() {
+        fetch('https://api.talentech.io/reachmee/feed/') // Ensure this URL is correct
+            .then(response => response.json())
+            .then(data => {
+                jobs = data; // Store fetched jobs
+                displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
+                populateFilters(); // Fill dropdowns with options
+                displayJobs(); // Show initial jobs
+            })
+            .catch(error => {
+                console.error('Error fetching jobs:', error);
+            });
+    }
+
+    // Load jobs when page is ready
+    fetchJobs();
+
+    // Event listener for "Load More" button
+    $('#loadMore').click(function() {
+        displayedJobs += jobsToShow; // Increase the number of displayed jobs
+        displayJobs(); // Display new set of jobs
+        updateLoadMoreVisibility(); // Check if we still need the "Load More" button
+    });
+
+    // Event listeners for filter dropdowns
+    $('#locationFilter').change(function() {
+        displayedJobs = jobsToShow; // Reset displayed jobs to show initial count based on current device
+        displayJobs(); // Apply filter and display jobs
+        updateLoadMoreVisibility(); // Update "Load More" button visibility based on filters
+    });
+
+    $('#jobTypeFilter').change(function() {
+        displayedJobs = jobsToShow; // Reset displayed jobs to show initial count based on current device
+        displayJobs(); // Apply filter and display jobs
+        updateLoadMoreVisibility(); // Update "Load More" button visibility based on filters
+    });
+});
+</script>
+
+
+
+
+	
+<script>
+// Initialize the map
+var mymap = L.map('mapid', {
+    attributionControl: false,
+    scrollWheelZoom: false
+}).setView([59.9139, 10.7522], 4);
+
+// Set up the map tiles
+L.tileLayer('https://api.mapbox.com/styles/v1/inequi/clu45jmjw007101qrhjb35kmh/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaW5lcXVpIiwiYSI6ImNsdTQ0c2FybTFiZG4ya3FzZjQxOW91ejUifQ.Z_vyEld041G0LshX2Mdtpw', {
+    maxZoom: 19,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'yourMapboxAccessToken'
+}).addTo(mymap);
+
+// Create a custom icon
+var customIcon = L.icon({
+    iconUrl: '/files/TT-fav.svg',
+    iconSize: [38, 95], 
+    iconAnchor: [22, 50], 
+    popupAnchor: [1, -15]
+});
+
+// Locations - Manual. Must be updated to automatic from feed
+var jobLocations = [
+    {name: "Oslo", lat: 59.9139, lon: 10.7522},
+    {name: "Stockholm", lat: 59.3293, lon: 18.0686},
+    {name: "København", lat: 55.6761, lon: 12.5683},
+    {name: "Helsinki", lat: 60.1699, lon: 24.9384},
+    {name: "Gdansk", lat: 54.3520, lon: 18.6466},
+    {name: "Amsterdam", lat: 52.3676, lon: 4.9041}
+];
+
+// Add pins to the map with custom icons and styled popups
+jobLocations.forEach(function(location) {
+    L.marker([location.lat, location.lon], {icon: customIcon})
+    .bindPopup(location.name) // Binding a popup with the location name
+    .addTo(mymap);
+});
+</script>
+	
+	
+</body>
+
+</html>
