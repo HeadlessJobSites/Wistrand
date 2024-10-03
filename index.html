@@ -40,7 +40,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.0);">
     <div class="container">
         <a class="navbar-brand" href="./" aria-label="Home">
-            <img src="./files/Logo-white.svg" height="40" class="d-inline-block align-top" alt="">
+            <img src="./files/Logo-white.svg" height="24" class="d-inline-block align-top" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,11 +96,11 @@ $(document).ready(function() {
 	<div class="hero-section">
     <div class="naf-hero"></div>
     <video playsinline autoplay loop muted class="hero-video">
-        <source src="/CMS-webfilm.mp4" type="video/mp4">
+        <source src="/files/CMS-webfilm.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
         <h1>Vi söker nya perspektiv - add you.</h1>
-        <a href="#jobs-anchor" class="btn btn-primary btn-lg"><strong>Se ledige stillinger</strong></a>
+        <a href="#jobs-anchor" class="btn btn-primary btn-lg"><strong>Se lediga jobb</strong></a>
     </div>
 	</div>
 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(jobs => {
       const positionsCount = jobs.length; // Get the count of jobs from the feed
-      const btnText = positionsCount === 1 ? 'Se 1 ledig tjänst' : `Se ${positionsCount} ledig tjänst`; // Update button text based on count
+      const btnText = positionsCount === 1 ? 'Se 1 ledig jobb' : `Se ${positionsCount} ledig jobb`; // Update button text based on count
       document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'Se lediga jobb';
     })
     .catch(error => {
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	<div class="talentech-section" id="company-section">
     <div class="container mt-5 pt-4 m-mt-2">
-        <p class="m-px-2"><strong>Välkommen till CMS Wistrand</strong></p>
+        <h2 class="m-px-2">Välkommen till <span style="font-weight: 800;">Wistrand</span></h2>
         <p class="m-px-2">CMS Wistrand är en av Sveriges ledande affärsjuridiska byråer. På våra kontor i Stockholm och Göteborg är vi drygt 200 medarbetare – och som en del av CMS är vi en av världens största advokatbyråer med mer än 5 800 juridiska experter i över 45 länder. Lockas du av att lösa komplexa problem som ställer krav på innovation, expertis och samarbete? Vill du dessutom arbeta i en internationell miljö och värdesätter en öppen och inkluderande arbetsplats – då är CMS Wistrand rätt för dig.</p>
     </div>
 </div>
