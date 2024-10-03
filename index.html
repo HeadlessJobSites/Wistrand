@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Event listener for the mute button
         muteBtn.addEventListener('click', () => {
             video.muted = !video.muted;
-            muteIcon.src = video.muted ? "./files/volume-xmark-thin.svg" : "/files/volume-off-thin.svg";
+            muteIcon.src = video.muted ? "./files/volume-xmark-thin.svg" : "./files/volume-off-thin.svg";
             muteIcon.alt = video.muted ? "Mute" : "Unmute";
         });
     }
@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Your browser does not support the video tag.
         </video>
         <div class="video-controls">
-            <button id="muteBtn"><img src="/files/volume-xmark-thin.svg" alt="Mute"></button>
+            <button id="muteBtn"><img src="./files/volume-xmark-thin.svg" alt="Mute"></button>
         </div>
     </div>
 </div>
@@ -333,10 +333,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <div class="feature-section" style="">
     <div class="container py-5 m-py-0">
-        <h2 class="pt-5 m-px-2">Our <span style="font-weight: 800;">culture</span></h2>
+        <h2 class="pt-5 m-px-2">Fyra röster <span style="font-weight: 800;">om Wistrand</span></h2>
         <div class="row align-items-center mt-5 mb-5 pb-3 flex-lg-row m-mt-4 m-mb-0"> <!-- Changes for mobile first -->
             <div class="col-lg-7">
-                <div class="background-image rounded-image m-mb-0" style="background-image: url('/files/Nina_A1082708.jpg');"></div>
+                <div class="background-image rounded-image m-mb-0" style="background-image: url('./files/Nina_A1082708.jpg');"></div>
             </div>
             <div class="col-lg-5 text-padding m-p-4"> <!-- text-padding class for more padding -->
                 <h3 style="font-size: 24px;font-weight: 800;">Nina Knobloch Blomqvist</h3>
@@ -353,12 +353,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec ligula vel eros condimentum pellentesque consequat non neque. Sed dui ipsum, hendrerit at libero id, mollis pellentesque dui. Nulla facilisi. Cras ut mi mauris. Nulla dui magna, eleifend non vehicula vitae, accumsan ut nibh. Aliquam pharetra mollis dui eget imperdiet.</p>
     </div>
     <div class="col-lg-7 order-1 order-lg-2">
-        <div class="background-image rounded-image m-mb-0" style="background-image: url('/files/Mattias_A1082471.jpg');"></div>
+        <div class="background-image rounded-image m-mb-0" style="background-image: url('./files/Mattias_A1082471.jpg');"></div>
     </div>
 </div>
         <div class="row align-items-center mt-5 mb-5 pb-3 pt-5 flex-lg-row m-mt-0 m-pt-0 m-mb-0 m-pb-4"> <!-- Changes for mobile first -->
             <div class="col-lg-7">
-                <div class="background-image rounded-image m-mb-0" style="background-image: url('/files/Tua_A1080049');"></div>
+                <div class="background-image rounded-image m-mb-0" style="background-image: url('./files/Tua_A1080049');"></div>
             </div>
             <div class="col-lg-5 text-padding m-p-4"> <!-- text-padding class for more padding -->
                 <h3 style="font-size: 24px;font-weight: 800;">Tua Larsson</h3>
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	</p>
     </div>
     <div class="col-lg-7 order-1 order-lg-2">
-        <div class="background-image rounded-image m-mb-0" style="background-image: url('/files/Mattias_A1082471.jpg');"></div>
+        <div class="background-image rounded-image m-mb-0" style="background-image: url('./files/Mattias_A1082471.jpg');"></div>
     </div>
 </div>
 
