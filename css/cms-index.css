@@ -88,6 +88,10 @@
 .team-member a {
 	color: #000 !important;
 }
+.team-member p {
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
 .department-split .role {
 	font-weight: bold;
 }
@@ -107,7 +111,8 @@
 	max-width: 1000px;
 }
 .team-background-image {
-    border-radius: 2px;
+    border-radius: 10px;
+    background-position: -100px;
 }
 .quote-section {
     background-color: rgb(6, 46, 42);
