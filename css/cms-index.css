@@ -59,9 +59,9 @@
         flex-wrap: wrap;
 }
 .btn-primary {
-	background-color: rgb(255, 219, 22) !important;
-	border-radius: 5px;
-    color: rgb(6, 46, 42) !important;
+	background-color: #000 !important;
+	border-radius: 50px;
+    color: #ffff !important;
 }
 .square-video {
     width: 100%;
@@ -187,6 +187,10 @@
 }	
 body {
 	font-size: 0.9rem;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
 }
 h2 {
 	font-size: 1.75rem;
