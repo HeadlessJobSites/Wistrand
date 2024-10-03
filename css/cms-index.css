@@ -1,6 +1,3 @@
-.navbar .navbar-brand {
-    visibility: hidden;
-}
 .navbar-dark.bg-dark .navbar-brand {
     visibility: inherit;
 }
