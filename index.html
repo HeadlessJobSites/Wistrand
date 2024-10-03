@@ -95,31 +95,31 @@ $(document).ready(function() {
 
 	<div class="hero-section">
     <div class="naf-hero"></div>
-    <!--<video playsinline autoplay loop muted class="hero-video">
-        <source src="https://career.talentech.com/files/Compressed-TT.mp4" type="video/mp4">
-    </video>-->
+    <video playsinline autoplay loop muted class="hero-video">
+        <source src="/CMS-webfilm.mp4" type="video/mp4">
+    </video>
     <div class="hero-content">
-        <h1>Jobb hos <span style="font-weight: 800;">oss!</span></h1>
+        <h1>Vi söker nya perspektiv - add you.</h1>
         <a href="#jobs-anchor" class="btn btn-primary btn-lg"><strong>Se ledige stillinger</strong></a>
     </div>
-    <img src="./files/NAF-logo.jpeg" alt="NAF Logo" class="hero-logo">
+    <img src="./files/Logo-white.svg" alt="CMS Logo" class="hero-logo">
 	</div>
 
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   // Fetch the jobs from the feed
-  fetch('https://api.talentech.io/reachmee/feed/naf')
+  fetch('https://api.talentech.io/reachmee/feed/wistrand')
     .then(response => response.json())
     .then(jobs => {
       const positionsCount = jobs.length; // Get the count of jobs from the feed
-      const btnText = positionsCount === 1 ? 'Se 1 ledig stilling' : `Se ${positionsCount} ledige stillinger`; // Update button text based on count
-      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'Se ledige stillinger';
+      const btnText = positionsCount === 1 ? 'Se 1 ledig tjänst' : `Se ${positionsCount} ledig tjänst`; // Update button text based on count
+      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'Se lediga jobb';
     })
     .catch(error => {
       console.error('Error fetching job details:', error);
       // If there is an error fetching the jobs, show default text
-      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = 'Se ledige stillinger';
+      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = 'Se lediga jobb';
     });
 });
 </script>
@@ -137,9 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	<div class="talentech-section" id="company-section">
     <div class="container mt-5 pt-4 m-mt-2">
-        <p class="m-px-2"><strong>Vil du være med å ta oss inn i fremtiden? Neste kapittel i vår 100 år lange historie starter med deg!</strong></p>
-        <p class="m-px-2">NAF er en av Norges mest kjente merkevarer, med over 750.000 medlemmer og kunder. Det skal vi fortsette å være fremover, og da trenger vi flere dyktige folk.</p>
-        <p class="m-px-2">Vi ser etter problemløsere – enten du er en kreativ UX-designer, fremoverlent utvikler, supernysgjerrig analytiker, eller en dyktig bilmekaniker.</p>
+        <p class="m-px-2"><strong>Välkommen till CMS Wistrand</strong></p>
+        <p class="m-px-2">CMS Wistrand är en av Sveriges ledande affärsjuridiska byråer. På våra kontor i Stockholm och Göteborg är vi drygt 200 medarbetare – och som en del av CMS är vi en av världens största advokatbyråer med mer än 5 800 juridiska experter i över 45 länder. Lockas du av att lösa komplexa problem som ställer krav på innovation, expertis och samarbete? Vill du dessutom arbeta i en internationell miljö och värdesätter en öppen och inkluderande arbetsplats – då är CMS Wistrand rätt för dig.</p>
     </div>
 </div>
 
