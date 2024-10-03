@@ -30,7 +30,7 @@
 }
 .blockquote-footer, 
 .blockquote p {
-    color: #e9f3e6;
+    color: #fefffe;
 }
 .talentech-section h2 {
     font-size: 2rem;
@@ -104,7 +104,7 @@
     border-radius: 2px;
 }
 .benefit-icon {
-	background-color: rgb(6, 46, 42);
+	background-color: #005560;
 	color: rgb(233, 243, 230);
 }
 .quote-section .container {
@@ -115,7 +115,7 @@
     background-position: -100px;
 }
 .quote-section {
-    background-color: rgb(6, 46, 42);
+    background-color: #005560;
 }
 .max-width-container {
     max-width: 1600px;
@@ -142,7 +142,7 @@
 	font-size: 2em;
 }
 .bg-dark {
-    background-color: rgb(6, 46, 42) !important;
+    background-color: #005560 !important;
 }
 .carousel-indicators {
   bottom: 30px;
