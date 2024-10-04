@@ -704,7 +704,7 @@ $(document).ready(function () {
 
     // Function to fetch jobs from the API
     function fetchJobs() {
-        fetch('https://api.talentech.io/reachmee/feed/') // Ensure this URL is correct
+        fetch('https://api.talentech.io/reachmee/feed/wistrand') // Ensure this URL is correct
             .then(response => response.json())
             .then(data => {
                 jobs = data; // Store fetched jobs
