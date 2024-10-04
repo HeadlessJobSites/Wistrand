@@ -60,7 +60,7 @@ function updatePageWithJobDetails(job) {
     document.title = job.title;
     console.log("Document title updated to:", job.title);
 
-    // Check if organizations data exists before trying to access it
+    // Check for organizations data before trying to access it
     if (!job.organizations || job.organizations.length === 0) {
         console.error('Organizations data is missing for this job.');
         // You can handle this case appropriately, perhaps by displaying a default value or a message
@@ -70,8 +70,7 @@ function updatePageWithJobDetails(job) {
         console.log("Organization Unit:", organizationUnit);
     }
 
-    // Further processing based on the job data
-    // E.g., display job details in HTML elements
+    // More processing can be done here as needed, depending on other job details
 }
 
 function updateMetaTags(job) {
@@ -107,12 +106,9 @@ function updateMetaTags(job) {
     twitterDescription.setAttribute('content', job.description);
 
     console.log("Meta tags updated");
-    console.log("og:title", ogTitle);
-    console.log("twitter:title", twitterTitle);
-    console.log("og:description", ogDescription);
-    console.log("twitter:description", twitterDescription);
 }
 </script>
+
 
 </head>
 
