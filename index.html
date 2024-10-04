@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ledige stillinger</title>
+    <title>Lediga jobb</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://career.talentech.com/css/index-style.css">
 <link rel="stylesheet" href="./css/cms-index.css">
@@ -49,13 +49,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./#jobs-anchor">Stillinger</a>
-                </li><!--
+                    <a class="nav-link" href="./#jobs-anchor">Jobb</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./#meet-the-team">Møt folka</a>
-                </li>-->
+                    <a class="nav-link" href="./#meet-employees">Träffa de anställda</a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./#employee-benefits">Ansattgoder</a>
+                    <a class="nav-link" href="./#our-process">Rekryteringsprocess</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://web106.reachmee.com/ext/I002/233/profile?site=5&validator=b026c105ea4a83b928726cb7cb18488c&lang=SE">Logg inn</a>
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-<div class="feature-section members" style="">
+<div class="feature-section members" id="meet-employees" style="">
     <div class="container py-5 m-py-0">
         <h2 class="pt-5 m-px-2">Fyra röster <span style="font-weight: 800;">om Wistrand</span></h2>
         <div class="row align-items-top mt-5 mb-5 pb-3 flex-lg-row m-mt-4 m-mb-0"> <!-- Changes for mobile first -->
@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-<section id="our-process" class="process-section mb-5 py-5 m-my-0 m-pt-0 m-pb-4" style="background-color: #eeeef2;">
+<section id="our-process" class="process-section py-5 m-my-0 m-pt-0 m-pb-4" style="background-color: #eeeef2;">
     <div class="container pt-5 m-px-4 m-pb-2">
         <h2>Vår <span style="font-weight: 800;">rekryteringsprocess</span></h2>
     </div>
@@ -636,13 +636,13 @@ $(document).ready(function () {
         });
 
         // Populate location filter
-        $('#locationFilter').html('<option value="All">All locations</option>');
+        $('#locationFilter').html('<option value="All">Alla platser</option>');
         locationSet.forEach(location => {
             $('#locationFilter').append(`<option value="${location}">${location}</option>`);
         });
 
         // Populate job type filter
-        $('#jobTypeFilter').html('<option value="All">All job types</option>');
+        $('#jobTypeFilter').html('<option value="All">Alla typer av jobb</option>');
         jobTypeSet.forEach(type => {
             $('#jobTypeFilter').append(`<option value="${type}">${type}</option>`);
         });
