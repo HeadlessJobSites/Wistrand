@@ -122,24 +122,6 @@
 .max-width-container {
     max-width: 1600px;
 }
-.card {
-	outline: rgb(232, 232, 232) solid 1px;
-	border-radius: 2px;
-}
-.stretched-link {
-    background: rgb(211, 234, 194);
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-}
-.stretched-link img {
-    width: 17px;
-}
 .agent-wrapper h2 {
 	font-size: 2em;
 }
