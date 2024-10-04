@@ -193,7 +193,7 @@ $(document).ready(function() {
         </video>
         <div class="hero-content">
             <div class="job-title2" id="position-title"> </div>
-            <p id="position-title-meta" style="font-size: 1.25rem;"><span class="city"> </span></p>
+            <p id="position-title-meta" style="font-size: 1.25rem;"><span class="organization-unit"> </span> • <span class="city"> </span></p>
         </div>
     </div>
 
@@ -204,15 +204,19 @@ $(document).ready(function() {
 <div id="tt-job-section" class="job-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-6 job-info">
+            <div class="col-md-3 col-6 job-info">
+                <span class="job-info-title">Team</span>
+                <span class="organization-unit">Team</span>
+            </div>
+            <div class="col-md-3 col-6 job-info">
                 <span class="job-info-title">Location</span>
                 <span class="city">Location</span>
             </div>
-            <div class="col-md-4 col-6 job-info">
+            <div class="col-md-3 col-6 job-info">
                 <span class="job-info-title">Application due</span>
                 <span class="expiration-date">Application due</span>
             </div>
-            <div class="col-md-4 col-6 text-center apply-btn-header">
+            <div class="col-md-3 col-6 text-center apply-btn-header">
 <a href="#appform-header" class="btn btn-primary apply-btn" role="">Apply for the job</a>
             </div>
         </div>
@@ -323,6 +327,16 @@ function buildIframe() {
 
     
 
+
+<section id="tt-talentech-section-2" class="team-section py-5 mb-5 pb-4 m-my-0 m-py-5">
+        <center><h2 class="container mb-0 pb-0">Meet the <span class="organization-unit" style="font-weight: 800;"></span><span style="font-weight: 800;"> team</span></h2></center>
+    <div class="container mt-0 pt-2 m-ml-0 m-px-0">
+        <div class="row mt-3 m-mt-2 m-mx-0">
+<div id="gobi-section"></div>       
+        </div>
+    </div>
+</section>
+    
 
 
 
@@ -671,11 +685,15 @@ $(document).ready(function () {
     // Build HTML for a job card
     function buildJobCard(job) {
         const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
+        const organizationUnitName = job.organizations && job.organizations.length > 1 
+            ? job.organizations[1].nameorgunit 
+            : job.organizations[0]?.nameorgunit || 'Not specified';
         return `
         <div class="col-12 col-md-4 col-lg-4 mb-4">
             <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;">
                 <div class="card h-100">
                     <div class="card-body">
+                        <div class="card-category"><span>${organizationUnitName}</span></div>
                         <h5 class="card-title">${job.title}</h5>
                         <p class="card-text">${job.country}</p>
                         <a href="${jobDetailUrl}" class="stretched-link">
@@ -718,9 +736,7 @@ $(document).ready(function () {
 
 
 
-    
-<script>
-$(document).ready(function() {
+  $(document).ready(function() {
     const params = new URLSearchParams(window.location.search);
     // Get 'rmjob' if present, otherwise get 'jobId'
     const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
@@ -730,6 +746,10 @@ $(document).ready(function() {
         .then(jobs => {
             const job = jobs.find(job => job.ad_id === jobId);
             if (job) {
+                // Handle cases where organizations might be null or empty
+                const organizationUnit = (job.organizations && job.organizations.length > 0) 
+                    ? (job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0].nameorgunit)
+                    : 'Not specified'; // Default when no organizations
                 const city = job.areas && job.areas.length > 0 ? job.areas[0].name : 'Not specified';
 
                 const applicationLink = job.link.replace("rmpage=job", "rmpage=apply");
@@ -748,6 +768,7 @@ $(document).ready(function() {
                 // Update elements with job details
                 $('.job-title2').html(job.title);
                 $('.job-description').html(job.description);
+                $('.organization-unit').text(organizationUnit);
                 $('.city').text(city);
                 $('.country').text(job.country);
                 $('.publishing-date').text(job.publishing_date);
@@ -796,7 +817,7 @@ $(document).ready(function() {
         document.body.appendChild(gobiScript);
     }
 });
-</script>
+
 
 
 
