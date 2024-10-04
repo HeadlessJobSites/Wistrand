@@ -657,7 +657,7 @@ $(document).ready(function () {
         const selectedCountry = $('#locationFilter').val();
         const selectedJobType = $('#jobTypeFilter').val();
         filteredJobs = filteredJobs.filter(job => {
-            return (selectedCountry === 'All' || job.country === selectedCountry) &&
+            return (selectedCountry === 'All' || jobLocations.includes(selectedCountry)) &&
                    (selectedJobType === 'All' || job.title === selectedJobType);
         });
 
