@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     iframe.style.width = "100%";
                     iframe.style.border = "none";
                     iframe.id = "applicationFormIframe";
-                    const iframeSrc = `https://web106.reachmee.com/ext/I002/233/apply?job_id=${jobId}&site=5&validator=b026c105ea4a83b928726cb7cb18488c&lang=NO&ihelper=${encodeURIComponent('https://naf.attract.reachmee.com/jobs/rm?rmpage=job&rmjob=' + jobId)}`;
+                    const iframeSrc = `https://web106.reachmee.com/ext/I002/233/apply?job_id=${jobId}&site=5&validator=b026c105ea4a83b928726cb7cb18488c&lang=NO&ihelper=${encodeURIComponent('https://wistrand.attract.reachmee.com/jobs/rm?rmpage=job&rmjob=' + jobId)}`;
                     iframe.setAttribute('src', iframeSrc);
                     document.getElementById('applicationFormContainer').appendChild(iframe);
                 }
@@ -766,7 +766,7 @@ $(document).ready(function () {
 });
 
 function fetchJobs(currentJobId) {
-    fetch('https://api.talentech.io/reachmee/feed/naf')
+    fetch('https://api.talentech.io/reachmee/feed/wistrand')
         .then(response => response.json())
         .then(data => {
             jobs = data.filter(job => job.ad_id !== parseInt(currentJobId));
@@ -818,7 +818,7 @@ $(document).ready(function() {
     // Get 'rmjob' if present, otherwise get 'jobId'
     const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
 
-    fetch('https://api.talentech.io/reachmee/feed/naf')
+    fetch('https://api.talentech.io/reachmee/feed/wistrand')
         .then(response => response.json())
         .then(jobs => {
             const job = jobs.find(job => job.ad_id === jobId);
