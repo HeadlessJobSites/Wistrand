@@ -91,7 +91,7 @@
 .team-member a {
 	color: #000 !important;
 }
-.members p {
+.team-member p, .members p {
     font-size: 0.9em;
     line-height: 1.4em;
 }
