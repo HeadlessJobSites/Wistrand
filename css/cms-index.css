@@ -21,6 +21,10 @@
 .ovingsbaner .hero-section .custom-hero {
 	background-image: url();
 }
+.stretched-link {
+    right: 14px;
+    bottom: 14px;
+}
 .hero-logo {
     position: absolute;
     bottom: 40px;
