@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stillingsannonse</title>
+    <title>Jobbannons</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://career.talentech.com/css/job-details-style.css">
     <link rel="stylesheet" href="./css/cms-job-details.css">
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.0);">
     <div class="container m-py-0">
-        <a class="navbar-brand" href="/" aria-label="Home">
+        <a class="navbar-brand" href="./" aria-label="Hem">
             <img src="https://career.talentech.com/files/TT-2.png" height="40" class="d-inline-block align-top" alt="">
         </a>
         <div class="d-flex justify-content-end align-items-center flex-grow-1">
@@ -133,19 +133,19 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./">Hem <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#appform-header">Apply</a>
+                    <a class="nav-link" href="#appform-header">Söka jobb</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#tt-talentech-section-2">Meet the Team</a>
+                    <a class="nav-link" href="#company-values">Våra värderingar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#our-process">Recruitment Process</a>
+                    <a class="nav-link" href="#our-process">Rekryteringsprocess</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="blank" href="https://talentech.com">talentech.com <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" target="blank" href="https://cms.law/">cms.law <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
@@ -209,15 +209,15 @@ $(document).ready(function() {
                 <span class="organization-unit">Team</span>
             </div>
             <div class="col-md-3 col-6 job-info">
-                <span class="job-info-title">Location</span>
-                <span class="city">Location</span>
+                <span class="job-info-title">Plats</span>
+                <span class="city">Plats</span>
             </div>
             <div class="col-md-3 col-6 job-info">
-                <span class="job-info-title">Application due</span>
-                <span class="expiration-date">Application due</span>
+                <span class="job-info-title">Sista ansökningsdag</span>
+                <span class="expiration-date">Sista ansökningsdag</span>
             </div>
             <div class="col-md-3 col-6 text-center apply-btn-header">
-<a href="#appform-header" class="btn btn-primary apply-btn" role="">Apply for the job</a>
+<a href="#appform-header" class="btn btn-primary apply-btn" role="">Ansök</a>
             </div>
         </div>
     </div>
@@ -255,7 +255,7 @@ $(document).ready(function() {
     </div>
 
             <div class="text-center centerd-apply-btn">
-<a href="#appform-header" class="btn btn-primary apply-btn" role="">Apply for the job</a>
+<a href="#appform-header" class="btn btn-primary apply-btn" role="">Ansök</a>
             </div>
 </div>
 
@@ -344,7 +344,7 @@ function buildIframe() {
 
 
 
-        <h2 class="container pt-5 mt-5 m-my-0 m-px-4 m-pb-0">Våra <span style="font-weight: 800;">värderingar</span></h2>
+        <h2 id="company-values" class="container pt-5 mt-5 m-my-0 m-px-4 m-pb-0">Våra <span style="font-weight: 800;">värderingar</span></h2>
 	<div id="teamCarousel" class="carousel slide" data-interval="false">
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -458,7 +458,7 @@ function buildIframe() {
 
 
 <section class="process-section mb-5 m-my-0 m-pt-0 m-pb-4">
-    <h2 id="appform-header" class="container pt-5 m-px-3 m-pb-2" id="appFormWrapper">Application <span style="font-weight: 800;">form</span></h2>
+    <h2 id="appform-header" class="container pt-5 m-px-3 m-pb-2" id="appFormWrapper"><span style="font-weight: 800;">Anmälningsformulär</span></h2>
     <!-- Application form or alternative message -->
     <div id="originalContentContainer">
         <div id="applicationFormContainer"></div>
@@ -686,13 +686,13 @@ $(document).ready(function () {
         });
 
         // Populate location filter
-        $('#locationFilter').empty().append('<option value="All">All locations</option>');
+        $('#locationFilter').empty().append('<option value="All">Alla platser</option>');
         locationSet.forEach(location => {
             $('#locationFilter').append(`<option value="${location}">${location}</option>`);
         });
 
         // Populate job type filter
-        $('#jobTypeFilter').empty().append('<option value="All">All job types</option>');
+        $('#jobTypeFilter').empty().append('<option value="All">Alla typer av jobb</option>');
         jobTypeSet.forEach(type => {
             $('#jobTypeFilter').append(`<option value="${type}">${type}</option>`);
         });
