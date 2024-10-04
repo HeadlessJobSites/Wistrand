@@ -602,7 +602,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	
 	
-
 <script>
 $(document).ready(function () {
     let jobs = []; // Array to store all jobs
@@ -625,19 +624,22 @@ $(document).ready(function () {
         const jobTypeSet = new Set();
 
         jobs.forEach(job => {
-            if (job.country) { // Check if job has a country
-                locationSet.add(job.country);
+            // Check for areas and extract names
+            if (job.areas && job.areas.length > 0) {
+                job.areas.forEach(area => locationSet.add(area.name)); // Add each area name to the set
+            } else if (job.country) {
+                locationSet.add(job.country); // If no areas, fallback to country
             }
+
             if (job.title) { // Check if job has a title
                 jobTypeSet.add(job.title);
             }
         });
 
-	    
-	// Populate location filter
+        // Populate location filter
         $('#locationFilter').html('<option value="All">All locations</option>');
-        locationSet.forEach(country => {
-            $('#locationFilter').append(`<option value="${country}">${country}</option>`);
+        locationSet.forEach(location => {
+            $('#locationFilter').append(`<option value="${location}">${location}</option>`);
         });
 
         // Populate job type filter
@@ -656,8 +658,10 @@ $(document).ready(function () {
         // Apply filters
         const selectedCountry = $('#locationFilter').val();
         const selectedJobType = $('#jobTypeFilter').val();
+        
         filteredJobs = filteredJobs.filter(job => {
-            return (selectedCountry === 'All' || job.country === selectedCountry) &&
+            const jobLocations = job.areas?.map(area => area.name) || [job.country]; // Extract areas or fallback to country
+            return (selectedCountry === 'All' || jobLocations.includes(selectedCountry)) &&
                    (selectedJobType === 'All' || job.title === selectedJobType);
         });
 
@@ -671,26 +675,27 @@ $(document).ready(function () {
 
     // Function to build HTML for a job card
     function buildJobCard(job) {
-    // Assuming job-details.html is your detail page and it can handle job IDs
-    // Adjust accordingly if your detail page has a different URL structure
-    const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
-        // Use the second organization unit if available, otherwise use the first one
-        const organizationUnitName = job.organizations && job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations?.[0]?.nameorgunit || 'Not specified';
+        // Assuming job-details.html is your detail page and it can handle job IDs
+        // Adjust accordingly if your detail page has a different URL structure
+        const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
+        const organizationUnitName = job.organizations && job.organizations.length > 1 
+            ? job.organizations[1].nameorgunit 
+            : job.organizations?.[0]?.nameorgunit || 'Not specified';
         return `
-<div class="col-12 col-md-4 col-lg-4 mb-4">
-    <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="Job details">
-        <div class="card h-100">
-            <div class="card-body">
-		        <div class="card-category"><span>${organizationUnitName}</span></div>
-                <div class="card-title">${job.title}</div>
-                <p class="card-text">${job.country}</p>
-			    <a href="${jobDetailUrl}" class="stretched-link">
-                <img src="./files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
-		</a>
-            </div>
-        </div>
-    </a>
-</div>`;
+        <div class="col-12 col-md-4 col-lg-4 mb-4">
+            <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="Job details">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="card-category"><span>${organizationUnitName}</span></div>
+                        <div class="card-title">${job.title}</div>
+                        <p class="card-text">${job.country}</p>
+                        <a href="${jobDetailUrl}" class="stretched-link">
+                            <img src="./files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
+                        </a>
+                    </div>
+                </div>
+            </a>
+        </div>`;
     }
 
     // Function to update the visibility of the "Load More" button
