@@ -4,7 +4,7 @@
 .hero-section {
     height: 100vh;
 }
-.hero-section .naf-hero {
+.hero-section .custom-hero {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,12 +14,12 @@
     height: auto;
     transform: translate(-50%, -50%);
     z-index: -1;
-	background: url(../files/NAF-forside.jpg);
+	background: url();
 	background-size: cover;
     background-position: center;
 }
-.ovingsbaner .hero-section .naf-hero {
-	background-image: url(../files/Øvingsbaner.jpg);
+.ovingsbaner .hero-section .custom-hero {
+	background-image: url();
 }
 .hero-logo {
     position: absolute;
@@ -220,7 +220,7 @@ h4 {
 .process-content {
     font-size: 0.8rem;
 }
-.naf-footer p {
+.custom-footer p {
     font-size: 1rem !important;
 }
 .hero-logo {
