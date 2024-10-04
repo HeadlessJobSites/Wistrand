@@ -685,15 +685,11 @@ $(document).ready(function () {
     // Build HTML for a job card
     function buildJobCard(job) {
         const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
-        const organizationUnitName = job.organizations && job.organizations.length > 1 
-            ? job.organizations[1].nameorgunit 
-            : job.organizations[0]?.nameorgunit || 'Not specified';
         return `
         <div class="col-12 col-md-4 col-lg-4 mb-4">
             <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;">
                 <div class="card h-100">
                     <div class="card-body">
-                        <div class="card-category"><span>${organizationUnitName}</span></div>
                         <h5 class="card-title">${job.title}</h5>
                         <p class="card-text">${job.country}</p>
                         <a href="${jobDetailUrl}" class="stretched-link">
@@ -748,7 +744,8 @@ $(document).ready(function() {
         .then(jobs => {
             const job = jobs.find(job => job.ad_id === jobId);
             if (job) {
-                const organizationUnit = job.organizations && job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit || 'Not specified';
+                // If organizations is null, return "Wistrand", otherwise proceed with existing logic
+                const organizationUnit = job.organizations ? (job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit) : "Wistrand";
                 const city = job.areas && job.areas.length > 0 ? job.areas[0].name : 'Not specified';
 
                 const applicationLink = job.link.replace("rmpage=job", "rmpage=apply");
@@ -817,6 +814,7 @@ $(document).ready(function() {
     }
 });
 </script>
+
 
 
 
