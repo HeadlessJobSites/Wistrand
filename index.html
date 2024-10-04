@@ -429,8 +429,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	
 
-
-
 	
 <div class="feature-section pt-3 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
 <div class="container mt-3 mb-0 m-mb-0">
@@ -485,6 +483,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 </div>
  -->	
+
+
 
 
 
@@ -601,6 +601,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	
 	
+	
 
 <script>
 $(document).ready(function () {
@@ -624,26 +625,23 @@ $(document).ready(function () {
         const jobTypeSet = new Set();
 
         jobs.forEach(job => {
-            // Use the last area for location
-            if (job.areas && job.areas.length > 0) {
-                const lastArea = job.areas[job.areas.length - 1];
-                locationSet.add(lastArea.name);
+            if (job.country) { // Check if job has a country
+                locationSet.add(job.country);
             }
-
-            // Use occupation_area for job type
-            if (job.occupation_area) {
-                jobTypeSet.add(job.occupation_area);
+            if (job.title) { // Check if job has a title
+                jobTypeSet.add(job.title);
             }
         });
 
-        // Populate location filter
-        $('#locationFilter').html('<option value="All">Alle steder</option>');
-        locationSet.forEach(location => {
-            $('#locationFilter').append(`<option value="${location}">${location}</option>`);
+	    
+	// Populate location filter
+        $('#locationFilter').html('<option value="All">All locations</option>');
+        locationSet.forEach(country => {
+            $('#locationFilter').append(`<option value="${country}">${country}</option>`);
         });
 
         // Populate job type filter
-        $('#jobTypeFilter').html('<option value="All">Alle stillingstyper</option>');
+        $('#jobTypeFilter').html('<option value="All">All job types</option>');
         jobTypeSet.forEach(type => {
             $('#jobTypeFilter').append(`<option value="${type}">${type}</option>`);
         });
@@ -656,12 +654,11 @@ $(document).ready(function () {
         let filteredJobs = jobs.slice(0, displayedJobs); // Get the subset of jobs to be displayed
 
         // Apply filters
-        const selectedLocation = $('#locationFilter').val();
+        const selectedCountry = $('#locationFilter').val();
         const selectedJobType = $('#jobTypeFilter').val();
         filteredJobs = filteredJobs.filter(job => {
-            const jobLocations = job.areas.map(area => area.name);
-            return (selectedLocation === 'All' || jobLocations.includes(selectedLocation)) &&
-                   (selectedJobType === 'All' || job.occupation_area === selectedJobType);
+            return (selectedCountry === 'All' || job.country === selectedCountry) &&
+                   (selectedJobType === 'All' || job.title === selectedJobType);
         });
 
         // Add job cards to the DOM
@@ -674,30 +671,22 @@ $(document).ready(function () {
 
     // Function to build HTML for a job card
     function buildJobCard(job) {
-        // Assuming job-details.html is your detail page and it can handle job IDs
-        // Adjust accordingly if your detail page has a different URL structure
-        const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
-
+    // Assuming job-details.html is your detail page and it can handle job IDs
+    // Adjust accordingly if your detail page has a different URL structure
+    const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
         // Use the second organization unit if available, otherwise use the first one
         const organizationUnitName = job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit || 'Not specified';
-
-        // Determine the display location based on the areas and country
-        let displayLocation = job.country || '';
-        if (job.areas && job.areas.length > 0) {
-            displayLocation = job.areas[job.areas.length - 1].name; // Use the last area
-        }
-
         return `
 <div class="col-12 col-md-4 col-lg-4 mb-4">
     <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="Job details">
         <div class="card h-100">
             <div class="card-body">
-                <div class="card-category"><span>${organizationUnitName}</span></div>
+		        <div class="card-category"><span>${organizationUnitName}</span></div>
                 <div class="card-title">${job.title}</div>
-                <p class="card-text">${displayLocation}</p>
-                <a href="${jobDetailUrl}" class="stretched-link">
-                <img src="./files/arrow-right-regular.svg" class="" alt="Details" style="">
-                </a>
+                <p class="card-text">${job.country}</p>
+			    <a href="${jobDetailUrl}" class="stretched-link">
+                <img src="/files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
+		</a>
             </div>
         </div>
     </a>
@@ -715,7 +704,7 @@ $(document).ready(function () {
 
     // Function to fetch jobs from the API
     function fetchJobs() {
-        fetch('https://api.talentech.io/reachmee/feed/wistrand') // Ensure this URL is correct
+        fetch('https://api.talentech.io/reachmee/feed/') // Ensure this URL is correct
             .then(response => response.json())
             .then(data => {
                 jobs = data; // Store fetched jobs
@@ -752,6 +741,7 @@ $(document).ready(function () {
     });
 });
 </script>
+
 
 
 
