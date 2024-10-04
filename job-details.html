@@ -746,7 +746,9 @@ $(document).ready(function() {
             if (job) {
                 // If organizations is null, return "Wistrand", otherwise proceed with existing logic
                 const organizationUnit = job.organizations ? (job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit) : "Wistrand";
-                const city = job.areas && job.areas.length > 0 ? job.areas[0].name : 'Not specified';
+                
+                // Fetch the last city from the areas array, if it exists; otherwise, default to 'Not specified'
+                const city = job.areas && job.areas.length > 0 ? job.areas[job.areas.length - 1].name : 'Not specified';
 
                 const applicationLink = job.link.replace("rmpage=job", "rmpage=apply");
                 $('#applyButton').attr('onclick', `window.location.href='${applicationLink}'`);
@@ -814,6 +816,7 @@ $(document).ready(function() {
     }
 });
 </script>
+
 
 
 
