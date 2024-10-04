@@ -657,7 +657,7 @@ $(document).ready(function () {
         const selectedCountry = $('#locationFilter').val();
         const selectedJobType = $('#jobTypeFilter').val();
         filteredJobs = filteredJobs.filter(job => {
-            return (selectedCountry === 'All' || jobLocations.includes(selectedCountry)) &&
+            return (selectedCountry === 'All' || job.country === selectedCountry) &&
                    (selectedJobType === 'All' || job.title === selectedJobType);
         });
 
@@ -685,7 +685,7 @@ $(document).ready(function () {
                 <div class="card-title">${job.title}</div>
                 <p class="card-text">${job.country}</p>
 			    <a href="${jobDetailUrl}" class="stretched-link">
-                <img src="/files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
+                <img src="./files/arrow-right-thin.svg" class="stretched-link" alt="Details" style="">
 		</a>
             </div>
         </div>
