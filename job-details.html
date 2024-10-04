@@ -736,7 +736,9 @@ $(document).ready(function () {
 
 
 
-  $(document).ready(function() {
+    
+<script>
+$(document).ready(function() {
     const params = new URLSearchParams(window.location.search);
     // Get 'rmjob' if present, otherwise get 'jobId'
     const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
@@ -746,10 +748,7 @@ $(document).ready(function () {
         .then(jobs => {
             const job = jobs.find(job => job.ad_id === jobId);
             if (job) {
-                // Handle cases where organizations might be null or empty
-                const organizationUnit = (job.organizations && job.organizations.length > 0) 
-                    ? (job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0].nameorgunit)
-                    : 'Not specified'; // Default when no organizations
+                const organizationUnit = job.organizations && job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit || 'Not specified';
                 const city = job.areas && job.areas.length > 0 ? job.areas[0].name : 'Not specified';
 
                 const applicationLink = job.link.replace("rmpage=job", "rmpage=apply");
@@ -817,7 +816,7 @@ $(document).ready(function () {
         document.body.appendChild(gobiScript);
     }
 });
-
+</script>
 
 
 
