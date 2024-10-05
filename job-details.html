@@ -458,64 +458,6 @@ function buildIframe() {
 
 
 
-<section class="process-section mb-5 m-my-0 m-pt-0 m-pb-4">
-    <h2 id="appform-header" class="container pt-5 m-px-3 m-pb-2" id="appFormWrapper"><span style="font-weight: 800;">Anmälningsformulär</span></h2>
-    <!-- Application form or alternative message -->
-    <div id="originalContentContainer">
-        <div id="applicationFormContainer"></div>
-    </div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const params = new URLSearchParams(window.location.search);
-    // Get 'rmjob' if present, otherwise get 'jobId'
-    const jobId = params.get('rmjob') || params.get('jobId');
-
-    // Fetch job details (assuming you have an endpoint to get job details by jobId)
-    fetch(`https://api.talentech.io/reachmee/feed/wistrand`) // Replace with your actual API endpoint
-        .then(response => response.json())
-        .then(jobs => {
-            const job = jobs.find(job => job.ad_id === parseInt(jobId));
-            if (job && job.hide_apply_button) {
-                // Display the message and button if hide_apply_button is true
-                const messageContainer = document.createElement('div');
-                messageContainer.innerHTML = `
-                    <center><p>Application form is disabled for this job. Please see job description for details on applying.</p>
-                    <a href="#tt-talentech-section-1" class="btn btn-primary">See job description</a></center>
-                `;
-                document.getElementById('applicationFormContainer').appendChild(messageContainer);
-            } else {
-                // Display the application form if hide_apply_button is false
-                if (!document.getElementById('applicationFormIframe')) {
-                    const iframe = document.createElement('iframe');
-                    iframe.style.width = "100%";
-                    iframe.style.border = "none";
-                    iframe.id = "applicationFormIframe";
-                    const iframeSrc = `https://web103.reachmee.com/ext/I002/233/apply?job_id=${jobId}&site=5&validator=b026c105ea4a83b928726cb7cb18488c&lang=SE&ihelper=${encodeURIComponent('https://career.talentech.com/jobs/rm?rmpage=job&rmjob=' + jobId)}`;
-                    iframe.setAttribute('src', iframeSrc);
-                    document.getElementById('applicationFormContainer').appendChild(iframe);
-                }
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching job details:', error);
-        });
-});
-
-// Consolidate message listener, adding security check
-window.addEventListener('message', function(event) {
-    // Verify the origin of your iframe content
-    const expectedOrigin = 'https://web103.reachmee.com';
-    if (event.origin === expectedOrigin && typeof event.data === 'string' && event.data.startsWith('resize::')) {
-        const height = event.data.split('resize::')[1];
-        if (height) {
-            document.getElementById('applicationFormIframe').style.height = height + 'px';
-        }
-    }
-}, false);
-</script>
-
 
 
 
@@ -635,6 +577,258 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+    
+<script>
+$(document).ready(function () {
+    let jobs = []; // Array to store all jobs
+    let displayedJobs = 0; // Counter for the number of jobs currently displayed
+    const jobsToShowDesktop = 12; // Number of jobs to show on desktop before "Load More"
+    const jobsToShowMobile = 6; // Number of jobs to show on mobile before "Load More"
+    let jobsToShow = window.innerWidth > 768 ? jobsToShowDesktop : jobsToShowMobile;
+
+    // Adjust jobsToShow based on window resize
+    $(window).resize(function() {
+        jobsToShow = window.innerWidth > 768 ? jobsToShowDesktop : jobsToShowMobile;
+        displayedJobs = Math.min(jobsToShow, jobs.length); // Adjust displayedJobs based on new jobsToShow
+        displayJobs(); // Redisplay jobs based on new size
+        updateLoadMoreVisibility(); // Update button visibility after resize
+    });
+
+    // Fetch jobs from the API, filtering out the current job
+    function fetchJobs() {
+        const currentJobId = new URLSearchParams(window.location.search).get('jobId');
+        fetch('https://api.talentech.io/reachmee/feed/wistrand')
+            .then(response => response.json())
+            .then(data => {
+                jobs = data.filter(job => job.ad_id.toString() !== currentJobId); // Filter out the current job
+                displayedJobs = Math.min(jobsToShow, jobs.length);
+                populateFilters(); // Fill dropdowns with options
+                displayJobs(); // Show initial jobs
+            })
+            .catch(error => {
+                console.error('Error fetching jobs:', error);
+            });
+    }
+
+    // Populate filter dropdowns based on jobs
+    function populateFilters() {
+        const locationSet = new Set();
+        const jobTypeSet = new Set();
+
+        jobs.forEach(job => {
+            if (job.areas && job.areas.length > 0) {
+                job.areas.forEach(area => locationSet.add(area.name));
+            } else if (job.country) {
+                locationSet.add(job.country);
+            }
+
+            if (job.occupation_area) {
+                jobTypeSet.add(job.occupation_area);
+            }
+        });
+
+        // Populate location filter
+        $('#locationFilter').empty().append('<option value="All">Alla platser</option>');
+        locationSet.forEach(location => {
+            $('#locationFilter').append(`<option value="${location}">${location}</option>`);
+        });
+
+        // Populate job type filter
+        $('#jobTypeFilter').empty().append('<option value="All">Alla typer av jobb</option>');
+        jobTypeSet.forEach(type => {
+            $('#jobTypeFilter').append(`<option value="${type}">${type}</option>`);
+        });
+    }
+
+    // Display jobs based on filters
+    function displayJobs() {
+        $('#jobList').empty();
+        let filteredJobs = jobs.slice(0, displayedJobs);
+
+        const selectedLocation = $('#locationFilter').val();
+        const selectedJobType = $('#jobTypeFilter').val();
+
+        filteredJobs = filteredJobs.filter(job => {
+            const jobLocations = job.areas?.map(area => area.name) || [job.country];
+            return (selectedLocation === 'All' || jobLocations.includes(selectedLocation)) &&
+                   (selectedJobType === 'All' || job.occupation_area === selectedJobType);
+        });
+
+        filteredJobs.forEach(job => {
+            $('#jobList').append(buildJobCard(job));
+        });
+
+        updateLoadMoreVisibility();
+    }
+
+    // Build HTML for a job card
+    function buildJobCard(job) {
+        const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
+        return `
+            <div class="col-12 col-md-4 col-lg-4 mb-4">
+                <a href="${jobDetailUrl}" class="text-decoration-none text-dark">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">${job.title}</h5>
+                            <p class="card-text">${job.country}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>`;
+    }
+
+    // Update the visibility of the "Load More" button
+    function updateLoadMoreVisibility() {
+        if (displayedJobs >= jobs.length) {
+            $('#loadMore').hide();
+        } else {
+            $('#loadMore').show();
+        }
+    }
+
+    // Load jobs when page is ready
+    fetchJobs();
+
+    // Event listeners for "Load More" button and filter dropdowns
+    $('#loadMore').click(function() {
+        displayedJobs += jobsToShow;
+        displayJobs();
+    });
+    $('#locationFilter').change(function() {
+        displayedJobs = jobsToShow;
+        displayJobs();
+    });
+    $('#jobTypeFilter').change(function() {
+        displayedJobs = jobsToShow;
+        displayJobs();
+    });
+});
+</script>
+
+
+    
+<script>
+$(document).ready(function() {
+    const params = new URLSearchParams(window.location.search);
+    // Get 'rmjob' if present, otherwise get 'jobId'
+    const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
+
+    fetch('https://api.talentech.io/reachmee/feed/wistrand')
+        .then(response => response.json())
+        .then(jobs => {
+            const job = jobs.find(job => job.ad_id === jobId);
+            if (job) {
+                // If organizations is null, return "Wistrand", otherwise proceed with existing logic
+                const organizationUnit = job.organizations ? (job.organizations.length > 1 ? job.organizations[1].nameorgunit : job.organizations[0]?.nameorgunit) : "Wistrand";
+                
+                // Fetch the last city from the areas array, if it exists; otherwise, default to 'Not specified'
+                const city = job.areas && job.areas.length > 0 ? job.areas[job.areas.length - 1].name : 'Not specified';
+
+                const applicationLink = job.link.replace("rmpage=job", "rmpage=apply");
+                $('#applyButton').attr('onclick', `window.location.href='${applicationLink}'`);
+                $('#applyButton-tt').attr('onclick', `window.location.href='${applicationLink}'`);
+
+                // Set the page title to the job title
+                document.title = job.title;
+
+                // Display the job title in the designated area with formatting
+                const titleWords = job.title.split(' ');
+                const firstWord = titleWords.shift();
+                const restOfTitle = titleWords.join(' ');
+                $('.job-title').html(`<span style="font-weight:400;">${firstWord}</span> <span style="font-weight:800;">${restOfTitle}</span>`);
+
+                // Update elements with job details
+                $('.job-title2').html(job.title);
+                $('.job-description').html(job.description);
+                $('.organization-unit').text(organizationUnit);
+                $('.city').text(city);
+                $('.country').text(job.country);
+                $('.publishing-date').text(job.publishing_date);
+                $('.expiration-date').text(job.expiration_date);
+
+                $('.contact-persons').empty();
+                job.contact_persons.forEach((person) => {
+                    const contactInfo = `
+                        <div class="contact-person">
+                            <p>${person.first_name} ${person.surname}, ${person.position}<br>
+                            <a href="mailto:${person.email}">${person.email}</a><br>
+                            <a href="tel:${person.phone}">${person.phone}</a></p>
+                        </div>`;
+                    $('.contact-persons').append(contactInfo);
+                });
+
+                // Handle additional dynamic elements
+                let collectionId = 'no'; // Default to "no"
+                if (organizationUnit === "Finance") {
+                    collectionId = 'mnnvj'; // Specific ID for "Finance"
+                } else if (organizationUnit === "Sales") {
+                    collectionId = '7zxwk'; // Example ID for "Sales"
+                } else {
+                    collectionId = '7zxwk'; // Other org units
+                }
+                const newDiv = $('<div class="gobi-collection"></div>').attr('data-gobi-collection-id', collectionId);
+                newDiv.insertAfter('#gobi-section');
+                loadGobiScript();
+            } else {
+                $('.job-details').text('Job not found.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching job details:', error);
+            $('.job-details').text('Job details could not be loaded.');
+        });
+
+    function loadGobiScript() {
+        const gobiScript = document.createElement('script');
+        gobiScript.src = 'https://widget.gobistories.com/gwi/6';
+        gobiScript.onload = function() {
+            if (typeof gobi !== 'undefined' && gobi.discover) {
+                gobi.discover();
+            }
+        };
+        document.body.appendChild(gobiScript);
+    }
+});
+</script>
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const openApplication = urlParams.get('open-application');
+    
+    if (openApplication !== null) {
+        // Change the src of the iframe
+        const applicationFormIframe = document.getElementById('applicationFormIframe');
+        applicationFormIframe.src = "https://web103.reachmee.com/ext/I002/233/apply?site=5&lang=NO&validator=b026c105ea4a83b928726cb7cb18488c&job_id=-1";
+        
+        // Hide the job description and metadata
+        document.getElementById('our-process').style.display = 'none';
+        document.getElementById('tt-job-section').style.display = 'none';
+        document.getElementById('tt-talentech-section-1').style.display = 'none';
+        document.getElementById('tt-talentech-section-2').style.display = 'none';
+        document.getElementById('tt-feature-section').style.display = 'none';
+        document.getElementById('appform-header').style.display = 'none';
+        document.getElementById('position-title-meta').style.display = 'none';
+        
+        // Populate the position-title h1 with specific text
+        const positionTitleH1 = document.getElementById('position-title');
+        positionTitleH1.innerText = 'Join our talent pool';
+    }
+});
+
+</script>
+
+
+
+
+
+    
+<script src="./js/share-some.js"></script>  
 </body>
 
 </html>
