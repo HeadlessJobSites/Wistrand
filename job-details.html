@@ -53,38 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.title = decodedTitle;
 
                 // Update meta tags for social media sharing
-                let ogTitle = document.querySelector('meta[property="og:title"]');
-                let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-                let ogDescription = document.querySelector('meta[property="og:description"]');
-                let twitterDescription = document.querySelector('meta[name="twitter:description"]');
-
-                if (!ogTitle) {
-                    ogTitle = document.createElement('meta');
-                    ogTitle.setAttribute('property', 'og:title');
-                    document.head.appendChild(ogTitle);
-                }
-                if (!twitterTitle) {
-                    twitterTitle = document.createElement('meta');
-                    twitterTitle.setAttribute('name', 'twitter:title');
-                    document.head.appendChild(twitterTitle);
-                }
-                if (!ogDescription) {
-                    ogDescription = document.createElement('meta');
-                    ogDescription.setAttribute('property', 'og:description');
-                    document.head.appendChild(ogDescription);
-                }
-                if (!twitterDescription) {
-                    twitterDescription = document.createElement('meta');
-                    twitterDescription.setAttribute('name', 'twitter:description');
-                    document.head.appendChild(twitterDescription);
-                }
-
-                ogTitle.setAttribute('content', decodedTitle);
-                twitterTitle.setAttribute('content', decodedTitle);
-                ogDescription.setAttribute('content', job.description);
-                twitterDescription.setAttribute('content', job.description);
-
-                console.log("Document and social media titles updated");
+                updateMetaTags(decodedTitle, job.description);
             } else {
                 console.error('Job not found.');
             }
@@ -93,7 +62,41 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching job details:', error);
         });
 });
+
+function updateMetaTags(title, description) {
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    let ogDescription = document.querySelector('meta[property="og:description"]');
+    let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+
+    if (!ogTitle) {
+        ogTitle = document.createElement('meta');
+        ogTitle.setAttribute('property', 'og:title');
+        document.head.appendChild(ogTitle);
+    }
+    if (!twitterTitle) {
+        twitterTitle = document.createElement('meta');
+        twitterTitle.setAttribute('name', 'twitter:title');
+        document.head.appendChild(twitterTitle);
+    }
+    if (!ogDescription) {
+        ogDescription = document.createElement('meta');
+        ogDescription.setAttribute('property', 'og:description');
+        document.head.appendChild(ogDescription);
+    }
+    if (!twitterDescription) {
+        twitterDescription = document.createElement('meta');
+        twitterDescription.setAttribute('name', 'twitter:description');
+        document.head.appendChild(twitterDescription);
+    }
+
+    ogTitle.setAttribute('content', title);
+    twitterTitle.setAttribute('content', title);
+    ogDescription.setAttribute('content', description);
+    twitterDescription.setAttribute('content', description);
+}
 </script>
+
 
 
 </head>
@@ -463,6 +466,49 @@ function buildIframe() {
 
 
 
+
+
+<section class="process-section mb-5 m-my-0 m-pt-0 m-pb-4">
+    <h2 id="appform-header" class="container pt-5 m-px-3 m-pb-2" id="appFormWrapper"><span style="font-weight: 800;">Anmälningsformulär</span></h2>
+    <!-- Application form or alternative message -->
+    <div id="originalContentContainer">
+        <div id="applicationFormContainer"></div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('rmjob') || params.get('jobId');
+
+    fetch('https://api.talentech.io/reachmee/feed/wistrand')
+        .then(response => response.json())
+        .then(jobs => {
+            const job = jobs.find(job => job.ad_id === parseInt(jobId));
+            if (job) {
+                if (job.hide_apply_button) {
+                    const messageContainer = document.createElement('div');
+                    messageContainer.innerHTML = `<center><p>Application form is disabled for this job. Please see job description for details on applying.</p>
+                    <a href="#tt-talentech-section-1" class="btn btn-primary">See job description</a></center>`;
+                    document.getElementById('applicationFormContainer').appendChild(messageContainer);
+                } else {
+                    const iframe = document.createElement('iframe');
+                    iframe.style.width = "100%";
+                    iframe.style.border = "none";
+                    iframe.id = "applicationFormIframe";
+                    const iframeSrc = `https://web103.reachmee.com/ext/I002/233/apply?job_id=${jobId}&site=5&validator=b026c105ea4a83b928726cb7cb18488c&lang=SE&ihelper=${encodeURIComponent('https://career.talentech.com/jobs/rm?rmpage=job&rmjob=' + jobId)}`;
+                    iframe.setAttribute('src', iframeSrc);
+                    document.getElementById('applicationFormContainer').appendChild(iframe);
+                }
+            } else {
+                console.error('Job not found.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching job details:', error);
+        });
+});
+</script>
 
 
 
