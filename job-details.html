@@ -29,72 +29,72 @@
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("DOM fully loaded and parsed");
-            
-            const params = new URLSearchParams(window.location.search);
-            const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
-            console.log("Job ID:", jobId);
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
 
-            fetch('https://api.talentech.io/reachmee/feed/wistrand')
-                .then(response => response.json())
-                .then(jobs => {
-                    console.log("Jobs fetched:", jobs);
-                    const job = jobs.find(job => job.ad_id === jobId);
-                    if (job) {
-                        console.log("Job found:", job);
+    fetch('https://api.talentech.io/reachmee/feed/wistrand')
+        .then(response => response.json())
+        .then(jobs => {
+            const job = jobs.find(job => job.ad_id === jobId);
+            if (job) {
+                // Decode HTML entities if job.title has encoded characters
+                const parser = new DOMParser();
+                const decodedString = parser.parseFromString(`<!doctype html><body>${job.title}`, 'text/html').body.textContent;
 
-                        // Update meta tags for social media sharing
-                        let ogTitle = document.querySelector('meta[property="og:title"]');
-                        let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-                        let ogDescription = document.querySelector('meta[property="og:description"]');
-                        let twitterDescription = document.querySelector('meta[name="twitter:description"]');
-                        
-                        if (!ogTitle) {
-                            ogTitle = document.createElement('meta');
-                            ogTitle.setAttribute('property', 'og:title');
-                            document.head.appendChild(ogTitle);
-                        }
-                        if (!twitterTitle) {
-                            twitterTitle = document.createElement('meta');
-                            twitterTitle.setAttribute('name', 'twitter:title');
-                            document.head.appendChild(twitterTitle);
-                        }
-                        if (!ogDescription) {
-                            ogDescription = document.createElement('meta');
-                            ogDescription.setAttribute('property', 'og:description');
-                            document.head.appendChild(ogDescription);
-                        }
-                        if (!twitterDescription) {
-                            twitterDescription = document.createElement('meta');
-                            twitterDescription.setAttribute('name', 'twitter:description');
-                            document.head.appendChild(twitterDescription);
-                        }
+                // Set document title to the decoded string
+                document.title = decodedString;
 
-                        ogTitle.setAttribute('content', job.title);
-                        twitterTitle.setAttribute('content', job.title);
-                        ogDescription.setAttribute('content', job.description);
-                        twitterDescription.setAttribute('content', job.description);
+                // Update meta tags for social media sharing
+                let ogTitle = document.querySelector('meta[property="og:title"]');
+                let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+                let ogDescription = document.querySelector('meta[property="og:description"]');
+                let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+                
+                if (!ogTitle) {
+                    ogTitle = document.createElement('meta');
+                    ogTitle.setAttribute('property', 'og:title');
+                    document.head.appendChild(ogTitle);
+                }
+                if (!twitterTitle) {
+                    twitterTitle = document.createElement('meta');
+                    twitterTitle.setAttribute('name', 'twitter:title');
+                    document.head.appendChild(twitterTitle);
+                }
+                if (!ogDescription) {
+                    ogDescription = document.createElement('meta');
+                    ogDescription.setAttribute('property', 'og:description');
+                    document.head.appendChild(ogDescription);
+                }
+                if (!twitterDescription) {
+                    twitterDescription = document.createElement('meta');
+                    twitterDescription.setAttribute('name', 'twitter:description');
+                    document.head.appendChild(twitterDescription);
+                }
 
-                        console.log("Meta tags updated");
-                        console.log("og:title", ogTitle);
-                        console.log("twitter:title", twitterTitle);
-                        console.log("og:description", ogDescription);
-                        console.log("twitter:description", twitterDescription);
+                ogTitle.setAttribute('content', decodedString);
+                twitterTitle.setAttribute('content', decodedString);
+                ogDescription.setAttribute('content', job.description);
+                twitterDescription.setAttribute('content', job.description);
 
-                        // Optionally, also update the document title
-                        document.title = job.title;
-                        console.log("Document title updated");
-                    } else {
-                        console.error('Job not found.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching job details:', error);
-                });
+                console.log("Meta tags updated");
+                console.log("og:title", ogTitle);
+                console.log("twitter:title", twitterTitle);
+                console.log("og:description", ogDescription);
+                console.log("twitter:description", twitterDescription);
+
+                console.log("Document title updated");
+            } else {
+                console.error('Job not found.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching job details:', error);
         });
-    </script>
+});
+</script>
+
 </head>
 
 
