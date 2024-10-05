@@ -30,6 +30,13 @@
 <meta property="og:type" content="website">
 
 <script>
+// Helper function to decode HTML entities using character codes
+function decodeHtmlCharCodes(str) { 
+  return str.replace(/(&#(\d+);)/g, function(match, capture, charCode) {
+    return String.fromCharCode(charCode);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const jobId = params.get('rmjob') ? parseInt(params.get('rmjob'), 10) : parseInt(params.get('jobId'), 10);
@@ -39,19 +46,18 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(jobs => {
             const job = jobs.find(job => job.ad_id === jobId);
             if (job) {
-                // Decode HTML entities if job.title has encoded characters
-                const parser = new DOMParser();
-                const decodedString = parser.parseFromString(`<!doctype html><body>${job.title}`, 'text/html').body.textContent;
+                // Decode HTML entities in the job title
+                const decodedTitle = decodeHtmlCharCodes(job.title);
 
-                // Set document title to the decoded string
-                document.title = decodedString;
+                // Set the document title to the decoded string
+                document.title = decodedTitle;
 
                 // Update meta tags for social media sharing
                 let ogTitle = document.querySelector('meta[property="og:title"]');
                 let twitterTitle = document.querySelector('meta[name="twitter:title"]');
                 let ogDescription = document.querySelector('meta[property="og:description"]');
                 let twitterDescription = document.querySelector('meta[name="twitter:description"]');
-                
+
                 if (!ogTitle) {
                     ogTitle = document.createElement('meta');
                     ogTitle.setAttribute('property', 'og:title');
@@ -73,18 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.head.appendChild(twitterDescription);
                 }
 
-                ogTitle.setAttribute('content', decodedString);
-                twitterTitle.setAttribute('content', decodedString);
+                ogTitle.setAttribute('content', decodedTitle);
+                twitterTitle.setAttribute('content', decodedTitle);
                 ogDescription.setAttribute('content', job.description);
                 twitterDescription.setAttribute('content', job.description);
 
-                console.log("Meta tags updated");
-                console.log("og:title", ogTitle);
-                console.log("twitter:title", twitterTitle);
-                console.log("og:description", ogDescription);
-                console.log("twitter:description", twitterDescription);
-
-                console.log("Document title updated");
+                console.log("Document and social media titles updated");
             } else {
                 console.error('Job not found.');
             }
@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 </script>
+
 
 </head>
 
