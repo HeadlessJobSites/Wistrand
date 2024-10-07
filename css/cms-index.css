@@ -226,5 +226,8 @@ font-size: 2rem;
 .talentech-section h2 {
     font-size: 1.5rem;
 }
+.navbar-brand img {
+    height: 18px;
+}
 }
 
