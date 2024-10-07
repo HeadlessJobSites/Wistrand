@@ -4,6 +4,9 @@
 .leaflet-popup-content {
     margin: 20px !important;
 }
+.job-details .hero-section {
+    background-color: #005560;
+}
 .hero-content {
     max-width: 1200px;
     margin: 0 auto;
