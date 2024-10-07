@@ -68,4 +68,7 @@
     .company-logo {
         height: 18px;
     }
+    .quicklinks.apply-btn {
+    width: 100%;
+    }   
 }
