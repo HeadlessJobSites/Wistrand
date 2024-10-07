@@ -65,4 +65,7 @@
         max-width: 100%;
         height: auto; /* Adjust height to be responsive */
     }
+    .company-logo {
+        height: 18px;
+    }
 }
