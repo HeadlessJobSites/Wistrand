@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const params = new URLSearchParams(window.location.search);
         const jobId = parseInt(params.get('rmjob') || params.get('jobId')); 
 
-        fetch('https://api.talentech.io/reachmee/feed/') 
+        fetch('https://api.talentech.io/reachmee/feed/wistrand') 
             .then(response => response.json())
             .then(jobs => {
                 const job = jobs.find(job => job.ad_id === jobId);
