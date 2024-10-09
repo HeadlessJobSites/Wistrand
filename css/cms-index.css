@@ -135,7 +135,9 @@
 .carousel-indicators {
   bottom: 30px;
 }
-
+.dark-btn {
+	background: #000 !important;
+}
 
 
 
