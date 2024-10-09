@@ -100,7 +100,7 @@ $(document).ready(function() {
     </video>
     <div class="hero-content">
         <h1>Vi söker nya perspektiv - add you.</h1>
-        <a href="#jobs-anchor" class="btn btn-primary btn-lg dark-btn"><strong>Se lediga jobb</strong></a>
+        <a href="#jobs-anchor" class="btn btn-primary btn-lg dark-btn"><strong>Se våra lediga tjänster</strong></a>
     </div>
 	</div>
 
@@ -112,13 +112,13 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(jobs => {
       const positionsCount = jobs.length; // Get the count of jobs from the feed
-      const btnText = positionsCount === 1 ? 'Se 1 ledig jobb' : `Se ${positionsCount} ledig jobb`; // Update button text based on count
+      const btnText = positionsCount === 1 ? 'Se 1 ledig jobb' : `Se våra ${positionsCount} lediga tjänster`; // Update button text based on count
       document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'Se lediga jobb';
     })
     .catch(error => {
       console.error('Error fetching job details:', error);
       // If there is an error fetching the jobs, show default text
-      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = 'Se lediga jobb';
+      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = 'Se våra lediga tjänstar';
     });
 });
 </script>
