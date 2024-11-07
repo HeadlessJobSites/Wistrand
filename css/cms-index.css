@@ -5,6 +5,10 @@
     height: 100vh;
     background-color: transparent;
 }
+.front-image img {
+    	border-radius: 20px;
+	width: 100%;
+}
 .hero-section .custom-hero {
     position: absolute;
     top: 50%;
