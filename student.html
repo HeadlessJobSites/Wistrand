@@ -158,13 +158,6 @@ $(document).ready(function() {
     <h2 class="my-5 m-px-2 m-my-0">Lediga <span style="font-weight: 800">tjänster</span></h2>
     <div class="row my-3">
         <div class="col-md-3 mb-3">
-            <label for="locationFilter">Plats</label>
-            <select id="locationFilter" class="form-control">
-                <option value="All">Alla platser</option>
-                <!-- Location options will be dynamically added here -->
-            </select>
-        </div>
-        <div class="col-md-3 mb-3">
             <label for="jobTypeFilter">Arbetstyp</label>
             <select id="jobTypeFilter" class="form-control">
                 <option value="All">Alla typer av jobb</option>
@@ -346,7 +339,7 @@ $(document).ready(function () {
         .then(response => response.json())
         .then(data => {
             // Filter jobs to only include those with "Tillsvidareanställning" in employment_level
-            jobs = data.filter(job => job.employment_level === "Tillsvidareanställning");
+            jobs = data.filter(job => job.employment_level === "Student");
             displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
             populateFilters(); // Fill dropdowns with options
             displayJobs(); // Show initial jobs
