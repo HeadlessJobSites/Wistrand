@@ -54,6 +54,9 @@
                     <a class="nav-link" href="./#meet-employees">Träffa de anställda</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/student.html">För studenter</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="./#our-process">Rekryteringsprocess</a>
                 </li>
                 <li class="nav-item">
@@ -98,40 +101,11 @@ $(document).ready(function() {
         <source src="/files/CMS-webfilm.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-        <h1>Vi söker nya perspektiv - add you.</h1>
+        <h1><span class="title-alt">För dig</span> som är student</h1>
         <a href="#jobs-anchor" class="btn btn-primary btn-lg dark-btn" style="background: #0d535f !important;"><strong>Se våra lediga tjänster</strong></a>
     </div>
 	</div>
 
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Fetch the jobs from the feed
-  fetch('https://api.talentech.io/reachmee/feed/wistrand')
-    .then(response => response.json())
-    .then(jobs => {
-      const positionsCount = jobs.length; // Get the count of jobs from the feed
-      const btnText = positionsCount === 1 ? 'Se 1 ledig tjänst' : `Se våra ${positionsCount} lediga tjänster`; // Update button text based on count
-      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'Se lediga tjänster';
-    })
-    .catch(error => {
-      console.error('Error fetching job details:', error);
-      // If there is an error fetching the jobs, show default text
-      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = 'Se våra lediga tjänstar';
-    });
-});
-</script>
-
-<!--
-<div class="gobi-stories-container" id="gobi-stories-container">
-  <button aria-label="Close video" class="close-btn" onclick="document.getElementById('gobi-stories-container').style.display='none';"><i class="fa-regular fa-xmark"></i></button>
-<script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
-
-<div class="gobi-collection" data-gobi-collection-id="pncc7"></div>
-  <a href="#company-section" aria-label="Get to know us"><div class="gobi-stories-text">Get to know us</div></a>
-</div>
--->
-	
 	
 	<div class="talentech-section" id="company-section">
     <div class="container mt-5 pt-4 m-mt-2">
