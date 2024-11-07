@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lediga jobb</title>
+    <title>Lediga tjänster</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://career.talentech.com/css/index-style.css">
 <link rel="stylesheet" href="./css/cms-index.css">
@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(jobs => {
       const positionsCount = jobs.length; // Get the count of jobs from the feed
-      const btnText = positionsCount === 1 ? 'Se 1 ledig jobb' : `Se våra ${positionsCount} lediga tjänster`; // Update button text based on count
-      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'Se lediga jobb';
+      const btnText = positionsCount === 1 ? 'Se 1 ledig tjänst' : `Se våra ${positionsCount} lediga tjänster`; // Update button text based on count
+      document.querySelector('a.btn.btn-primary.btn-lg strong').textContent = positionsCount > 0 ? btnText : 'Se lediga tjänster';
     })
     .catch(error => {
       console.error('Error fetching job details:', error);
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 <div class="feature-section pt-3 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
 <div class="container mt-3 mb-0 m-mb-0">
-    <h2 class="my-5 m-px-2 m-my-0">Lediga <span style="font-weight: 800">jobb</span></h2>
+    <h2 class="my-5 m-px-2 m-my-0">Lediga <span style="font-weight: 800">tjänster</span></h2>
     <div class="row my-3">
         <div class="col-md-3 mb-3">
             <label for="locationFilter">Plats</label>
