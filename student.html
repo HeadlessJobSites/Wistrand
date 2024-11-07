@@ -285,7 +285,7 @@ $(document).ready(function () {
 
     if (filteredJobs.length === 0) {
         // Display a message if no jobs match the filter criteria
-        $('#jobList').html('<div class="col-12 text-center mt-4"><p>Det finns inga lediga tjänster för studenter just nu.</p></div>');
+        $('#jobList').html('<div class="col-12 text-center mt-4"><p style="font-size: 1.4em;text-align: left;">Det finns inga lediga tjänster för studenter just nu.</p></div>');
     } else {
         // Otherwise, display the filtered jobs
         filteredJobs.forEach(job => {
