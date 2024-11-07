@@ -156,15 +156,6 @@ $(document).ready(function() {
 <div class="feature-section mt-5 pt-3 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
 <div class="container mt-3 mb-0 m-mb-0">
     <h2 class="my-5 m-px-2 m-my-0">Lediga <span style="font-weight: 800">tjänster</span></h2>
-    <div class="row my-3">
-        <div class="col-md-3 mb-3">
-            <label for="jobTypeFilter">Arbetstyp</label>
-            <select id="jobTypeFilter" class="form-control">
-                <option value="All">Alla typer av jobb</option>
-                <!-- Job type options will be dynamically added here -->
-            </select>
-        </div>
-    </div>
     <div id="jobList" class="row"></div>
 	<div class="text-center mt-2">
     <button id="loadMore" class="btn btn-primary">Ladda mer</button>
@@ -279,25 +270,31 @@ $(document).ready(function () {
 
     // Function to display jobs based on filters
     function displayJobs() {
-        $('#jobList').empty(); // Clear current jobs
+    $('#jobList').empty(); // Clear current jobs
 
-        let filteredJobs = jobs.slice(0, displayedJobs); // Get the subset of jobs to be displayed
+    let filteredJobs = jobs.slice(0, displayedJobs); // Get the subset of jobs to be displayed
 
-        const selectedCountry = $('#locationFilter').val();
-        const selectedJobType = $('#jobTypeFilter').val();
+    const selectedCountry = $('#locationFilter').val();
+    const selectedJobType = $('#jobTypeFilter').val();
 
-        filteredJobs = filteredJobs.filter(job => {
-            const jobLocations = job.areas?.map(area => area.name) || [job.country];
-            return (selectedCountry === 'All' || jobLocations.includes(selectedCountry)) &&
-                   (selectedJobType === 'All' || job.occupation_area === selectedJobType);
-        });
+    filteredJobs = filteredJobs.filter(job => {
+        const jobLocations = job.areas?.map(area => area.name) || [job.country];
+        return (selectedCountry === 'All' || jobLocations.includes(selectedCountry)) &&
+               (selectedJobType === 'All' || job.occupation_area === selectedJobType);
+    });
 
+    if (filteredJobs.length === 0) {
+        // Display a message if no jobs match the filter criteria
+        $('#jobList').html('<div class="col-12 text-center mt-4"><p>Det finns inga lediga tjänster för studenter just nu.</p></div>');
+    } else {
+        // Otherwise, display the filtered jobs
         filteredJobs.forEach(job => {
             $('#jobList').append(buildJobCard(job));
         });
-
-        updateLoadMoreVisibility();
     }
+
+    updateLoadMoreVisibility();
+}
 
     // Function to build HTML for a job card
     function buildJobCard(job) {
