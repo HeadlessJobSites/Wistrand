@@ -101,82 +101,28 @@ $(document).ready(function() {
         <source src="/files/CMS-webfilm.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-        <h1><span class="title-alt">För dig</span> som är student</h1>
-        <a href="#jobs-anchor" class="btn btn-primary btn-lg dark-btn" style="background: #0d535f !important;"><strong>Se våra lediga tjänster</strong></a>
+        <h1><span style="font-weight: 800;">För dig</span> som är student</h1>
     </div>
 	</div>
 
 	
 	<div class="talentech-section" id="company-section">
     <div class="container mt-5 pt-4 m-mt-2">
-        <h2 class="m-px-2">Välkommen till <span style="font-weight: 800;">CMS Wistrand</span></h2>
-        <p class="pt-3 m-px-2">CMS Wistrand är en av Sveriges ledande affärsjuridiska byråer. På våra kontor i Stockholm och Göteborg är vi drygt 200 medarbetare – och som en del av CMS är vi en av världens största advokatbyråer med mer än 5 800 juridiska experter i över 45 länder. Lockas du av att lösa komplexa problem som ställer krav på innovation, expertis och samarbete? Vill du dessutom arbeta i en internationell miljö och värdesätter en öppen och inkluderande arbetsplats – då är CMS Wistrand rätt för dig.</p>
+        <h2 class="m-px-2"><span style="font-weight: 800;">Välkommen</span> hit!</h2>
+        <p class="pt-3 m-px-2">Vi är extra glada att du som student hittat hit – du är ju faktiskt juridikens framtid! Vi hoppas att du vill lära känna oss bättre genom att delta på något av våra event, skriva din uppsats hos oss eller arbeta som sommarnotarie.</p>
+	
+        <h2 class="m-px-2"><span style="font-weight: 800;">Våra event</span> - ett utmärkt tillfälle för ettförsta intryck!</h2>
+        <p class="pt-3 m-px-2">Är du student och nyfiken på CMS Wistrand? Då tycker vi att du ska passa på och träffa oss på arbetsmarknadsdagar vid universiteten eller andra studentevent. Ta gärna en titt i vår kalender för att se nästa tillfälle.<br><br>Det är en möjlighet för dig att få veta lite mer om vilka vi är, om vår kultur och hur vi arbetar – och för oss att få lära känna dig och berätta mer om hur du kan börja din karriär på CMS Wistrand.</p>
+	<p class="pt-3 m-px-2"><strong>Oktober</strong><br>10 oktober – Juristdagarna, Stockholm<br>15 oktober – JIF-dagen, Karlstad<br><strong>November</strong><br>7 november – JiA-dagarna, Lund<br>12 november – Kontaktdagen, Uppsala<br>19 november – Juristmässan, Örebro<br>28 november – Juristens dag, Umeå<br><br><strong>December</strong>12 december – GAIUS, Göteborg</p>    
     </div>
 </div>
 
 
 
 
-
-<!-- DISABLE VIDEO CONTROLS
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('talentechVideo');
-    const muteBtn = document.getElementById('muteBtn');
-    const muteIcon = muteBtn.querySelector('img');
-
-    // Function to toggle video play/pause
-    const togglePlayPause = () => {
-        if (video.paused || video.ended) {
-            video.play();
-        } else {
-            video.pause();
-        }
-    };
-
-    // Setup Intersection Observer for autoplay/pause based on visibility
-    // This part will now work on all devices
-    const observer = new IntersectionObserver((entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-            video.play();
-        } else {
-            video.pause();
-        }
-    }, {
-        root: null,
-        threshold: 0.5
-    });
-
-    observer.observe(video);
-
-    // Check if we are on desktop before adding event listeners for play/pause and mute controls
-    if (window.innerWidth > 992) {
-        // Click event for the video itself
-        video.addEventListener('click', () => {
-            togglePlayPause();
-        });
-
-        // Event listener for the mute button
-        muteBtn.addEventListener('click', () => {
-            video.muted = !video.muted;
-            muteIcon.src = video.muted ? "./files/volume-xmark-thin.svg" : "./files/volume-off-thin.svg";
-            muteIcon.alt = video.muted ? "Mute" : "Unmute";
-        });
-    }
-});
-</script>
--->
-
 <div class="talentech-section mb-5 m-mb-3">
     <div class="container mt-4 pt-2 mb-5 pb-3 video-container m-my-0">
-        <video id="talentechVideo" class="rounded-video" playsinline autoplay loop muted>
-            <source src="/files/ADD_film.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video><!--
-        <div class="video-controls">
-            <button id="muteBtn"><img src="./files/volume-xmark-thin.svg" alt="Mute"></button>
-        </div>-->
+        <img src="./files/A1080096.jpg">
     </div>
 </div>
 	
