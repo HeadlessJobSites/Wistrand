@@ -111,7 +111,7 @@
     border-radius: 2px;
 }
 .benefit-icon {
-	background-color: #005560;
+	background-color: #0D535F;
 	color: rgb(233, 243, 230);
 }
 .quote-section .container {
@@ -122,7 +122,7 @@
     background-position: -100px;
 }
 .quote-section {
-    background-color: #005560;
+    background-color: #0D535F;
 }
 .max-width-container {
     max-width: 1600px;
@@ -131,7 +131,7 @@
 	font-size: 2em;
 }
 .bg-dark {
-    background-color: #005560 !important;
+    background-color: #0D535F !important;
 }
 .carousel-indicators {
   bottom: 30px;
