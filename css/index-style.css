@@ -1,55 +1,55 @@
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-UltraLight.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-Light.otf');
 	font-weight: 200;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-Medium.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-Bold.otf');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-SemiBold.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-Bold.otf');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-Regular.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-Roman.otf');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-UltraBold.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-Black.otf');
 	font-weight: 800;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-Light.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-Light.otf');
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-Black.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-UltraBlack.otf');
 	font-weight: 900;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
-	font-family: 'Telegraf';
-	src: url('/fonts/Telegraf-UltraBold.ttf');
+	font-family: 'Frutiger';
+	src: url('/fonts/FrutigerLTStd-Black.otf');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
@@ -98,11 +98,11 @@
 	word-wrap: break-word;
 }
 body {
-/*	font-family: Telegraf;
+/*	font-family: Frutiger;
 	font-weight:;*/
 }
 h1 {
-	font-family: Telegraf;
+	font-family: Frutiger;
 	font-size: 4rem;
 	margin-bottom: 2rem;
 }
