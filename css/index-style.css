@@ -21,7 +21,7 @@
 }
 @font-face {
 	font-family: 'Frutiger';
-	src: url('/fonts/FrutigerLTStd-Roman.otf');
+	src: url('/fonts/FrutigerLTStd-Light.otf');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -98,8 +98,7 @@
 	word-wrap: break-word;
 }
 body {
-/*	font-family: Frutiger;
-	font-weight:;*/
+	font-family: Frutiger;
 }
 h1 {
 	font-family: Frutiger;
