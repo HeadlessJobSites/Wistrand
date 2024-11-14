@@ -331,13 +331,13 @@ $(document).ready(function () {
         }
     }
 
-    // Function to fetch jobs from the API
-    function fetchJobs() {
+// Function to fetch jobs from the API
+function fetchJobs() {
     fetch('https://api.talentech.io/reachmee/feed/wistrand')
         .then(response => response.json())
         .then(data => {
-            // Filter jobs to only include those with "Tillsvidareanställning" in employment_level
-            jobs = data.filter(job => job.employment_level === "Student");
+            // Filter jobs to only include those with "Student" or "Sommerjobb" in employment_level
+            jobs = data.filter(job => job.employment_level === "Student" || job.employment_level === "Sommerjobb");
             displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
             populateFilters(); // Fill dropdowns with options
             displayJobs(); // Show initial jobs
@@ -346,6 +346,7 @@ $(document).ready(function () {
             console.error('Error fetching jobs:', error);
         });
 }
+
 
     // Load jobs when page is ready
     fetchJobs();
