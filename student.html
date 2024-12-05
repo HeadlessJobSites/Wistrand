@@ -294,10 +294,10 @@ $(document).ready(function () {
         fetch('https://api.talentech.io/reachmee/feed/wistrand')
             .then(response => response.json())
             .then(data => {
-                // Only include jobs with employment_level "Student" or "Sommerjobb"
+                // Only include jobs with employment_level "Student" or "Sommarjobb"
                 jobs = data.filter(job => 
                     job.employment_level?.toLowerCase() === "student" || 
-                    job.employment_level?.toLowerCase() === "sommerjobb"
+                    job.employment_level?.toLowerCase() === "sommarjobb"
                 );
                 displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
                 displayJobs(); // Show initial jobs
