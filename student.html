@@ -222,8 +222,7 @@ $(document).ready(function() {
 
 
 	
-	
-<script>
+	<script>
 $(document).ready(function () {
     let jobs = []; // Array to store all jobs
     let displayedJobs = 0; // Counter for the number of jobs currently displayed
@@ -239,70 +238,29 @@ $(document).ready(function () {
         updateLoadMoreVisibility(); // Update button visibility after resize
     });
 
-    // Function to populate filter dropdowns based on jobs
-    function populateFilters() {
-        const locationSet = new Set();
-        const jobTypeSet = new Set();
-
-        jobs.forEach(job => {
-            if (job.areas && job.areas.length > 0) {
-                job.areas.forEach(area => locationSet.add(area.name));
-            } else if (job.country) {
-                locationSet.add(job.country);
-            }
-
-            if (job.occupation_area) {
-                jobTypeSet.add(job.occupation_area);
-            }
-        });
-
-        // Populate location filter
-        $('#locationFilter').html('<option value="All">Alla platser</option>');
-        locationSet.forEach(location => {
-            $('#locationFilter').append(`<option value="${location}">${location}</option>`);
-        });
-
-        // Populate job type filter
-        $('#jobTypeFilter').html('<option value="All">Alla typer av jobb</option>');
-        jobTypeSet.forEach(type => {
-            $('#jobTypeFilter').append(`<option value="${type}">${type}</option>`);
-        });
-    }
-
-    // Function to display jobs based on filters
+    // Function to display jobs without filters
     function displayJobs() {
-    $('#jobList').empty(); // Clear current jobs
+        $('#jobList').empty(); // Clear current jobs
 
-    let filteredJobs = jobs.slice(0, displayedJobs); // Get the subset of jobs to be displayed
+        // Display jobs up to the limit of `displayedJobs`
+        const jobsToDisplay = jobs.slice(0, displayedJobs);
 
-    const selectedCountry = $('#locationFilter').val();
-    const selectedJobType = $('#jobTypeFilter').val();
+        if (jobsToDisplay.length === 0) {
+            // Display a message if no jobs match the criteria
+            $('#jobList').html('<div class="talentech-section mt-4"><div class="container"><p class="m-px-2" style="font-size: 1.2em;text-align: left;">Det finns inga lediga tjänster för studenter just nu.</p></div></div>');
+        } else {
+            // Otherwise, display the jobs
+            jobsToDisplay.forEach(job => {
+                $('#jobList').append(buildJobCard(job));
+            });
+        }
 
-    filteredJobs = filteredJobs.filter(job => {
-        const jobLocations = job.areas?.map(area => area.name) || [job.country];
-        return (selectedCountry === 'All' || jobLocations.includes(selectedCountry)) &&
-               (selectedJobType === 'All' || job.occupation_area === selectedJobType);
-    });
-
-    if (filteredJobs.length === 0) {
-        // Display a message if no jobs match the filter criteria
-        $('#jobList').html('<div class="talentech-section mt-4"><div class="container"><p class="m-px-2" style="font-size: 1.2em;text-align: left;">Det finns inga lediga tjänster för studenter just nu.</p></div></div>');
-    } else {
-        // Otherwise, display the filtered jobs
-        filteredJobs.forEach(job => {
-            $('#jobList').append(buildJobCard(job));
-        });
+        updateLoadMoreVisibility();
     }
-
-    updateLoadMoreVisibility();
-}
 
     // Function to build HTML for a job card
     function buildJobCard(job) {
         const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
-        const organizationUnitName = job.organizations && job.organizations.length > 1 
-            ? job.organizations[1].nameorgunit 
-            : job.organizations?.[0]?.nameorgunit || 'Not specified';
         const category = job.occupation_area || 'Wistrand'; // Use occupation_area or default to 'Wistrand'
 
         return `
@@ -331,48 +289,35 @@ $(document).ready(function () {
         }
     }
 
-// Function to fetch jobs from the API
-function fetchJobs() {
-    fetch('https://api.talentech.io/reachmee/feed/wistrand')
-        .then(response => response.json())
-        .then(data => {
-            // Filter jobs to only include those with "Student" or "Sommerjobb" in employment_level
-            jobs = data.filter(job => job.employment_level === "Student" || job.employment_level === "Sommerjobb");
-            displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
-            populateFilters(); // Fill dropdowns with options
-            displayJobs(); // Show initial jobs
-        })
-        .catch(error => {
-            console.error('Error fetching jobs:', error);
-        });
-}
+    // Fetch jobs from the API
+    function fetchJobs() {
+        fetch('https://api.talentech.io/reachmee/feed/wistrand')
+            .then(response => response.json())
+            .then(data => {
+                // Only include jobs with employment_level "Student" or "Sommerjobb"
+                jobs = data.filter(job => 
+                    job.employment_level?.toLowerCase() === "student" || 
+                    job.employment_level?.toLowerCase() === "sommerjobb"
+                );
+                displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
+                displayJobs(); // Show initial jobs
+            })
+            .catch(error => {
+                console.error('Error fetching jobs:', error);
+            });
+    }
 
-
-    // Load jobs when page is ready
+    // Load jobs when the page is ready
     fetchJobs();
 
-    // Event listeners for "Load More" button and filter dropdowns
+    // Event listener for "Load More" button
     $('#loadMore').click(function() {
         displayedJobs += jobsToShow;
         displayJobs();
         updateLoadMoreVisibility();
     });
-
-    $('#locationFilter').change(function() {
-        displayedJobs = jobsToShow;
-        displayJobs();
-        updateLoadMoreVisibility();
-    });
-
-    $('#jobTypeFilter').change(function() {
-        displayedJobs = jobsToShow;
-        displayJobs();
-        updateLoadMoreVisibility();
-    });
 });
-
 </script>
-
 
 
 
