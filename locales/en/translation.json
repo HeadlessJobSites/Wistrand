@@ -129,7 +129,10 @@
     "students": "For Students",
     "recruitment_process": "Recruitment Process",
     "login": "Login",
-    "cms_law": "cms.law"
+    "cms_law": "cms.law",
+    "home": "Home",
+    "values": "Our Values",
+    "apply": "Apply"
   }
 
 }
