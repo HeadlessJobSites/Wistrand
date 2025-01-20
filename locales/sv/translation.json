@@ -108,6 +108,16 @@
         "description": "Om det blir en matchning ger vi dig ett erbjudande om anställning. När du har tackat ja börjar onboarding och självklart guidar vi dig genom varje steg!"
       }
     ]
+  },
+  "jobs_section": {
+    "header": "Lediga <span style=\"font-weight: 800\">tjänster</span>",
+    "location_filter": "Plats",
+    "all_locations": "Alla platser",
+    "job_type_filter": "Arbetstyp",
+    "all_job_types": "Alla typer av jobb",
+    "load_more": "Ladda fler",
+    "not_specified": "Ej specificerad",
+    "details": "Detaljer"
   }
 
 }
