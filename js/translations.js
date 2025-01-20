@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
+  }
+
     function changeLanguage(lng) {
       // Save the selected language to localStorage
       localStorage.setItem('selectedLanguage', lng);
