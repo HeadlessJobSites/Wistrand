@@ -140,7 +140,8 @@
   "location_value": "Location",
   "expiration_label": "Application deadline",
   "expiration_value": "Application deadline"
-}
+},
+  "apply_button_submit": "Submit Application"
 
 
 }
