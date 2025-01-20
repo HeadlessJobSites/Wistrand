@@ -132,6 +132,15 @@
     "login": "Login",
     "home": "Home",
     "values": "Our Values"
-  }
+  },
+  "job_section": {
+  "team_label": "Team",
+  "team_value": "Team",
+  "location_label": "Location",
+  "location_value": "Location",
+  "expiration_label": "Application deadline",
+  "expiration_value": "Application deadline"
+}
+
 
 }
