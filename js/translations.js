@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     i18next
       .use(i18nextHttpBackend)  // Use the backend plugin available globally
       .init({
-        lng: 'en', // Default language
+        lng: 'sv', // Default language
         fallbackLng: 'sv',
         debug: true,
         backend: {
