@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const organizationUnitName = job.organizations && job.organizations.length > 1
           ? job.organizations[1].nameorgunit
           : job.organizations?.[0]?.nameorgunit || i18next.t('jobs_section.not_specified');
-        const category = job.occupation_area || 'Wistrand'; // Use occupation_area or default to 'Wistrand'
+        const category = job.occupation_area || 'Wistrand';
 
         return `
           <div class="col-12 col-md-4 col-lg-4 mb-4">
@@ -134,19 +134,20 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    // Function to update the current language flag
-    function updateCurrentLanguageFlag(language) {
-      const currentFlag = document.getElementById('currentLanguageFlag');
-      if (language === 'en') {
-        currentFlag.src = './files/flag-en.svg';
-        currentFlag.alt = 'English';
-      } else if (language === 'sv') {
-        currentFlag.src = './files/flag-sv.svg';
-        currentFlag.alt = 'Swedish';
-      }
+    function changeLanguage(lng) {
+      localStorage.setItem('selectedLanguage', lng);
+      i18next.changeLanguage(lng, () => {
+        updateContent();
+        updateCurrentLanguageFlag(lng);
+      });
     }
 
-    // Add event listeners for language change via flags
+    function updateCurrentLanguageFlag(language) {
+      const currentFlag = document.getElementById('currentLanguageFlag');
+      currentFlag.src = language === 'en' ? './files/en.svg' : './files/sv.svg';
+      currentFlag.alt = language === 'en' ? 'English' : 'Swedish';
+    }
+
     document.getElementById('switch-to-en').addEventListener('click', function (e) {
       e.preventDefault();
       changeLanguage('en');
