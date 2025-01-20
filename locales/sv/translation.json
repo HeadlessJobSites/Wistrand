@@ -25,5 +25,59 @@
         "description": "För oss är det viktigt att vi bidrar till en positiv utveckling inom hållbarhetsområdet. En stor del av detta arbete är att stötta och vägleda våra klienter i ESG-frågor kring regelefterlevnad, strategier och policys. Men att skapa en hållbar arbetsmiljö är en lika viktig komponent – därför ser vi till att du har de bästa förutsättningarna för att prestera långsiktigt, genom att erbjuda både stöd för att hantera arbetets utmaningar och utrymme för återhämtning."
       }
     ]
+  },
+    "meet_employees": {
+    "header": "Fyra röster om <span style=\"font-weight: 800;\">CMS Wistrand</span>",
+    "employees": [
+      {
+        "name": "Nina Knobloch Blomqvist",
+        "role": "Biträdande jurist, Miljögruppen",
+        "q_and_a": {
+          "about": "Berätta lite om dig själv och hur du hamnade här!",
+          "about_answer": "Jag är statsvetare i grunden och har alltid varit nyfiken på hur samhället fungerar och vad som håller ihop det. Den nyfikenheten ledde mig vidare till juridiken, som ju är samhällets spelregler, och till fördjupningar inom stats- och konstitutionell rätt. Efter några år på Mark- och miljödomstolen i Växjö och Länsstyrelsen Skåne fick jag sedan möjligheten att ansluta till CMS Wistrands miljögrupp i Göteborg.",
+          "culture": "Hur skulle du beskriva kulturen hos oss?",
+          "culture_answer": "Göteborgskontoret är en ung och energifylld arbetsplats. Här är alltid något galet upptåg på gång!",
+          "appreciation": "Vad uppskattar du mest med att arbeta på CMS Wistrand?",
+          "appreciation_answer": "Kollegorna! Det är otroligt lyxigt att få arbeta tillsammans med så kunniga, generösa och aktivt trevliga människor."
+        }
+      },
+      {
+        "name": "Johannes Wårdman",
+        "role": "Partner, advokat",
+        "q_and_a": {
+          "about": "Berätta lite om dig själv och hur du hamnade på CMS Wistrand!",
+          "about_answer": "Jag är uppvuxen i en småföretagarfamilj och kombinerade juridikstudier i Uppsala och Hong Kong med jobb i familjeföretaget. Under slutet av studierna arbetade jag på en engelsk immaterialrättsbyrå i Hong Kong, men efter ett tag längtade jag hem till Sverige och västkusten. Jag hade hört mycket gott om CMS Wistrand och fick ett oerhört personligt och bra bemötande under intervjun. Det kändes som en solklar match – och nu har jag varit på CMS Wistrand i över 15 år.",
+          "qualities": "Vilka egenskaper tror du är viktiga för att trivas hos oss?",
+          "qualities_answer": "Ambitiös, nyfiken, företagsam, ansvarsfull och noggrann.",
+          "balance": "Hur upplever du att balansen mellan arbete och fritid fungerar?",
+          "balance_answer": "Ibland får man pussla lite under de mest hektiska perioderna, men med lite planering, transparens och lyhördhet (såväl mot klienter som kollegor) får man alltid ihop pusslet, inte minst då vi kollegor alltid ställer upp för varandra och då våra klienters egna liv i mångt och mycket liknar våra egna finns det alltid förståelse – och inte minst uppskattning när man ställer upp lite extra!"
+        }
+      },
+      {
+        "name": "Tua Larsson",
+        "role": "Receptionist",
+        "q_and_a": {
+          "culture": "Hur skulle du beskriva kulturen på CMS Wistrand?",
+          "culture_answer": "Det är nog lätt att tro att det ska vara en hierarki på en advokatbyrå, men CMS Wistrand är allt annat än det. Alla, oavsett roll är alltid trevliga och lättsamma att prata med. Vi har väldigt roligt med varandra på diverse aktiviteter och alla är alltid välkomna.",
+          "day": "Hur ser en vanlig dag ut?",
+          "day_answer": "Jag sitter i receptionen vilket innebär en del olika arbetsuppgifter, jag ordnar även olika event både internt och externt. Vilket gör att alla dagar egentligen ser olika ut, det kan vara allt från att hitta ett nytt alternativ på fika till vårt onsdagsfika vi har varje vecka till att ordna ett mingel till studenter som kommer på besök. Det är det som är kul med min roll.",
+          "appreciation": "Vad uppskattar du mest med att arbeta hos oss?",
+          "appreciation_answer": "Det jag uppskattar mest med min arbetsplats är mina kollegor, i repan så får vi flera olika interaktioner med diverse kollegor vilket alltid är trevligt och jag har fått många kompisar från kontoret. Vi har även väldigt bra förmåner vilket var en stor skillnad mot tidigare arbetsplatser jag varit på."
+        }
+      },
+      {
+        "name": "Noah Taha",
+        "role": "Biträdande jurist, Company Commercial-gruppen",
+        "q_and_a": {
+          "about": "Berätta lite om dig själv och hur du hamnade på CMS Wistrand?",
+          "about_answer": "Att bli jurist var aldrig något uttalat mål jag hade. Jag arbetade länge som restaurangchef på McDonald’s och trivdes med det innan jag började studera. Att valet av studier föll på just juridik var främst för att jag gillar problemlösning och att arbeta systematiskt. Efter studierna satt jag ting och var en vända på en annan byrå innan jag började på CMS Wistrand.",
+          "projects": "Vilka typer av uppdrag eller projekt har du varit mest engagerad i?",
+          "projects_answer": "Uppdragen varierar väldigt mycket vilket är lite av charmen. Vissa kan innebära att hjälpa till med att lösa problem mellan aktieägarna och andra omfattar större transaktioner med flera olika jurisdiktioner.",
+          "first_impressions": "Hur var den första tiden – var det något som stack ut?",
+          "first_impressions_answer": "Första tiden på en ny arbetsplats är alltid en utmaning. Man vill gärna uppfylla och möta kollegornas förväntningar, passa in socialt och samtidigt känna efter vad man själv tycker. Jag har haft turen att kollegorna alltid har varit välkomnande och snälla, vilket gjort första tiden väldigt smidig."
+        }
+      }
+    ]
   }
+
 }
