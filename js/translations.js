@@ -36,6 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('our_process_header').innerHTML = i18next.t('our_process.header');
       document.getElementById('delivered_by_text').innerHTML = i18next.t('social_section.delivered_by');
       document.getElementById('share_on_social_text').innerHTML = i18next.t('social_section.share_on_social');
+      document.getElementById('navbar_jobs').innerHTML = i18next.t('navbar.jobs');
+      document.getElementById('navbar_meet_employees').innerHTML = i18next.t('navbar.meet_employees');
+      document.getElementById('navbar_students').innerHTML = i18next.t('navbar.students');
+      document.getElementById('navbar_recruitment_process').innerHTML = i18next.t('navbar.recruitment_process');
+      document.getElementById('navbar_login').innerHTML = i18next.t('navbar.login');
+      document.getElementById('navbar_cms_law').innerHTML = i18next.t('navbar.cms_law');
+
       
       // Update Job Listings Section
       document.getElementById('jobs_section_header').innerHTML = i18next.t('jobs_section.header');
