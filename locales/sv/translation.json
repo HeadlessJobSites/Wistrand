@@ -140,6 +140,8 @@
   "location_value": "Plats",
   "expiration_label": "Sista ansökningsdag",
   "expiration_value": "Sista ansökningsdag"
-}
+},
+  "apply_button_submit": "Skicka in ansökan"
+
 
 }
