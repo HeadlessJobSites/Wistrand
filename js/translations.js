@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('quote_text').innerHTML = i18next.t('quote_section.quote');
       document.getElementById('quote_author').innerHTML = i18next.t('quote_section.author');
       document.getElementById('quote_role').innerHTML = i18next.t('quote_section.role');
+      document.getElementById('our_process_header').innerHTML = i18next.t('our_process.header');
 
 
       // Update the button text based on the number of positions (this part assumes you have a way to determine the number of jobs, e.g., from a variable)
@@ -51,6 +52,27 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(`member_${index + 1}_role`).innerHTML = member.role;
         document.getElementById(`member_${index + 1}_description`).innerHTML = member.description;
       });
+
+      
+  // Update process steps dynamically
+  const steps = i18next.t('our_process.steps', { returnObjects: true });
+  const processStepsContainer = document.getElementById('process_steps');
+  processStepsContainer.innerHTML = ''; // Clear existing steps
+
+  steps.forEach((step, index) => {
+    const stepHTML = `
+      <div class="col-md-4 col-sm-4 process-item">
+        <div class="process-icon">
+          <h3>${index + 1}</h3>
+        </div>
+        <div class="process-content">
+          <h3>${step.title}</h3>
+          <p>${step.description}</p>
+        </div>
+      </div>
+    `;
+    processStepsContainer.insertAdjacentHTML('beforeend', stepHTML);
+  });
 
       // Update employees' information dynamically
       const employees = i18next.t('meet_employees.employees', { returnObjects: true });
