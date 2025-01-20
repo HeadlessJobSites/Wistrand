@@ -118,6 +118,10 @@
     "load_more": "Load More",
     "not_specified": "Not Specified",
     "details": "Details"
+  },
+  "social_section": {
+    "delivered_by": "Delivered by",
+    "share_on_social": "Share on social media:"
   }
 
 }
