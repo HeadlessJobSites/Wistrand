@@ -54,16 +54,16 @@
         }
       },
       {
-        "name": "Tua Larsson",
-        "role": "Receptionist",
-        "q_and_a": {
-          "culture": "Hur skulle du beskriva kulturen på CMS Wistrand?",
-          "culture_answer": "Det är nog lätt att tro att det ska vara en hierarki på en advokatbyrå, men CMS Wistrand är allt annat än det. Alla, oavsett roll är alltid trevliga och lättsamma att prata med. Vi har väldigt roligt med varandra på diverse aktiviteter och alla är alltid välkomna.",
-          "day": "Hur ser en vanlig dag ut?",
-          "day_answer": "Jag sitter i receptionen vilket innebär en del olika arbetsuppgifter, jag ordnar även olika event både internt och externt. Vilket gör att alla dagar egentligen ser olika ut, det kan vara allt från att hitta ett nytt alternativ på fika till vårt onsdagsfika vi har varje vecka till att ordna ett mingel till studenter som kommer på besök. Det är det som är kul med min roll.",
-          "appreciation": "Vad uppskattar du mest med att arbeta hos oss?",
-          "appreciation_answer": "Det jag uppskattar mest med min arbetsplats är mina kollegor, i repan så får vi flera olika interaktioner med diverse kollegor vilket alltid är trevligt och jag har fått många kompisar från kontoret. Vi har även väldigt bra förmåner vilket var en stor skillnad mot tidigare arbetsplatser jag varit på."
-        }
+  "name": "Tua Larsson",
+  "role": "Receptionist",
+  "q_and_a": {
+    "about": "Hur skulle du beskriva kulturen på CMS Wistrand?",
+    "about_answer": "Det är nog lätt att tro att det ska vara en hierarki på en advokatbyrå, men CMS Wistrand är allt annat än det. Alla, oavsett roll är alltid trevliga och lättsamma att prata med. Vi har väldigt roligt med varandra på diverse aktiviteter och alla är alltid välkomna.",
+    "day": "Hur ser en vanlig dag ut?",
+    "day_answer": "Jag sitter i receptionen vilket innebär en del olika arbetsuppgifter, jag ordnar även olika event både internt och externt. Vilket gör att alla dagar egentligen ser olika ut, det kan vara allt från att hitta ett nytt alternativ på fika till vårt onsdagsfika vi har varje vecka till att ordna ett mingel till studenter som kommer på besök. Det är det som är kul med min roll.",
+    "appreciation": "Vad uppskattar du mest med att arbeta hos oss?",
+    "appreciation_answer": "Det jag uppskattar mest med min arbetsplats är mina kollegor, i repan så får vi flera olika interaktioner med diverse kollegor vilket alltid är trevligt och jag har fått många kompisar från kontoret. Vi har även väldigt bra förmåner vilket var en stor skillnad mot tidigare arbetsplatser jag varit på."
+  }
       },
       {
         "name": "Noah Taha",
