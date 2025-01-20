@@ -108,6 +108,16 @@
         "description": "If there is a match, we will make you a job offer. Once you accept, onboarding begins, and we will guide you through every step!"
       }
     ]
+  },
+  "jobs_section": {
+    "header": "Open <span style=\"font-weight: 800\">Positions</span>",
+    "location_filter": "Location",
+    "all_locations": "All Locations",
+    "job_type_filter": "Job Type",
+    "all_job_types": "All Job Types",
+    "load_more": "Load More",
+    "not_specified": "Not Specified",
+    "details": "Details"
   }
 
 }
