@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('company_header').innerHTML = i18next.t('company_section.header');
       document.getElementById('company_description').innerHTML = i18next.t('company_section.description');
       document.getElementById('values_header').innerHTML = i18next.t('values_section.header');
+      document.getElementById('meet_employees_header').innerHTML = i18next.t('meet_employees.header');
+
 
       // Update the button text based on the number of positions (this part assumes you have a way to determine the number of jobs, e.g., from a variable)
       let positionsCount = 5; // You would dynamically set this based on data fetched
@@ -46,6 +48,20 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(`member_${index + 1}_role`).innerHTML = member.role;
         document.getElementById(`member_${index + 1}_description`).innerHTML = member.description;
       });
+
+        // Update each employee's content
+  const employees = i18next.t('meet_employees.employees', { returnObjects: true });
+  employees.forEach((employee, index) => {
+    document.getElementById(`employee_${index + 1}_name`).innerHTML = employee.name;
+    document.getElementById(`employee_${index + 1}_role`).innerHTML = employee.role;
+    document.getElementById(`employee_${index + 1}_about`).innerHTML = `
+      <strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>
+      <strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>
+      <strong>${employee.q_and_a.appreciation || ''}</strong><br>${employee.q_and_a.appreciation_answer || ''}
+    `;
+  });
+}
+
     }
 
     function changeLanguage(lng) {
