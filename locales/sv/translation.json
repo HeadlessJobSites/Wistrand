@@ -83,6 +83,31 @@
     "quote": "“Det är otroligt lyxigt att få arbeta tillsammans med så kunniga, generösa och aktivt trevliga människor.”",
     "author": "Nina Knobloch Blomqvist",
     "role": "Biträdande jurist"
+  },
+  "our_process": {
+    "header": "Vår <span style=\"font-weight: 800;\">rekryterings&shy;process</span>",
+    "steps": [
+      {
+        "title": "Skicka in din ansökan",
+        "description": "Du ansöker genom att ladda upp CV och andra relevanta ansökningshandlingar i vår karriärportal."
+      },
+      {
+        "title": "Första urval och screening",
+        "description": "Vi går igenom din ansökan och ser om dina kunskaper, erfarenheter och kompetenser stämmer överens med det vi söker."
+      },
+      {
+        "title": "Tester",
+        "description": "Beroende på vilken roll du söker till kan du bli ombedd att genomföra ett personlighetstest och ett test som mäter din problemlösningsförmåga."
+      },
+      {
+        "title": "Intervjuprocess",
+        "description": "Beroende på vilken roll du söker kan du bli kallad till en eller fler intervjuer för att vi ska lära känna varandra och få möjlighet att höra mer om dina erfarenheter och ambitioner."
+      },
+      {
+        "title": "Erbjudande och onboarding",
+        "description": "Om det blir en matchning ger vi dig ett erbjudande om anställning. När du har tackat ja börjar onboarding och självklart guidar vi dig genom varje steg!"
+      }
+    ]
   }
 
 }
