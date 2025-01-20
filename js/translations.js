@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .use(i18nextHttpBackend)  // Use the backend plugin available globally
       .init({
         lng: 'en', // Default language
-        fallbackLng: 'en',
+        fallbackLng: 'sv',
         debug: true,
         backend: {
           loadPath: './locales/{{lng}}/translation.json'  // Path to the translation files
