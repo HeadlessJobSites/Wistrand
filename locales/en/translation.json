@@ -124,14 +124,14 @@
     "share_on_social": "Share on social media:"
   },
   "navbar": {
+    "apply": "Apply",
     "jobs": "Jobs",
     "meet_employees": "Meet the Employees",
     "students": "For Students",
     "recruitment_process": "Recruitment Process",
     "login": "Login",
     "home": "Home",
-    "values": "Our Values",
-    "apply": "Apply"
+    "values": "Our Values"
   }
 
 }
