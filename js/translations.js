@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         // Initialize your application after translations have been loaded
         updateContent();
+
+        // Update the current flag icon based on the saved language
+        updateCurrentLanguageFlag(savedLanguage);
       });
 
     function updateContent() {
@@ -43,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('navbar_login').innerHTML = i18next.t('navbar.login');
       document.getElementById('navbar_cms_law').innerHTML = i18next.t('navbar.cms_law');
 
-      
       // Update Job Listings Section
       document.getElementById('jobs_section_header').innerHTML = i18next.t('jobs_section.header');
       document.getElementById('location_filter_label').innerHTML = i18next.t('jobs_section.location_filter');
@@ -132,21 +134,26 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    function changeLanguage(lng) {
-      // Save the selected language to localStorage
-      localStorage.setItem('selectedLanguage', lng);
-
-      // Change the language in i18next
-      i18next.changeLanguage(lng, () => {
-        updateContent();
-      });
+    // Function to update the current language flag
+    function updateCurrentLanguageFlag(language) {
+      const currentFlag = document.getElementById('currentLanguageFlag');
+      if (language === 'en') {
+        currentFlag.src = './files/flag-en.svg';
+        currentFlag.alt = 'English';
+      } else if (language === 'sv') {
+        currentFlag.src = './files/flag-sv.svg';
+        currentFlag.alt = 'Swedish';
+      }
     }
 
-    // Add language change event listeners
-    document.getElementById('switch-to-en').addEventListener('click', function () {
+    // Add event listeners for language change via flags
+    document.getElementById('switch-to-en').addEventListener('click', function (e) {
+      e.preventDefault();
       changeLanguage('en');
     });
-    document.getElementById('switch-to-sv').addEventListener('click', function () {
+
+    document.getElementById('switch-to-sv').addEventListener('click', function (e) {
+      e.preventDefault();
       changeLanguage('sv');
     });
   }
