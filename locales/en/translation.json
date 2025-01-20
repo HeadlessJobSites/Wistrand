@@ -8,6 +8,22 @@
   "company_section": {
     "header": "Welcome to <span style=\"font-weight: 800;\">CMS Wistrand</span>",
     "description": "CMS Wistrand is one of Sweden's leading business law firms. At our offices in Stockholm and Gothenburg, we have over 200 employees – and as part of CMS, we are one of the world's largest law firms with more than 5,800 legal experts in over 45 countries. Are you attracted to solving complex problems that require innovation, expertise, and collaboration? If you also want to work in an international environment and value an open and inclusive workplace, then CMS Wistrand is right for you."
+  },
+  "values_section": {
+    "header": "Our <span style=\"font-weight: 800;\">Values</span>",
+    "team_members": [
+      {
+        "role": "With you, we see new opportunities",
+        "description": "We know that a diversity of skills, perspectives, and experiences not only makes for a more enjoyable workplace but is also essential to providing our clients with the best advice. When you join us, you become part of an open and inviting culture where you have the space to be yourself – and where you can feel confident that your voice will be heard."
+      },
+      {
+        "role": "Innovation as tradition",
+        "description": "We see innovation as a driving factor behind success. Our industry is constantly evolving, and we ensure we are well-prepared for the future by finding new and more efficient ways to deliver business law services. This means encouraging our employees to think creatively and take initiative, whether it’s about using digital tools to streamline workflows or developing new services that meet clients’ changing needs."
+      },
+      {
+        "role": "Sustainability in large and small matters",
+        "description": "For us, it’s important to contribute to positive development in the area of sustainability. A large part of this work involves supporting and guiding our clients in ESG issues related to compliance, strategies, and policies. But creating a sustainable work environment is equally important – which is why we ensure you have the best conditions to perform in the long term, offering both support to handle work challenges and space for recovery."
+      }
+    ]
   }
 }
-
