@@ -8,5 +8,22 @@
   "company_section": {
     "header": "Välkommen till <span style=\"font-weight: 800;\">CMS Wistrand</span>",
     "description": "CMS Wistrand är en av Sveriges ledande affärsjuridiska byråer. På våra kontor i Stockholm och Göteborg är vi drygt 200 medarbetare – och som en del av CMS är vi en av världens största advokatbyråer med mer än 5 800 juridiska experter i över 45 länder. Lockas du av att lösa komplexa problem som ställer krav på innovation, expertis och samarbete? Vill du dessutom arbeta i en internationell miljö och värdesätter en öppen och inkluderande arbetsplats – då är CMS Wistrand rätt för dig."
+  },
+    "values_section": {
+    "header": "Våra <span style=\"font-weight: 800;\">värderingar</span>",
+    "team_members": [
+      {
+        "role": "Med dig ser vi nya möjligheter",
+        "description": "Vi vet att en mångfald av kompetenser, perspektiv och erfarenheter inte bara ger en trevligare arbetsplats, utan också är en förutsättning för att ge våra klienter den bästa rådgivningen. När du börjar hos oss blir du en del av en öppen och inbjudande kultur där du får utrymme att vara dig själv – och där du kan vara trygg med att din röst blir hörd."
+      },
+      {
+        "role": "Innovation som tradition",
+        "description": "Vi ser innovation som en drivande faktor bakom framgång. Vår bransch förändras ständigt, och vi ser till att vara rätt rustade för framtiden genom att hitta nya och mer effektiva sätt att leverera affärsjuridiska tjänster. Det innebär att vi uppmuntrar våra medarbetare att tänka kreativt och ta initiativ, oavsett om det handlar om att använda digitala verktyg för att effektivisera arbetsflöden eller att utveckla nya tjänster som möter klienternas föränderliga behov."
+      },
+      {
+        "role": "Hållbarhet i stort som litet",
+        "description": "För oss är det viktigt att vi bidrar till en positiv utveckling inom hållbarhetsområdet. En stor del av detta arbete är att stötta och vägleda våra klienter i ESG-frågor kring regelefterlevnad, strategier och policys. Men att skapa en hållbar arbetsmiljö är en lika viktig komponent – därför ser vi till att du har de bästa förutsättningarna för att prestera långsiktigt, genom att erbjuda både stöd för att hantera arbetets utmaningar och utrymme för återhämtning."
+      }
+    ]
   }
 }
