@@ -122,6 +122,14 @@
   "social_section": {
     "delivered_by": "Delivered by",
     "share_on_social": "Share on social media:"
+  },
+  "navbar": {
+    "jobs": "Jobs",
+    "meet_employees": "Meet the Employees",
+    "students": "For Students",
+    "recruitment_process": "Recruitment Process",
+    "login": "Login",
+    "cms_law": "cms.law"
   }
 
 }
