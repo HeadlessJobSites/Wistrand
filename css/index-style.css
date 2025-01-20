@@ -55,7 +55,9 @@
 	font-display: swap;
 }
 
-
+.navbar .dropdown-menu img {
+  margin-right: 8px;
+}
 .hero-content .btn {
 	font-weight: 700;
 	background: #0d535f !important;
