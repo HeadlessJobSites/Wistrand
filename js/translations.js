@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('company_description').innerHTML = i18next.t('company_section.description');
       document.getElementById('values_header').innerHTML = i18next.t('values_section.header');
       document.getElementById('meet_employees_header').innerHTML = i18next.t('meet_employees.header');
+      document.getElementById('quote_text').innerHTML = i18next.t('quote_section.quote');
+      document.getElementById('quote_author').innerHTML = i18next.t('quote_section.author');
+      document.getElementById('quote_role').innerHTML = i18next.t('quote_section.role');
 
 
       // Update the button text based on the number of positions (this part assumes you have a way to determine the number of jobs, e.g., from a variable)
