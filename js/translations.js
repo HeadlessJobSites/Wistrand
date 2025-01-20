@@ -44,7 +44,11 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('navbar_students').innerHTML = i18next.t('navbar.students');
       document.getElementById('navbar_recruitment_process').innerHTML = i18next.t('navbar.recruitment_process');
       document.getElementById('navbar_login').innerHTML = i18next.t('navbar.login');
-
+      document.getElementById('navbar_home').innerHTML = i18next.t('navbar.home');
+      document.getElementById('apply_button').innerHTML = i18next.t('navbar.apply');
+      document.getElementById('apply_button_nav').innerHTML = i18next.t('navbar.apply');
+      document.getElementById('navbar_values').innerHTML = i18next.t('navbar.values');
+      
       // Update Job Listings Section
       document.getElementById('jobs_section_header').innerHTML = i18next.t('jobs_section.header');
       document.getElementById('location_filter_label').innerHTML = i18next.t('jobs_section.location_filter');
