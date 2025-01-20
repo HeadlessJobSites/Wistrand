@@ -25,5 +25,59 @@
         "description": "For us, it’s important to contribute to positive development in the area of sustainability. A large part of this work involves supporting and guiding our clients in ESG issues related to compliance, strategies, and policies. But creating a sustainable work environment is equally important – which is why we ensure you have the best conditions to perform in the long term, offering both support to handle work challenges and space for recovery."
       }
     ]
+  }, 
+    "meet_employees": {
+    "header": "Four Voices on <span style=\"font-weight: 800;\">CMS Wistrand</span>",
+    "employees": [
+      {
+        "name": "Nina Knobloch Blomqvist",
+        "role": "Associate Lawyer, Environmental Group",
+        "q_and_a": {
+          "about": "Tell us a bit about yourself and how you got here!",
+          "about_answer": "I have a background in political science and have always been curious about how society works and what holds it together. That curiosity led me to law, which is society’s rulebook, and to specializing in constitutional and administrative law. After a few years at the Land and Environment Court in Växjö and the County Administrative Board of Skåne, I had the opportunity to join CMS Wistrand’s environmental group in Gothenburg.",
+          "culture": "How would you describe the culture here?",
+          "culture_answer": "The Gothenburg office is a young and energetic workplace. There’s always some fun activity going on!",
+          "appreciation": "What do you appreciate most about working at CMS Wistrand?",
+          "appreciation_answer": "The colleagues! It’s incredibly luxurious to work with such knowledgeable, generous, and genuinely nice people."
+        }
+      },
+      {
+        "name": "Johannes Wårdman",
+        "role": "Partner, Lawyer",
+        "q_and_a": {
+          "about": "Tell us a bit about yourself and how you came to CMS Wistrand!",
+          "about_answer": "I grew up in a family of small business owners and combined studying law in Uppsala and Hong Kong with working in the family business. Towards the end of my studies, I worked at an English intellectual property law firm in Hong Kong. After a while, I longed to return to Sweden and the west coast. I’d heard great things about CMS Wistrand and received a very personal and warm welcome during the interview. It felt like a perfect match—and now I’ve been at CMS Wistrand for over 15 years.",
+          "qualities": "What qualities do you think are important to thrive here?",
+          "qualities_answer": "Ambitious, curious, enterprising, responsible, and meticulous.",
+          "balance": "How do you find the balance between work and leisure?",
+          "balance_answer": "Sometimes you have to juggle a bit during the busiest periods, but with some planning, transparency, and responsiveness—both with clients and colleagues—you can always make it work. Especially since colleagues are always there for each other, and our clients’ lives often resemble our own, there’s always understanding and appreciation when you go the extra mile."
+        }
+      },
+      {
+        "name": "Tua Larsson",
+        "role": "Receptionist",
+        "q_and_a": {
+          "culture": "How would you describe the culture at CMS Wistrand?",
+          "culture_answer": "It’s easy to assume that a law firm would have a hierarchy, but CMS Wistrand is anything but. Everyone, regardless of role, is always friendly and approachable. We have a lot of fun together during various activities, and everyone is always welcome.",
+          "day": "What does a typical day look like?",
+          "day_answer": "I work in the reception, which involves a variety of tasks. I also organize different events both internally and externally. Each day is different—it can range from finding a new snack option for our Wednesday fika to organizing a mingle event for visiting students. That’s what makes my role fun.",
+          "appreciation": "What do you appreciate most about working here?",
+          "appreciation_answer": "What I appreciate most is my colleagues. In reception, we interact with many different colleagues, which is always pleasant, and I’ve made many friends at the office. We also have great benefits, which was a big improvement compared to my previous workplaces."
+        }
+      },
+      {
+        "name": "Noah Taha",
+        "role": "Associate Lawyer, Company Commercial Group",
+        "q_and_a": {
+          "about": "Tell us a bit about yourself and how you came to CMS Wistrand!",
+          "about_answer": "Becoming a lawyer was never a stated goal of mine. I worked for a long time as a restaurant manager at McDonald’s and enjoyed it before I started studying. I chose law mainly because I like problem-solving and working systematically. After my studies, I clerked and spent time at another firm before joining CMS Wistrand.",
+          "projects": "What types of assignments or projects have you been most involved in?",
+          "projects_answer": "The assignments vary greatly, which is part of the charm. Some involve helping resolve issues between shareholders, while others include large transactions with multiple jurisdictions.",
+          "first_impressions": "What stood out to you during your first days?",
+          "first_impressions_answer": "The first days at a new workplace are always a challenge. You want to meet your colleagues’ expectations, fit in socially, and also gauge your own impressions. I’ve been fortunate that colleagues have always been welcoming and kind, which made the first days very smooth."
+        }
+      }
+    ]
   }
+
 }
