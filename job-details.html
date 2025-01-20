@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script type="text/javascript" src="https://web106.reachmee.com/customerjs/helper.js"></script>
+<!-- Language scripts -->
+<script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
+<script src="/js/i18nextHttpBackend.min.js"></script>
+<script src="/js/translations.js"></script>
 
   <meta property="og:title" content="Ledig jobb hos CMS Wistrand">
   <meta property="og:description" content="Vi söker nya perspektiv - add you.">
@@ -124,44 +128,58 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.0);">
     <div class="container m-py-0">
-        <a class="navbar-brand" href="./" aria-label="Hem">
+        <a class="navbar-brand" href="./" aria-label="Home">
             <img src="./files/Logo-white.svg" height="24" class="d-inline-block align-top company-logo" alt="">
         </a>
         <div class="d-flex justify-content-end align-items-center flex-grow-1">
-            <a class="nav-link ml-auto d-lg-none btn btn-primary apply-btn m-mr-2" href="#appform-header">Ansök</a>
+            <a class="nav-link ml-auto d-lg-none btn btn-primary apply-btn m-mr-2" href="#appform-header" id="apply_button"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div class="d-flex d-lg-none my-2 mobile-only">
-            <a class="nav-link new-link mr-1" href="#company-values">Värderingar <i class="fa-thin fa-arrow-down"></i></a>
-            <a class="nav-link new-link ml-1" href="#our-process">Rekryteringsprocess <i class="fa-thin fa-arrow-down"></i></a>
+            <a class="nav-link new-link mr-1" href="#company-values" id="navbar_values"></a>
+            <a class="nav-link new-link ml-1" href="#our-process" id="navbar_recruitment_process_mobile"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./">Hem <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="./" id="navbar_home"><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#appform-header">Ansök</a>
+                    <a class="nav-link" href="#appform-header" id="apply_button_nav"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#company-values">Våra värderingar</a>
+                    <a class="nav-link" href="#company-values" id="navbar_values"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/student.html">För studenter</a>
+                    <a class="nav-link" href="/student.html" id="navbar_students"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#our-process">Rekryteringsprocess</a>
+                    <a class="nav-link" href="#our-process" id="navbar_recruitment_process"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="blank" href="https://cms.law/">cms.law <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" target="blank" href="https://cms.law/" id="navbar_cms_law"><span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item dropdown">
+            	  <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            	    <img id="currentLanguageFlag" src="./files/sv.svg" alt="Current Language" style="width: 20px; height: auto; vertical-align: middle;"> <!-- Default Flag -->
+            	  </a>
+            	  <div class="dropdown-menu" aria-labelledby="languageDropdown">
+            	    <a class="dropdown-item" href="#" id="switch-to-en">
+            	      <img src="./files/en.svg" alt="English" style="width: 20px; height: auto; vertical-align: middle;"> English
+            	    </a>
+            	    <a class="dropdown-item" href="#" id="switch-to-sv">
+            	      <img src="./files/sv.svg" alt="Swedish" style="width: 20px; height: auto; vertical-align: middle;"> Svenska
+            	    </a>
+            	  </div>
+            	</li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 
 
