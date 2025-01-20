@@ -49,19 +49,21 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(`member_${index + 1}_description`).innerHTML = member.description;
       });
 
-        // Update each employee's content
-  const employees = i18next.t('meet_employees.employees', { returnObjects: true });
-  employees.forEach((employee, index) => {
-    document.getElementById(`employee_${index + 1}_name`).innerHTML = employee.name;
-    document.getElementById(`employee_${index + 1}_role`).innerHTML = employee.role;
-    document.getElementById(`employee_${index + 1}_about`).innerHTML = `
-      <strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>
-      <strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>
-      <strong>${employee.q_and_a.appreciation || ''}</strong><br>${employee.q_and_a.appreciation_answer || ''}
-    `;
-  });
-}
-
+      // Update employees' information dynamically
+      const employees = i18next.t('meet_employees.employees', { returnObjects: true });
+      employees.forEach((employee, index) => {
+        document.getElementById(`employee_${index + 1}_name`).innerHTML = employee.name;
+        document.getElementById(`employee_${index + 1}_role`).innerHTML = employee.role;
+        document.getElementById(`employee_${index + 1}_about`).innerHTML = `
+          <strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>
+          ${employee.q_and_a.culture ? `<strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>` : ''}
+          ${employee.q_and_a.qualities ? `<strong>${employee.q_and_a.qualities}</strong><br>${employee.q_and_a.qualities_answer}<br><br>` : ''}
+          ${employee.q_and_a.day ? `<strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br>` : ''}
+          ${employee.q_and_a.projects ? `<strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br>` : ''}
+          ${employee.q_and_a.first_impressions ? `<strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br>` : ''}
+          ${employee.q_and_a.appreciation ? `<strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br>` : ''}
+        `;
+      });
     }
 
     function changeLanguage(lng) {
