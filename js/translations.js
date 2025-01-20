@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
   function updateContent() {
-    document.getElementById('welcome_message').innerHTML = i18next.t('welcome_message');
-    document.getElementById('description').innerHTML = i18next.t('description');
+    document.getElementById('lang_herotext').innerHTML = i18next.t('lang_herotext');
   }
 
   function changeLanguage(lng) {
