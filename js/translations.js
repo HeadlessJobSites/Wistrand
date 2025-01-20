@@ -53,9 +53,26 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'jobs_section_header', key: 'jobs_section.header' },
         { id: 'location_filter_label', key: 'jobs_section.location_filter' },
         { id: 'job_type_filter_label', key: 'jobs_section.job_type_filter' },
-        { id: 'loadMore', key: 'jobs_section.load_more' }
+        { id: 'loadMore', key: 'jobs_section.load_more' },
       ];
 
+      // Job Section Translations
+      const jobSectionUpdates = [
+        { id: 'job_team_label', key: 'job_section.team_label' },
+        { id: 'job_team_value', key: 'job_section.team_value' },
+        { id: 'job_location_label', key: 'job_section.location_label' },
+        { id: 'job_location_value', key: 'job_section.location_value' },
+        { id: 'job_expiration_label', key: 'job_section.expiration_label' },
+        { id: 'job_expiration_value', key: 'job_section.expiration_value' }
+      ];
+      
+      jobSectionUpdates.forEach(({ id, key }) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.innerHTML = i18next.t(key);
+        }
+      });
+      
       // Safely update elements if they exist
       elementsToUpdate.forEach(({ id, key }) => {
         const element = document.getElementById(id);
