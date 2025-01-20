@@ -72,7 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
           element.innerHTML = i18next.t(key);
         }
       });
-      
+
+      // Update the "Submit Application" button
+      const applyButtonSubmit = document.getElementById('apply_button_submit');
+      if (applyButtonSubmit) {
+        applyButtonSubmit.innerHTML = i18next.t('apply_button_submit');
+      }
+
       // Safely update elements if they exist
       elementsToUpdate.forEach(({ id, key }) => {
         const element = document.getElementById(id);
