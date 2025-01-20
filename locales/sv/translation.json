@@ -132,6 +132,14 @@
     "login": "Logga in",
     "home": "Hem",
     "values": "Våra värderingar"
-  }
+  },
+  "job_section": {
+  "team_label": "Team",
+  "team_value": "Team",
+  "location_label": "Plats",
+  "location_value": "Plats",
+  "expiration_label": "Sista ansökningsdag",
+  "expiration_value": "Sista ansökningsdag"
+}
 
 }
