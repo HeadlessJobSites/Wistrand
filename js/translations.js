@@ -81,5 +81,4 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('switch-to-sv').addEventListener('click', function () {
       changeLanguage('sv');
     });
-  }
 });
