@@ -53,18 +53,18 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('loadMore').innerHTML = i18next.t('jobs_section.load_more');
 
       // Update filter options dynamically
-      $('#locationFilter').html(`<option value="All">${i18next.t('jobs_section.all_locations')}</option>`);
-      $('#jobTypeFilter').html(`<option value="All">${i18next.t('jobs_section.all_job_types')}</option>`);
+      $('#locationFilter').html(<option value="All">${i18next.t('jobs_section.all_locations')}</option>);
+      $('#jobTypeFilter').html(<option value="All">${i18next.t('jobs_section.all_job_types')}</option>);
 
       // Job card building function
       function buildJobCard(job) {
-        const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
+        const jobDetailUrl = job-details.html?jobId=${job.ad_id};
         const organizationUnitName = job.organizations && job.organizations.length > 1
           ? job.organizations[1].nameorgunit
           : job.organizations?.[0]?.nameorgunit || i18next.t('jobs_section.not_specified');
-        const category = job.occupation_area || 'Wistrand';
+        const category = job.occupation_area || 'Wistrand'; // Use occupation_area or default to 'Wistrand'
 
-        return `
+        return 
           <div class="col-12 col-md-4 col-lg-4 mb-4">
             <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="${i18next.t('jobs_section.details')}">
               <div class="card h-100">
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
               </div>
             </a>
-          </div>`;
+          </div>;
       }
 
       // Update the button text based on the number of positions
@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
       // Update team members / Carousel
       const teamMembers = i18next.t('values_section.team_members', { returnObjects: true });
       teamMembers.forEach((member, index) => {
-        document.getElementById(`member_${index + 1}_role`).innerHTML = member.role;
-        document.getElementById(`member_${index + 1}_description`).innerHTML = member.description;
+        document.getElementById(member_${index + 1}_role).innerHTML = member.role;
+        document.getElementById(member_${index + 1}_description).innerHTML = member.description;
       });
 
       // Update process steps dynamically
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
       processStepsContainer.innerHTML = ''; // Clear existing steps
 
       steps.forEach((step, index) => {
-        const stepHTML = `
+        const stepHTML = 
           <div class="col-md-4 col-sm-4 process-item">
             <div class="process-icon">
               <h3>${index + 1}</h3>
@@ -113,41 +113,40 @@ document.addEventListener('DOMContentLoaded', function () {
               <p>${step.description}</p>
             </div>
           </div>
-        `;
+        ;
         processStepsContainer.insertAdjacentHTML('beforeend', stepHTML);
       });
 
       // Update employees' information dynamically
       const employees = i18next.t('meet_employees.employees', { returnObjects: true });
       employees.forEach((employee, index) => {
-        document.getElementById(`employee_${index + 1}_name`).innerHTML = employee.name;
-        document.getElementById(`employee_${index + 1}_role`).innerHTML = employee.role;
-        document.getElementById(`employee_${index + 1}_about`).innerHTML = `
-          ${employee.q_and_a.about ? `<strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>` : ''}
-          ${employee.q_and_a.culture ? `<strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>` : ''}
-          ${employee.q_and_a.day ? `<strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br>` : ''}
-          ${employee.q_and_a.projects ? `<strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br>` : ''}
-          ${employee.q_and_a.balance ? `<strong>${employee.q_and_a.balance}</strong><br>${employee.q_and_a.balance_answer}<br><br>` : ''}
-          ${employee.q_and_a.first_impressions ? `<strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br>` : ''}
-          ${employee.q_and_a.appreciation ? `<strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br>` : ''}
-        `;
+        document.getElementById(employee_${index + 1}_name).innerHTML = employee.name;
+        document.getElementById(employee_${index + 1}_role).innerHTML = employee.role;
+        document.getElementById(employee_${index + 1}_about).innerHTML = 
+          ${employee.q_and_a.about ? <strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br> : ''}
+          ${employee.q_and_a.culture ? <strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br> : ''}
+          ${employee.q_and_a.day ? <strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br> : ''}
+          ${employee.q_and_a.projects ? <strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br> : ''}
+          ${employee.q_and_a.balance ? <strong>${employee.q_and_a.balance}</strong><br>${employee.q_and_a.balance_answer}<br><br> : ''}
+          ${employee.q_and_a.first_impressions ? <strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br> : ''}
+          ${employee.q_and_a.appreciation ? <strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br> : ''}
+        ;
       });
     }
 
-    function changeLanguage(lng) {
-      localStorage.setItem('selectedLanguage', lng);
-      i18next.changeLanguage(lng, () => {
-        updateContent();
-        updateCurrentLanguageFlag(lng);
-      });
-    }
-
+    // Function to update the current language flag
     function updateCurrentLanguageFlag(language) {
       const currentFlag = document.getElementById('currentLanguageFlag');
-      currentFlag.src = language === 'en' ? './files/en.svg' : './files/sv.svg';
-      currentFlag.alt = language === 'en' ? 'English' : 'Swedish';
+      if (language === 'en') {
+        currentFlag.src = './files/en.svg';
+        currentFlag.alt = 'English';
+      } else if (language === 'sv') {
+        currentFlag.src = './files/sv.svg';
+        currentFlag.alt = 'Swedish';
+      }
     }
 
+    // Add event listeners for language change via flags
     document.getElementById('switch-to-en').addEventListener('click', function (e) {
       e.preventDefault();
       changeLanguage('en');
