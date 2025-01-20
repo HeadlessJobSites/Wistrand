@@ -35,6 +35,14 @@ function updateContent() {
                    i18next.t('hero_button.default'));
 
   document.getElementById('lang_herobtn_default').textContent = btnText;
+
+    // Update team members / Carousel
+  const teamMembers = i18next.t('values_section.team_members', { returnObjects: true });
+  teamMembers.forEach((member, index) => {
+    document.getElementById(`member_${index + 1}_role`).innerHTML = member.role;
+    document.getElementById(`member_${index + 1}_description`).innerHTML = member.description;
+  });
+
 }
 
     function changeLanguage(lng) {
