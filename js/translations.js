@@ -21,9 +21,20 @@ document.addEventListener('DOMContentLoaded', function () {
         updateContent();
       });
 
-    function updateContent() {
-      document.getElementById('lang_herotext').innerHTML = i18next.t('lang_herotext');
-    }
+function updateContent() {
+  // Update the hero text
+  document.getElementById('lang_herotext').innerHTML = i18next.t('lang_herotext');
+
+  // Update the button text based on the number of positions (this part assumes you have a way to determine the number of jobs, e.g., from a variable)
+  let positionsCount = 5;  // You would dynamically set this based on data fetched
+  const btnText = positionsCount === 1 ? 
+                  i18next.t('hero_button.one') : 
+                  (positionsCount > 1 ? 
+                   i18next.t('hero_button.other', { count: positionsCount }) : 
+                   i18next.t('hero_button.default'));
+
+  document.getElementById('lang_herobtn_default').textContent = btnText;
+}
 
     function changeLanguage(lng) {
       i18next.changeLanguage(lng, () => {
