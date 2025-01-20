@@ -28,139 +28,112 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
     function updateContent() {
-      const elementsToUpdate = [
-        { id: 'lang_herotext', key: 'lang_herotext' },
-        { id: 'company_header', key: 'company_section.header' },
-        { id: 'company_description', key: 'company_section.description' },
-        { id: 'values_header', key: 'values_section.header' },
-        { id: 'meet_employees_header', key: 'meet_employees.header' },
-        { id: 'quote_text', key: 'quote_section.quote' },
-        { id: 'quote_author', key: 'quote_section.author' },
-        { id: 'quote_role', key: 'quote_section.role' },
-        { id: 'our_process_header', key: 'our_process.header' },
-        { id: 'delivered_by_text', key: 'social_section.delivered_by' },
-        { id: 'share_on_social_text', key: 'social_section.share_on_social' },
-        { id: 'navbar_jobs', key: 'navbar.jobs' },
-        { id: 'navbar_meet_employees', key: 'navbar.meet_employees' },
-        { id: 'navbar_students', key: 'navbar.students' },
-        { id: 'navbar_recruitment_process', key: 'navbar.recruitment_process' },
-        { id: 'navbar_login', key: 'navbar.login' },
-        { id: 'navbar_home', key: 'navbar.home' },
-        { id: 'apply_button', key: 'navbar.apply' },
-        { id: 'apply_button_nav', key: 'navbar.apply' },
-        { id: 'navbar_values', key: 'navbar.values' },
-        { id: 'jobs_section_header', key: 'jobs_section.header' },
-        { id: 'location_filter_label', key: 'jobs_section.location_filter' },
-        { id: 'job_type_filter_label', key: 'jobs_section.job_type_filter' },
-        { id: 'loadMore', key: 'jobs_section.load_more' }
-      ];
-
-      // Safely update elements if they exist
-      elementsToUpdate.forEach(({ id, key }) => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.innerHTML = i18next.t(key);
-        }
-      });
-
-      // Update filter options dynamically if they exist
-      const locationFilter = document.getElementById('locationFilter');
-      const jobTypeFilter = document.getElementById('jobTypeFilter');
-      if (locationFilter) {
-        locationFilter.innerHTML = `<option value="All">${i18next.t('jobs_section.all_locations')}</option>`;
-      }
-      if (jobTypeFilter) {
-        jobTypeFilter.innerHTML = `<option value="All">${i18next.t('jobs_section.all_job_types')}</option>`;
-      }
+      document.getElementById('lang_herotext').innerHTML = i18next.t('lang_herotext');
+      document.getElementById('company_header').innerHTML = i18next.t('company_section.header');
+      document.getElementById('company_description').innerHTML = i18next.t('company_section.description');
+      document.getElementById('values_header').innerHTML = i18next.t('values_section.header');
+      document.getElementById('meet_employees_header').innerHTML = i18next.t('meet_employees.header');
+      document.getElementById('quote_text').innerHTML = i18next.t('quote_section.quote');
+      document.getElementById('quote_author').innerHTML = i18next.t('quote_section.author');
+      document.getElementById('quote_role').innerHTML = i18next.t('quote_section.role');
+      document.getElementById('our_process_header').innerHTML = i18next.t('our_process.header');
+      document.getElementById('delivered_by_text').innerHTML = i18next.t('social_section.delivered_by');
+      document.getElementById('share_on_social_text').innerHTML = i18next.t('social_section.share_on_social');
+      document.getElementById('navbar_jobs').innerHTML = i18next.t('navbar.jobs');
+      document.getElementById('navbar_meet_employees').innerHTML = i18next.t('navbar.meet_employees');
+      document.getElementById('navbar_students').innerHTML = i18next.t('navbar.students');
+      document.getElementById('navbar_recruitment_process').innerHTML = i18next.t('navbar.recruitment_process');
+      document.getElementById('navbar_login').innerHTML = i18next.t('navbar.login');
+      document.getElementById('navbar_home').innerHTML = i18next.t('navbar.home');
+      document.getElementById('apply_button').innerHTML = i18next.t('navbar.apply');
+      document.getElementById('apply_button_nav').innerHTML = i18next.t('navbar.apply');
+      document.getElementById('navbar_values').innerHTML = i18next.t('navbar.values');
       
-  // Update Job Listings Section
-  const jobListContainer = document.getElementById('jobList');
-  if (jobListContainer) {
-    jobListContainer.innerHTML = ''; // Clear current job cards
+      // Update Job Listings Section
+      document.getElementById('jobs_section_header').innerHTML = i18next.t('jobs_section.header');
+      document.getElementById('location_filter_label').innerHTML = i18next.t('jobs_section.location_filter');
+      document.getElementById('job_type_filter_label').innerHTML = i18next.t('jobs_section.job_type_filter');
+      document.getElementById('loadMore').innerHTML = i18next.t('jobs_section.load_more');
 
-    const jobs = []; // This would come from your dynamic data
-    jobs.forEach((job) => {
-      jobListContainer.insertAdjacentHTML('beforeend', buildJobCard(job));
-    });
-  }
-}
-    
-// Function to build HTML for a job card
-function buildJobCard(job) {
-  const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
-  const organizationUnitName =
-    job.organizations && job.organizations.length > 1
-      ? job.organizations[1].nameorgunit
-      : job.organizations?.[0]?.nameorgunit || i18next.t('jobs_section.not_specified');
-  const category = job.occupation_area || 'Wistrand'; // Use occupation_area or default to 'Wistrand'
+      // Update filter options dynamically
+      $('#locationFilter').html(<option value="All">${i18next.t('jobs_section.all_locations')}</option>);
+      $('#jobTypeFilter').html(<option value="All">${i18next.t('jobs_section.all_job_types')}</option>);
 
-  return `
-    <div class="col-12 col-md-4 col-lg-4 mb-4">
-      <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="${i18next.t('jobs_section.details')}">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="card-category"><span>${category}</span></div>
-            <div class="card-title">${job.title || i18next.t('jobs_section.untitled')}</div>
-            <p class="card-text">${job.country || i18next.t('jobs_section.not_specified')}</p>
-            <a href="${jobDetailUrl}" class="stretched-link">
-              <img src="./files/arrow-right-thin.svg" class="stretched-link" alt="${i18next.t('jobs_section.details')}" style="">
+      // Job card building function
+      function buildJobCard(job) {
+        const jobDetailUrl = job-details.html?jobId=${job.ad_id};
+        const organizationUnitName = job.organizations && job.organizations.length > 1
+          ? job.organizations[1].nameorgunit
+          : job.organizations?.[0]?.nameorgunit || i18next.t('jobs_section.not_specified');
+        const category = job.occupation_area || 'Wistrand';
+
+        return 
+          <div class="col-12 col-md-4 col-lg-4 mb-4">
+            <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="${i18next.t('jobs_section.details')}">
+              <div class="card h-100">
+                <div class="card-body">
+                  <div class="card-category"><span>${category}</span></div>
+                  <div class="card-title">${job.title}</div>
+                  <p class="card-text">${job.country || i18next.t('jobs_section.not_specified')}</p>
+                  <a href="${jobDetailUrl}" class="stretched-link">
+                    <img src="./files/arrow-right-thin.svg" class="stretched-link" alt="${i18next.t('jobs_section.details')}" style="">
+                  </a>
+                </div>
+              </div>
             </a>
-          </div>
-        </div>
-      </a>
-    </div>`;
-}
+          </div>;
+      }
+
+      // Update the button text based on the number of positions
+      let positionsCount = 5; // Dynamically set this based on data fetched
+      const btnText = positionsCount === 1
+        ? i18next.t('hero_button.one')
+        : (positionsCount > 1
+          ? i18next.t('hero_button.other', { count: positionsCount })
+          : i18next.t('hero_button.default'));
+      document.getElementById('lang_herobtn_default').textContent = btnText;
 
       // Update team members / Carousel
       const teamMembers = i18next.t('values_section.team_members', { returnObjects: true });
       teamMembers.forEach((member, index) => {
-        const roleElement = document.getElementById(`member_${index + 1}_role`);
-        const descriptionElement = document.getElementById(`member_${index + 1}_description`);
-        if (roleElement) roleElement.innerHTML = member.role;
-        if (descriptionElement) descriptionElement.innerHTML = member.description;
+        document.getElementById(member_${index + 1}_role).innerHTML = member.role;
+        document.getElementById(member_${index + 1}_description).innerHTML = member.description;
       });
 
       // Update process steps dynamically
       const steps = i18next.t('our_process.steps', { returnObjects: true });
       const processStepsContainer = document.getElementById('process_steps');
-      if (processStepsContainer) {
-        processStepsContainer.innerHTML = ''; // Clear existing steps
-        steps.forEach((step, index) => {
-          const stepHTML = `
-            <div class="col-md-4 col-sm-4 process-item">
-              <div class="process-icon">
-                <h3>${index + 1}</h3>
-              </div>
-              <div class="process-content">
-                <h3>${step.title}</h3>
-                <p>${step.description}</p>
-              </div>
+      processStepsContainer.innerHTML = ''; // Clear existing steps
+
+      steps.forEach((step, index) => {
+        const stepHTML = 
+          <div class="col-md-4 col-sm-4 process-item">
+            <div class="process-icon">
+              <h3>${index + 1}</h3>
             </div>
-          `;
-          processStepsContainer.insertAdjacentHTML('beforeend', stepHTML);
-        });
-      }
+            <div class="process-content">
+              <h3>${step.title}</h3>
+              <p>${step.description}</p>
+            </div>
+          </div>
+        ;
+        processStepsContainer.insertAdjacentHTML('beforeend', stepHTML);
+      });
 
       // Update employees' information dynamically
       const employees = i18next.t('meet_employees.employees', { returnObjects: true });
       employees.forEach((employee, index) => {
-        const nameElement = document.getElementById(`employee_${index + 1}_name`);
-        const roleElement = document.getElementById(`employee_${index + 1}_role`);
-        const aboutElement = document.getElementById(`employee_${index + 1}_about`);
-
-        if (nameElement) nameElement.innerHTML = employee.name;
-        if (roleElement) roleElement.innerHTML = employee.role;
-        if (aboutElement) {
-          aboutElement.innerHTML = `
-            ${employee.q_and_a.about ? `<strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>` : ''}
-            ${employee.q_and_a.culture ? `<strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>` : ''}
-            ${employee.q_and_a.day ? `<strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br>` : ''}
-            ${employee.q_and_a.projects ? `<strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br>` : ''}
-            ${employee.q_and_a.balance ? `<strong>${employee.q_and_a.balance}</strong><br>${employee.q_and_a.balance_answer}<br><br>` : ''}
-            ${employee.q_and_a.first_impressions ? `<strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br>` : ''}
-            ${employee.q_and_a.appreciation ? `<strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br>` : ''}
-          `;
-        }
+        document.getElementById(employee_${index + 1}_name).innerHTML = employee.name;
+        document.getElementById(employee_${index + 1}_role).innerHTML = employee.role;
+        document.getElementById(employee_${index + 1}_about).innerHTML = 
+          ${employee.q_and_a.about ? <strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br> : ''}
+          ${employee.q_and_a.culture ? <strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br> : ''}
+          ${employee.q_and_a.day ? <strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br> : ''}
+          ${employee.q_and_a.projects ? <strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br> : ''}
+          ${employee.q_and_a.balance ? <strong>${employee.q_and_a.balance}</strong><br>${employee.q_and_a.balance_answer}<br><br> : ''}
+          ${employee.q_and_a.first_impressions ? <strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br> : ''}
+          ${employee.q_and_a.appreciation ? <strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br> : ''}
+        ;
       });
     }
 
@@ -174,18 +147,16 @@ function buildJobCard(job) {
 
     function updateCurrentLanguageFlag(language) {
       const currentFlag = document.getElementById('currentLanguageFlag');
-      if (currentFlag) {
-        currentFlag.src = language === 'en' ? './files/en.svg' : './files/sv.svg';
-        currentFlag.alt = language === 'en' ? 'English' : 'Swedish';
-      }
+      currentFlag.src = language === 'en' ? './files/en.svg' : './files/sv.svg';
+      currentFlag.alt = language === 'en' ? 'English' : 'Swedish';
     }
 
-    document.getElementById('switch-to-en')?.addEventListener('click', function (e) {
+    document.getElementById('switch-to-en').addEventListener('click', function (e) {
       e.preventDefault();
       changeLanguage('en');
     });
 
-    document.getElementById('switch-to-sv')?.addEventListener('click', function (e) {
+    document.getElementById('switch-to-sv').addEventListener('click', function (e) {
       e.preventDefault();
       changeLanguage('sv');
     });
