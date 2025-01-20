@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'navbar_students', key: 'navbar.students' },
         { id: 'navbar_recruitment_process', key: 'navbar.recruitment_process' },
         { id: 'navbar_login', key: 'navbar.login' },
+        { id: 'navbar_apply', key: 'navbar.apply' },
         { id: 'navbar_home', key: 'navbar.home' },
         { id: 'apply_button', key: 'navbar.apply' },
         { id: 'apply_button_nav', key: 'navbar.apply' },
