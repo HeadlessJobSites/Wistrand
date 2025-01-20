@@ -1,3 +1,8 @@
 {
-  "lang_herotext": "Vi söker nya perspektiv - add you."
+  "lang_herotext": "Vi söker nya perspektiv - add you.",
+  "hero_button": {
+    "default": "Se våra lediga tjänster",
+    "one": "Se 1 ledig tjänst",
+    "other": "Se våra {{count}} lediga tjänster"
+  }
 }
