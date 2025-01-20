@@ -124,14 +124,14 @@
     "share_on_social": "Dela på sociala medier:"
   },
   "navbar": {
+    "apply": "Apply",
     "jobs": "Jobb",
     "meet_employees": "Träffa de anställda",
     "students": "För studenter",
     "recruitment_process": "Rekryteringsprocess",
     "login": "Logga in",
     "home": "Hem",
-    "values": "Våra värderingar",
-    "apply": "Ansök"
+    "values": "Våra värderingar"
   }
 
 }
