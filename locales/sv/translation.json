@@ -118,6 +118,10 @@
     "load_more": "Ladda fler",
     "not_specified": "Ej specificerad",
     "details": "Detaljer"
+  },
+  "social_section": {
+    "delivered_by": "Levereras av",
+    "share_on_social": "Dela på sociala medier:"
   }
 
 }
