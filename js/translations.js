@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
 function updateContent() {
-  // Update the hero text
   document.getElementById('lang_herotext').innerHTML = i18next.t('lang_herotext');
+  document.getElementById('company_header').innerHTML = i18next.t('company_section.header');
+  document.getElementById('company_description').innerHTML = i18next.t('company_section.description');
 
   // Update the button text based on the number of positions (this part assumes you have a way to determine the number of jobs, e.g., from a variable)
   let positionsCount = 5;  // You would dynamically set this based on data fetched
