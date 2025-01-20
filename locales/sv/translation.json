@@ -4,5 +4,9 @@
     "default": "Se våra lediga tjänster",
     "one": "Se 1 ledig tjänst",
     "other": "Se våra {{count}} lediga tjänster"
+  },
+  "company_section": {
+    "header": "Välkommen till <span style=\"font-weight: 800;\">CMS Wistrand</span>",
+    "description": "CMS Wistrand är en av Sveriges ledande affärsjuridiska byråer. På våra kontor i Stockholm och Göteborg är vi drygt 200 medarbetare – och som en del av CMS är vi en av världens största advokatbyråer med mer än 5 800 juridiska experter i över 45 länder. Lockas du av att lösa komplexa problem som ställer krav på innovation, expertis och samarbete? Vill du dessutom arbeta i en internationell miljö och värdesätter en öppen och inkluderande arbetsplats – då är CMS Wistrand rätt för dig."
   }
 }
