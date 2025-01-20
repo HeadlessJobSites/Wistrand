@@ -138,10 +138,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCurrentLanguageFlag(language) {
       const currentFlag = document.getElementById('currentLanguageFlag');
       if (language === 'en') {
-        currentFlag.src = './files/flag-en.svg';
+        currentFlag.src = './files/en.svg';
         currentFlag.alt = 'English';
       } else if (language === 'sv') {
-        currentFlag.src = './files/flag-sv.svg';
+        currentFlag.src = './files/sv.svg';
         currentFlag.alt = 'Swedish';
       }
     }
