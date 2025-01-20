@@ -55,15 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById(`employee_${index + 1}_name`).innerHTML = employee.name;
         document.getElementById(`employee_${index + 1}_role`).innerHTML = employee.role;
         document.getElementById(`employee_${index + 1}_about`).innerHTML = `
-          <strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>
-          ${employee.q_and_a.culture ? `<strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>` : ''}
-          ${employee.q_and_a.qualities ? `<strong>${employee.q_and_a.qualities}</strong><br>${employee.q_and_a.qualities_answer}<br><br>` : ''}
-          ${employee.q_and_a.day ? `<strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br>` : ''}
-          ${employee.q_and_a.projects ? `<strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br>` : ''}
-          ${employee.q_and_a.balance ? `<strong>${employee.q_and_a.balance}</strong><br>${employee.q_and_a.balance_answer}<br><br>` : ''}
-          ${employee.q_and_a.first_impressions ? `<strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br>` : ''}
-          ${employee.q_and_a.appreciation ? `<strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br>` : ''}
-        `;
+  ${employee.q_and_a.about ? `<strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>` : ''}
+  ${employee.q_and_a.culture ? `<strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>` : ''}
+  ${employee.q_and_a.day ? `<strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br>` : ''}
+  ${employee.q_and_a.projects ? `<strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br>` : ''}
+  ${employee.q_and_a.balance ? `<strong>${employee.q_and_a.balance}</strong><br>${employee.q_and_a.balance_answer}<br><br>` : ''}
+  ${employee.q_and_a.first_impressions ? `<strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br>` : ''}
+  ${employee.q_and_a.appreciation ? `<strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br>` : ''}
+`;
       });
     }
 
