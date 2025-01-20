@@ -54,6 +54,11 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+
+.hero-content .btn {
+	font-weight: 700;
+}
 .bg-dark {
 	background-color: #101018 !important;
 }
