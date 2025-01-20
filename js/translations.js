@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
       fallbackLng: 'en',
       debug: true,
       backend: {
-        loadPath: '/locales/{{lng}}/translation.json'  // Path to the translation files
+        loadPath: './locales/{{lng}}/translation.json'  // Path to the translation files
       }
     }, function(err, t) {
       // Initialize your application after translations have been loaded
