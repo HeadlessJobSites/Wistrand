@@ -122,6 +122,14 @@
   "social_section": {
     "delivered_by": "Levereras av",
     "share_on_social": "Dela på sociala medier:"
+  },
+  "navbar": {
+    "jobs": "Jobb",
+    "meet_employees": "Träffa de anställda",
+    "students": "För studenter",
+    "recruitment_process": "Rekryteringsprocess",
+    "login": "Logga in",
+    "cms_law": "cms.law"
   }
 
 }
