@@ -54,16 +54,16 @@
         }
       },
       {
-        "name": "Tua Larsson",
-        "role": "Receptionist",
-        "q_and_a": {
-          "culture": "How would you describe the culture at CMS Wistrand?",
-          "culture_answer": "It’s easy to assume that a law firm would have a hierarchy, but CMS Wistrand is anything but. Everyone, regardless of role, is always friendly and approachable. We have a lot of fun together during various activities, and everyone is always welcome.",
-          "day": "What does a typical day look like?",
-          "day_answer": "I work in the reception, which involves a variety of tasks. I also organize different events both internally and externally. Each day is different—it can range from finding a new snack option for our Wednesday fika to organizing a mingle event for visiting students. That’s what makes my role fun.",
-          "appreciation": "What do you appreciate most about working here?",
-          "appreciation_answer": "What I appreciate most is my colleagues. In reception, we interact with many different colleagues, which is always pleasant, and I’ve made many friends at the office. We also have great benefits, which was a big improvement compared to my previous workplaces."
-        }
+  "name": "Tua Larsson",
+  "role": "Receptionist",
+  "q_and_a": {
+    "about": "How would you describe the culture at CMS Wistrand?",
+    "about_answer": "It’s easy to assume that a law firm would have a hierarchy, but CMS Wistrand is anything but that. Everyone, regardless of role, is always friendly and approachable. We have a lot of fun together during various activities, and everyone is always welcome.",
+    "day": "What does a typical day look like?",
+    "day_answer": "I work in the reception, which involves a variety of tasks. I also organize different events, both internally and externally. Each day is different—it can range from finding a new snack option for our Wednesday fika to organizing a mingle event for visiting students. That’s what makes my role fun.",
+    "appreciation": "What do you appreciate most about working here?",
+    "appreciation_answer": "What I appreciate most is my colleagues. In reception, we interact with many different colleagues, which is always pleasant, and I’ve made many friends at the office. We also have great benefits, which was a big improvement compared to my previous workplaces."
+  }
       },
       {
         "name": "Noah Taha",
