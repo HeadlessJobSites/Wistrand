@@ -4,6 +4,10 @@
     "default": "See our open positions",
     "one": "See 1 open position",
     "other": "See our {{count}} open positions"
+  }, 
+  "company_section": {
+    "header": "Welcome to <span style=\"font-weight: 800;\">CMS Wistrand</span>",
+    "description": "CMS Wistrand is one of Sweden's leading business law firms. At our offices in Stockholm and Gothenburg, we have over 200 employees – and as part of CMS, we are one of the world's largest law firms with more than 5,800 legal experts in over 45 countries. Are you attracted to solving complex problems that require innovation, expertise, and collaboration? If you also want to work in an international environment and value an open and inclusive workplace, then CMS Wistrand is right for you."
   }
 }
 
