@@ -145,7 +145,7 @@
   "application_form_header": "Application Form",
   "similar_jobs_header": "Similar <span style=\"font-weight: 800\">Jobs</span>",
   "lang_values": "Values <i class=\"fa-thin fa-arrow-down\"></i>",
-  "lang_process": "Recruitment Process <i class=\"fa-thin fa-arrow-down\"></i>"
-
+  "lang_process": "Recruitment Process <i class=\"fa-thin fa-arrow-down\"></i>",
+  "lang_apply_mobile": "Apply"
 
 }
