@@ -143,7 +143,10 @@
 },
   "apply_button_submit": "Skicka in ansökan",
   "application_form_header": "Anmälnings­formulär",
-  "similar_jobs_header": "Liknande <span style=\"font-weight: 800\">jobb</span>"
+  "similar_jobs_header": "Liknande <span style=\"font-weight: 800\">jobb</span>",
+  "lang_values": "Värderingar <i class=\"fa-thin fa-arrow-down\"></i>",
+  "lang_process": "Rekryteringsprocess <i class=\"fa-thin fa-arrow-down\"></i>"
+
 
 
 }
