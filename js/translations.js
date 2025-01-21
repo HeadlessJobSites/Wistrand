@@ -55,6 +55,36 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add other elements here as needed
       ];
 
+            // Update the "Apply" button for mobile
+      const applyMobileButton = document.getElementById('lang_apply_mobile');
+      if (applyMobileButton) {
+        applyMobileButton.innerHTML = i18next.t('lang_apply_mobile');
+      }
+
+      // Update the "Values" and "Recruitment Process" navigation links
+      const valuesLink = document.getElementById('lang_values');
+      if (valuesLink) {
+        valuesLink.innerHTML = i18next.t('lang_values');
+      }
+      
+      const processLink = document.getElementById('lang_process');
+      if (processLink) {
+        processLink.innerHTML = i18next.t('lang_process');
+      }
+      
+      // Update the "Similar Jobs" header
+      const similarJobsHeader = document.getElementById('similar_jobs_header');
+      if (similarJobsHeader) {
+        similarJobsHeader.innerHTML = i18next.t('similar_jobs_header');
+      }
+
+      // Update the "Application Form" header
+      const applicationFormHeader = document.getElementById('application_form_header');
+      if (applicationFormHeader) {
+        applicationFormHeader.innerHTML = i18next.t('application_form_header');
+      }
+
+
       elementsToUpdate.forEach(({ id, key }) => {
         const element = document.getElementById(id);
         if (element) {
