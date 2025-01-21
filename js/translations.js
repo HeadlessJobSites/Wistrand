@@ -109,12 +109,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Safely update elements if they exist
-  elementsToUpdate.forEach(({ id, key }) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.innerHTML = i18next.t(key);
-    }
-  });
+      elementsToUpdate.forEach(({ id, key }) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.innerHTML = i18next.t(key);
+        }
+      });
 
       // Update filter options dynamically if they exist
       const locationFilter = document.getElementById('locationFilter');
@@ -179,15 +179,16 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       // Update Job Listings Section
-       const jobListContainer = document.getElementById('jobList');
-  if (jobListContainer) {
-    fetchJobs().then((jobs) => {
-      jobListContainer.innerHTML = ''; // Clear current job cards
-      jobs.forEach((job) => {
-        jobListContainer.insertAdjacentHTML('beforeend', buildJobCard(job));
-      });
-    });
-  }
+      const jobListContainer = document.getElementById('jobList');
+      if (jobListContainer) {
+        jobListContainer.innerHTML = ''; // Clear current job cards
+
+        const jobs = []; // Replace with your dynamic job data
+        jobs.forEach((job) => {
+          jobListContainer.insertAdjacentHTML('beforeend', buildJobCard(job));
+        });
+      }
+    }
 
     // Function to build HTML for a job card
     function buildJobCard(job) {
@@ -215,23 +216,13 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>`;
     }
 
-    function fetchJobs() {
-  const apiUrl = 'https://api.talentech.io/reachmee/feed/wistrand';
-  return fetch(apiUrl)
-    .then((response) => response.json())
-    .catch((error) => {
-      console.error('Error fetching job data:', error);
-      return []; // Return an empty array on error
-    });
-}
-
     function changeLanguage(lng) {
-  localStorage.setItem('selectedLanguage', lng);
-  i18next.changeLanguage(lng, () => {
-    updateContent(); // Refresh all content, including job listings
-    updateCurrentLanguageFlag(lng);
-  });
-}
+      localStorage.setItem('selectedLanguage', lng);
+      i18next.changeLanguage(lng, () => {
+        updateContent();
+        updateCurrentLanguageFlag(lng);
+      });
+    }
 
     function updateCurrentLanguageFlag(language) {
       const currentFlag = document.getElementById('currentLanguageFlag');
