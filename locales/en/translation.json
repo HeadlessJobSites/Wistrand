@@ -1,7 +1,7 @@
 {
   "lang_herotext": "We are looking for new perspectives - add you.", 
   "lang_studenthero": "<span style=\"font-weight: 800;\">For those of you</span> who are students", 
-  "hero_button_default": "See our open positions", 
+  "lang_herobtn_default": "See our open positions", 
   "hero_button": {
     "default": "See our open positions",
     "one": "See 1 open position",
