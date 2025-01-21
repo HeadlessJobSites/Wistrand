@@ -54,21 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'loadMore', key: 'jobs_section.load_more' },
         { id: 'lang_process', key: 'lang_process' },
         { id: 'lang_values', key: 'lang_values' },
-        { id: 'lang_apply_mobile', key: 'lang_apply_mobile' }
+        { id: 'lang_apply_mobile', key: 'lang_apply_mobile' },
+        { id: 'similar_jobs_header', key: 'similar_jobs_header' },
+        { id: 'application_form_header', key: 'application_form_header' }
         // Add other elements here as needed
       ];
-      
-      // Update the "Similar Jobs" header
-      const similarJobsHeader = document.getElementById('similar_jobs_header');
-      if (similarJobsHeader) {
-        similarJobsHeader.innerHTML = i18next.t('similar_jobs_header');
-      }
-
-      // Update the "Application Form" header
-      const applicationFormHeader = document.getElementById('application_form_header');
-      if (applicationFormHeader) {
-        applicationFormHeader.innerHTML = i18next.t('application_form_header');
-      }
       
       // Job Section Translations
       const jobSectionUpdates = [
