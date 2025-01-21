@@ -3,28 +3,26 @@ document.addEventListener('DOMContentLoaded', function () {
   if (typeof i18nextHttpBackend === 'undefined') {
     console.error('i18nextHttpBackend is not defined.');
   } else {
-    // Retrieve the saved language from localStorage or default to 'sv'
     const savedLanguage = localStorage.getItem('selectedLanguage') || 'sv';
+    let jobs = []; // Cache for job data
 
     i18next
-      .use(i18nextHttpBackend) // Use the backend plugin available globally
+      .use(i18nextHttpBackend)
       .init({
-        lng: savedLanguage, // Use the saved language
+        lng: savedLanguage,
         fallbackLng: 'sv',
         debug: true,
         backend: {
-          loadPath: './locales/{{lng}}/translation.json' // Path to the translation files
-        }
+          loadPath: './locales/{{lng}}/translation.json',
+        },
       }, function (err, t) {
         if (err) {
           console.error('Something went wrong during the i18next initialization:', err);
           return;
         }
-        // Initialize your application after translations have been loaded
         updateContent();
-
-        // Update the current flag icon based on the saved language
         updateCurrentLanguageFlag(savedLanguage);
+        fetchJobs(); // Fetch jobs initially
       });
 
     function updateContent() {
@@ -115,6 +113,35 @@ document.addEventListener('DOMContentLoaded', function () {
           element.innerHTML = i18next.t(key);
         }
       });
+
+      // Re-render jobs if already fetched
+      if (jobs.length > 0) {
+        renderJobs(jobs);
+      }
+    }
+
+    function fetchJobs() {
+      const apiUrl = 'https://api.talentech.io/reachmee/feed/wistrand';
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          jobs = data; // Cache the jobs data
+          renderJobs(jobs); // Render the jobs on the page
+        })
+        .catch((error) => {
+          console.error('Error fetching jobs:', error);
+        });
+    }
+
+    function renderJobs(jobList) {
+      const jobListContainer = document.getElementById('jobList');
+      if (jobListContainer) {
+        jobListContainer.innerHTML = ''; // Clear existing jobs
+        jobList.forEach((job) => {
+          jobListContainer.insertAdjacentHTML('beforeend', buildJobCard(job));
+        });
+      }
+    }
 
       // Update filter options dynamically if they exist
       const locationFilter = document.getElementById('locationFilter');
