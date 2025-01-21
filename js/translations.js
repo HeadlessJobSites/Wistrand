@@ -63,7 +63,15 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'student_welcome_text', key: 'student_welcome_text' },
         { id: 'student_events_header', key: 'student_events_header' },
         { id: 'student_events_text', key: 'student_events_text' },
-        { id: 'student_events_calendar', key: 'student_events_calendar' }
+        { id: 'student_events_calendar', key: 'student_events_calendar' },
+        { id: 'student_thesis_practice_header', key: 'student_thesis_practice_header' },
+        { id: 'student_thesis_practice_intro', key: 'student_thesis_practice_intro' },
+        { id: 'student_thesis_practice_details', key: 'student_thesis_practice_details' },
+        { id: 'student_thesis_practice_apply', key: 'student_thesis_practice_apply' },
+        { id: 'student_summer_clerk_header', key: 'student_summer_clerk_header' },
+        { id: 'student_summer_clerk_intro', key: 'student_summer_clerk_intro' },
+        { id: 'student_summer_clerk_training', key: 'student_summer_clerk_training' },
+        { id: 'student_summer_clerk_apply', key: 'student_summer_clerk_apply' }
         // Add other elements here as needed
       ];
       
