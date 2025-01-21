@@ -3,26 +3,28 @@ document.addEventListener('DOMContentLoaded', function () {
   if (typeof i18nextHttpBackend === 'undefined') {
     console.error('i18nextHttpBackend is not defined.');
   } else {
+    // Retrieve the saved language from localStorage or default to 'sv'
     const savedLanguage = localStorage.getItem('selectedLanguage') || 'sv';
-    let jobs = []; // Cache for job data
 
     i18next
-      .use(i18nextHttpBackend)
+      .use(i18nextHttpBackend) // Use the backend plugin available globally
       .init({
-        lng: savedLanguage,
+        lng: savedLanguage, // Use the saved language
         fallbackLng: 'sv',
         debug: true,
         backend: {
-          loadPath: './locales/{{lng}}/translation.json',
-        },
+          loadPath: './locales/{{lng}}/translation.json' // Path to the translation files
+        }
       }, function (err, t) {
         if (err) {
           console.error('Something went wrong during the i18next initialization:', err);
           return;
         }
+        // Initialize your application after translations have been loaded
         updateContent();
+
+        // Update the current flag icon based on the saved language
         updateCurrentLanguageFlag(savedLanguage);
-        fetchJobs(); // Fetch jobs initially
       });
 
     function updateContent() {
@@ -114,35 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      // Re-render jobs if already fetched
-      if (jobs.length > 0) {
-        renderJobs(jobs);
-      }
-    }
-
-    function fetchJobs() {
-      const apiUrl = 'https://api.talentech.io/reachmee/feed/wistrand';
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          jobs = data; // Cache the jobs data
-          renderJobs(jobs); // Render the jobs on the page
-        })
-        .catch((error) => {
-          console.error('Error fetching jobs:', error);
-        });
-    }
-
-    function renderJobs(jobList) {
-      const jobListContainer = document.getElementById('jobList');
-      if (jobListContainer) {
-        jobListContainer.innerHTML = ''; // Clear existing jobs
-        jobList.forEach((job) => {
-          jobListContainer.insertAdjacentHTML('beforeend', buildJobCard(job));
-        });
-      }
-    }
-
       // Update filter options dynamically if they exist
       const locationFilter = document.getElementById('locationFilter');
       const jobTypeFilter = document.getElementById('jobTypeFilter');
@@ -217,31 +190,46 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    // Function to build HTML for a job card
+    function fetchJobs() {
+      const apiUrl = 'https://api.talentech.io/reachmee/feed/wistrand';
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          jobs = data; // Cache the jobs data
+          renderJobs(jobs); // Render the jobs on the page
+        })
+        .catch((error) => {
+          console.error('Error fetching jobs:', error);
+        });
+    }
+
+    function renderJobs(jobList) {
+      const jobListContainer = document.getElementById('jobList');
+      if (jobListContainer) {
+        jobListContainer.innerHTML = ''; // Clear existing jobs
+        jobList.forEach((job) => {
+          jobListContainer.insertAdjacentHTML('beforeend', buildJobCard(job));
+        });
+      }
+    }
+
     function buildJobCard(job) {
       const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
-      const organizationUnitName =
-        job.organizations && job.organizations.length > 1
-          ? job.organizations[1].nameorgunit
-          : job.organizations?.[0]?.nameorgunit || i18next.t('jobs_section.not_specified');
       const category = job.occupation_area || 'Wistrand';
-
       return `
         <div class="col-12 col-md-4 col-lg-4 mb-4">
-          <a href="${jobDetailUrl}" class="" style="text-decoration: none; color: inherit;" aria-label="${i18next.t('jobs_section.details')}">
+          <a href="${jobDetailUrl}" style="text-decoration: none; color: inherit;" aria-label="${i18next.t('jobs_section.details')}">
             <div class="card h-100">
               <div class="card-body">
                 <div class="card-category"><span>${category}</span></div>
                 <div class="card-title">${job.title || i18next.t('jobs_section.untitled')}</div>
                 <p class="card-text">${job.country || i18next.t('jobs_section.not_specified')}</p>
-                <a href="${jobDetailUrl}" class="stretched-link">
-                  <img src="./files/arrow-right-thin.svg" class="stretched-link" alt="${i18next.t('jobs_section.details')}" style="">
-                </a>
               </div>
             </div>
           </a>
         </div>`;
     }
+
 
     function changeLanguage(lng) {
       localStorage.setItem('selectedLanguage', lng);
