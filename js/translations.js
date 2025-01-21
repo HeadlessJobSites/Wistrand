@@ -56,6 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'loadMore', key: 'jobs_section.load_more' },
       ];
 
+      // Update the "Apply" button for mobile
+      const applyMobileButton = document.getElementById('lang_apply_mobile');
+      if (applyMobileButton) {
+        applyMobileButton.innerHTML = i18next.t('lang_apply_mobile');
+      }
+
       // Update the "Values" and "Recruitment Process" navigation links
       const valuesLink = document.getElementById('lang_values');
       if (valuesLink) {
