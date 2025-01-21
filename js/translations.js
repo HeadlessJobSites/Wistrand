@@ -58,7 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'lang_values', key: 'lang_values' },
         { id: 'lang_apply_mobile', key: 'lang_apply_mobile' },
         { id: 'similar_jobs_header', key: 'similar_jobs_header' },
-        { id: 'application_form_header', key: 'application_form_header' }
+        { id: 'application_form_header', key: 'application_form_header' },
+        { id: 'student_welcome_header', key: 'student_welcome_header' },
+        { id: 'student_welcome_text', key: 'student_welcome_text' },
+        { id: 'student_events_header', key: 'student_events_header' },
+        { id: 'student_events_text', key: 'student_events_text' },
+        { id: 'student_events_calendar', key: 'student_events_calendar' }
         // Add other elements here as needed
       ];
       
