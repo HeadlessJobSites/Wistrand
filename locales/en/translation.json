@@ -110,7 +110,7 @@
     ]
   },
   "jobs_section": {
-    "header": "Open <span style=\"font-weight: 800\">Positions</span>",
+    "header": "Available <span style=\"font-weight: 800\">Positions</span>",
     "location_filter": "Location",
     "all_locations": "All Locations",
     "job_type_filter": "Job Type",
