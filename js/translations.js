@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const element = document.getElementById(id);
         if (element) {
           element.innerHTML = i18next.t(key);
+      element.innerHTML = translation.replace(/\n/g, '<br>');
         }
       });
 
