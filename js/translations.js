@@ -52,25 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'location_filter_label', key: 'jobs_section.location_filter' },
         { id: 'job_type_filter_label', key: 'jobs_section.job_type_filter' },
         { id: 'loadMore', key: 'jobs_section.load_more' },
+        { id: 'lang_process', key: 'lang_process' },
+        { id: 'lang_values', key: 'lang_values' },
+        { id: 'lang_apply_mobile', key: 'lang_apply_mobile' }
         // Add other elements here as needed
       ];
-
-            // Update the "Apply" button for mobile
-      const applyMobileButton = document.getElementById('lang_apply_mobile');
-      if (applyMobileButton) {
-        applyMobileButton.innerHTML = i18next.t('lang_apply_mobile');
-      }
-
-      // Update the "Values" and "Recruitment Process" navigation links
-      const valuesLink = document.getElementById('lang_values');
-      if (valuesLink) {
-        valuesLink.innerHTML = i18next.t('lang_values');
-      }
-      
-      const processLink = document.getElementById('lang_process');
-      if (processLink) {
-        processLink.innerHTML = i18next.t('lang_process');
-      }
       
       // Update the "Similar Jobs" header
       const similarJobsHeader = document.getElementById('similar_jobs_header');
@@ -100,16 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
           element.innerHTML = i18next.t(key);
         }
       });
-
-      // Update filter options dynamically if they exist
-      const locationFilter = document.getElementById('locationFilter');
-      const jobTypeFilter = document.getElementById('jobTypeFilter');
-      if (locationFilter) {
-        locationFilter.innerHTML = `<option value="All">${i18next.t('jobs_section.all_locations')}</option>`;
-      }
-      if (jobTypeFilter) {
-        jobTypeFilter.innerHTML = `<option value="All">${i18next.t('jobs_section.all_job_types')}</option>`;
-      }
       
       // Update the "Submit Application" button
       const applyButtonSubmit = document.getElementById('apply_button_submit');
