@@ -84,6 +84,16 @@ document.addEventListener('DOMContentLoaded', function () {
         applicationFormHeader.innerHTML = i18next.t('application_form_header');
       }
 
+      // Job Section Translations
+      const jobSectionUpdates = [
+        { id: 'job_team_label', key: 'job_section.team_label' },
+        { id: 'job_team_value', key: 'job_section.team_value' },
+        { id: 'job_location_label', key: 'job_section.location_label' },
+        { id: 'job_location_value', key: 'job_section.location_value' },
+        { id: 'job_expiration_label', key: 'job_section.expiration_label' },
+        { id: 'job_expiration_value', key: 'job_section.expiration_value' }
+      ];
+
 
       elementsToUpdate.forEach(({ id, key }) => {
         const element = document.getElementById(id);
