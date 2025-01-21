@@ -28,6 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateContent() {
       const elementsToUpdate = [
         { id: 'lang_herotext', key: 'lang_herotext' },
+        { id: 'company_header', key: 'company_section.header' },
+        { id: 'company_description', key: 'company_section.description' },
+        { id: 'values_header', key: 'values_section.header' },
+        { id: 'meet_employees_header', key: 'meet_employees.header' },
+        { id: 'quote_text', key: 'quote_section.quote' },
+        { id: 'quote_author', key: 'quote_section.author' },
+        { id: 'quote_role', key: 'quote_section.role' },
+        { id: 'our_process_header', key: 'our_process.header' },
+        { id: 'delivered_by_text', key: 'social_section.delivered_by' },
+        { id: 'share_on_social_text', key: 'social_section.share_on_social' },
+        { id: 'navbar_jobs', key: 'navbar.jobs' },
+        { id: 'navbar_meet_employees', key: 'navbar.meet_employees' },
+        { id: 'navbar_students', key: 'navbar.students' },
+        { id: 'navbar_recruitment_process', key: 'navbar.recruitment_process' },
+        { id: 'navbar_login', key: 'navbar.login' },
+        { id: 'navbar_apply', key: 'navbar.apply' },
+        { id: 'navbar_home', key: 'navbar.home' },
+        { id: 'apply_button', key: 'navbar.apply' },
+        { id: 'apply_button_nav', key: 'navbar.apply' },
+        { id: 'navbar_values', key: 'navbar.values' },
+        { id: 'jobs_section_header', key: 'jobs_section.header' },
+        { id: 'location_filter_label', key: 'jobs_section.location_filter' },
+        { id: 'job_type_filter_label', key: 'jobs_section.job_type_filter' },
+        { id: 'loadMore', key: 'jobs_section.load_more' },
         // Add other elements here as needed
       ];
 
