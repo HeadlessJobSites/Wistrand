@@ -101,6 +101,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
+      // Update filter options dynamically if they exist
+      const locationFilter = document.getElementById('locationFilter');
+      const jobTypeFilter = document.getElementById('jobTypeFilter');
+      if (locationFilter) {
+        locationFilter.innerHTML = `<option value="All">${i18next.t('jobs_section.all_locations')}</option>`;
+      }
+      if (jobTypeFilter) {
+        jobTypeFilter.innerHTML = `<option value="All">${i18next.t('jobs_section.all_job_types')}</option>`;
+      }
+      
       // Update the "Submit Application" button
       const applyButtonSubmit = document.getElementById('apply_button_submit');
       if (applyButtonSubmit) {
