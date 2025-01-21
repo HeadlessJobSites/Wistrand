@@ -56,6 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'loadMore', key: 'jobs_section.load_more' },
       ];
 
+      // Update the "Application Form" header
+      const applicationFormHeader = document.getElementById('application_form_header');
+      if (applicationFormHeader) {
+        applicationFormHeader.innerHTML = i18next.t('application_form_header');
+      }
+      
       // Job Section Translations
       const jobSectionUpdates = [
         { id: 'job_team_label', key: 'job_section.team_label' },
