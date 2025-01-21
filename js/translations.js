@@ -94,6 +94,42 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'job_expiration_value', key: 'job_section.expiration_value' }
       ];
 
+      // Update the "Submit Application" button
+      const applyButtonSubmit = document.getElementById('apply_button_submit');
+      if (applyButtonSubmit) {
+        applyButtonSubmit.innerHTML = i18next.t('apply_button_submit');
+      }
+
+      // Update team members / Carousel
+      const teamMembers = i18next.t('values_section.team_members', { returnObjects: true });
+      teamMembers.forEach((member, index) => {
+        const roleElement = document.getElementById(`member_${index + 1}_role`);
+        const descriptionElement = document.getElementById(`member_${index + 1}_description`);
+        if (roleElement) roleElement.innerHTML = member.role;
+        if (descriptionElement) descriptionElement.innerHTML = member.description;
+      });
+
+      // Update process steps dynamically
+      const steps = i18next.t('our_process.steps', { returnObjects: true });
+      const processStepsContainer = document.getElementById('process_steps');
+      if (processStepsContainer) {
+        processStepsContainer.innerHTML = ''; // Clear existing steps
+        steps.forEach((step, index) => {
+          const stepHTML = `
+            <div class="col-md-4 col-sm-4 process-item">
+              <div class="process-icon">
+                <h3>${index + 1}</h3>
+              </div>
+              <div class="process-content">
+                <h3>${step.title}</h3>
+                <p>${step.description}</p>
+              </div>
+            </div>
+          `;
+          processStepsContainer.insertAdjacentHTML('beforeend', stepHTML);
+        });
+      }
+
 
       elementsToUpdate.forEach(({ id, key }) => {
         const element = document.getElementById(id);
