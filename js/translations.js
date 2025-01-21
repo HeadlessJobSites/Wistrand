@@ -56,6 +56,17 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'loadMore', key: 'jobs_section.load_more' },
       ];
 
+      // Update the "Values" and "Recruitment Process" navigation links
+      const valuesLink = document.getElementById('lang_values');
+      if (valuesLink) {
+        valuesLink.innerHTML = i18next.t('lang_values');
+      }
+      
+      const processLink = document.getElementById('lang_process');
+      if (processLink) {
+        processLink.innerHTML = i18next.t('lang_process');
+      }
+      
       // Update the "Similar Jobs" header
       const similarJobsHeader = document.getElementById('similar_jobs_header');
       if (similarJobsHeader) {
