@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const elementsToUpdate = [
         { id: 'lang_herotext', key: 'lang_herotext' },
         { id: 'lang_studenthero', key: 'lang_studenthero' },
-        { id: 'hero_button_default', key: 'hero_button_default' },
+        { id: 'lang_herobtn_default', key: 'hero_button_default' },
         { id: 'company_header', key: 'company_section.header' },
         { id: 'company_description', key: 'company_section.description' },
         { id: 'values_header', key: 'values_section.header' },
