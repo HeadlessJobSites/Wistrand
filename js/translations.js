@@ -56,6 +56,12 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'loadMore', key: 'jobs_section.load_more' },
       ];
 
+      // Update the "Similar Jobs" header
+      const similarJobsHeader = document.getElementById('similar_jobs_header');
+      if (similarJobsHeader) {
+        similarJobsHeader.innerHTML = i18next.t('similar_jobs_header');
+      }
+
       // Update the "Application Form" header
       const applicationFormHeader = document.getElementById('application_form_header');
       if (applicationFormHeader) {
