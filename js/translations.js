@@ -130,6 +130,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
 
+      // Update employees' information dynamically
+      const employees = i18next.t('meet_employees.employees', { returnObjects: true });
+      employees.forEach((employee, index) => {
+        const nameElement = document.getElementById(`employee_${index + 1}_name`);
+        const roleElement = document.getElementById(`employee_${index + 1}_role`);
+        const aboutElement = document.getElementById(`employee_${index + 1}_about`);
+
+        if (nameElement) nameElement.innerHTML = employee.name;
+        if (roleElement) roleElement.innerHTML = employee.role;
+        if (aboutElement) {
+          aboutElement.innerHTML = `
+            ${employee.q_and_a.about ? `<strong>${employee.q_and_a.about}</strong><br>${employee.q_and_a.about_answer}<br><br>` : ''}
+            ${employee.q_and_a.culture ? `<strong>${employee.q_and_a.culture}</strong><br>${employee.q_and_a.culture_answer}<br><br>` : ''}
+            ${employee.q_and_a.day ? `<strong>${employee.q_and_a.day}</strong><br>${employee.q_and_a.day_answer}<br><br>` : ''}
+            ${employee.q_and_a.projects ? `<strong>${employee.q_and_a.projects}</strong><br>${employee.q_and_a.projects_answer}<br><br>` : ''}
+            ${employee.q_and_a.balance ? `<strong>${employee.q_and_a.balance}</strong><br>${employee.q_and_a.balance_answer}<br><br>` : ''}
+            ${employee.q_and_a.first_impressions ? `<strong>${employee.q_and_a.first_impressions}</strong><br>${employee.q_and_a.first_impressions_answer}<br>` : ''}
+            ${employee.q_and_a.appreciation ? `<strong>${employee.q_and_a.appreciation}</strong><br>${employee.q_and_a.appreciation_answer}<br>` : ''}
+          `;
+        }
+      });
+
 
       elementsToUpdate.forEach(({ id, key }) => {
         const element = document.getElementById(id);
