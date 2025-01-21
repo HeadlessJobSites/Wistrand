@@ -1,6 +1,6 @@
 {
   "lang_herotext": "Vi söker nya perspektiv - add you.",
-  "lang_herotext": "<span style=\"font-weight: 800;\">För dig</span> som är student", 
+  "lang_studenthero": "<span style=\"font-weight: 800;\">För dig</span> som är student", 
   "hero_button": {
     "default": "Se våra lediga tjänster",
     "one": "Se 1 ledig tjänst",
