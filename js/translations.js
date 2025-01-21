@@ -142,11 +142,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-
+      // Safely update elements if they exist
       elementsToUpdate.forEach(({ id, key }) => {
         const element = document.getElementById(id);
         if (element) {
-          element.innerHTML = i18next.t(key);
+        const translation = i18next.t(key);
       element.innerHTML = translation.replace(/\n/g, '<br>');
         }
       });
