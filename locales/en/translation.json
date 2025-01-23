@@ -142,6 +142,26 @@
   "location_value": "Location",
   "expiration_label": "Application deadline",
   "expiration_value": "Application deadline"
-}
+},
+  "apply_button_submit": "Submit Application",
+  "application_form_header": "Application Form",
+  "similar_jobs_header": "Similar <span style=\"font-weight: 800\">Jobs</span>",
+  "lang_values": "Values <i class=\"fa-thin fa-arrow-down\"></i>",
+  "lang_process": "Recruitment Process <i class=\"fa-thin fa-arrow-down\"></i>",
+  "lang_apply_mobile": "Apply",
+  "student_welcome_header": "<span style=\"font-weight: 800;\">Welcome!</span>",
+  "student_welcome_text": "We are delighted that as a student, you have found your way here – after all, you are the future of the legal profession! You can get to know us better by attending one of our events, pursuing your thesis with us or working as a summer trainee.",
+  "student_events_header": "\n<span style=\"font-weight: 800;\">Our events</span> – an excellent opportunity to make an impression!",
+  "student_events_text": "Are you a student and curious about CMS Wistrand? Take the opportunity to meet us at one of the many university expos and events that we participate in. Have a look at our calendar to find our next visit. \n\n These events offer you the prospect to find out a little more about who we are, our culture and how we work – and for us to get to know you and tell you more about how you can start your career at CMS Wistrand.",
+  "student_events_calendar": "<span style=\"font-weight: 800;\">December</span> \n12 December – GAIUS, Gothenburg",
+  "student_thesis_practice_header": "Thesis Internship - get more perspectives on your perspective",
+  "student_thesis_practice_intro": "Would you like to combine your studies with practical experience at one of Sweden's leading business law firms? CMS Wistrand offers the possibility of a thesis internship in conjunction with your degree. Gain insight into the complexity of business law, and develop your legal skillset whilst broadening your perspectives, by participating in our activities",
+  "student_thesis_practice_details": "In the course of your internship, you will work in one of our practice groups, receiving guidance and support from an experienced supervisor who also ensures that you have stimulating tasks that develop your skills. In addition to the day-to-day work, we also offer you internal training to strengthen your legal skills and the possibility to network with our experienced lawyers.",
+  "student_thesis_practice_apply": "We accept applications for thesis internships on an ongoing basis. Apply by selecting 'thesis internship' under our <a href=\"#jobs-anchor\">vacancies</a>.",
+  "student_summer_clerk_header": "\nSummer Trainee - your new legal career starts in June",
+  "student_summer_clerk_intro": "Are you ready to take your first steps into the legal profession? As a CMS Wistrand summer trainee, you will have an exceptional start to your career at one of Sweden's leading business law firms. We offer summer trainee positions to those who have been studying a law program for at least six semesters, and who are curious about what it is like to work with business law in a dynamic international environment.",
+  "student_summer_clerk_training": "As a summer trainee, you will be introduced to the daily work of an associate, and work with assignments in various legal practice areas alongside our lawyers. Supervisors are there to provide support and help you develop the skills required to thrive and succeed in the role.",
+  "student_summer_clerk_apply": "In addition to practical work, we also offer internal training in various areas of law so you can deepen your knowledge and equip yourself for the complex legal issues you will face in your career. \n\n Recruitment takes place in the autumn before the summer trainee period, and you can apply by selecting 'summer trainee' below."
+
 
 }
