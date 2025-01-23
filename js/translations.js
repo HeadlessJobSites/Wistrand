@@ -165,12 +165,6 @@ document.addEventListener('DOMContentLoaded', function () {
         renderJobs(jobs);
       }
     }
-    
-      // Re-render student jobs if already fetched
-      if (studentjobs.length > 0) {
-        renderStudentJobs(studentjobs);
-      }
-    }
 
     function fetchJobs() {
       const apiUrl = 'https://api.talentech.io/reachmee/feed/wistrand';
