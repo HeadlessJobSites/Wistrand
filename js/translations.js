@@ -167,8 +167,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
       // Re-render student jobs if already fetched
-      if (jobs.length > 0) {
-        renderStudentJobs(jobs);
+      if (studentjobs.length > 0) {
+        renderStudentJobs(studentjobs);
       }
     }
 
@@ -184,24 +184,6 @@ document.addEventListener('DOMContentLoaded', function () {
           console.error('Error fetching jobs:', error);
         });
     }
-    
-    // Fetch student jobs
-    function fetchStudentJobs() {
-        fetch('https://api.talentech.io/reachmee/feed/wistrand')
-            .then(response => response.json())
-            .then(data => {
-                // Only include jobs with employment_level "Student" or "Sommarjobb"
-                jobs = data.filter(job => 
-                    job.employment_level?.toLowerCase() === "student" || 
-                    job.employment_level?.toLowerCase() === "sommarjobb"
-                );
-                displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
-                displayStudentJobs(); // Show initial jobs
-            })
-            .catch(error => {
-                console.error('Error fetching jobs:', error);
-            });
-    }
 
     function renderJobs(jobList) {
       const jobListContainer = document.getElementById('jobList');
@@ -213,37 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    //Render student jobs
-    function renderStudentJobs(jobList) {
-      const jobListContainer = document.getElementById('jobList');
-      if (jobListContainer) {
-        jobListContainer.innerHTML = ''; // Clear existing jobs
-        jobList.forEach((studetjob) => {
-          jobListContainer.insertAdjacentHTML('beforeend', buildStudentJobCard(job));
-        });
-      }
-    }
-  
-
     function buildJobCard(job) {
-      const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
-      const category = job.occupation_area || 'Wistrand';
-      return `
-        <div class="col-12 col-md-4 col-lg-4 mb-4">
-          <a href="${jobDetailUrl}" style="text-decoration: none; color: inherit;" aria-label="${i18next.t('jobs_section.details')}">
-            <div class="card h-100">
-              <div class="card-body">
-                <div class="card-category"><span>${category}</span></div>
-                <div class="card-title">${job.title || i18next.t('jobs_section.untitled')}</div>
-                <p class="card-text">${job.country || i18next.t('jobs_section.not_specified')}</p>
-              </div>
-            </div>
-          </a>
-        </div>`;
-    }
-
-    //Build student job cards
-    function buildStudentJobCard(job) {
       const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
       const category = job.occupation_area || 'Wistrand';
       return `
