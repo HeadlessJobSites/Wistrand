@@ -3,28 +3,28 @@
   "lang_studenthero": "<span style=\"font-weight: 800;\">For students</span>", 
   "lang_herobtn_standard": "Discover our vacancies", 
   "hero_button": {
-    "default": "See our open positions",
+    "default": "Discover our vacancies",
     "one": "See 1 open position",
-    "other": "See our {{count}} open positions"
+    "other": "Discover our {{count}} vacancies"
   }, 
   "company_section": {
     "header": "Welcome to <span style=\"font-weight: 800;\">CMS Wistrand</span>",
-    "description": "CMS Wistrand is one of Sweden's leading business law firms. At our offices in Stockholm and Gothenburg, we have over 200 employees – and as part of CMS, we are one of the world's largest law firms with more than 5,800 legal experts in over 45 countries. Are you attracted to solving complex problems that require innovation, expertise, and collaboration? If you also want to work in an international environment and value an open and inclusive workplace, then CMS Wistrand is right for you."
+    "description": "CMS Wistrand is one of Sweden's leading commercial law firms with just over 200 employees in our Stockholm and Gothenburg offices. In addition, we form part of CMS: one of the world's largest law firms with more than 5,800 legal experts in over 45 countries. Are you interested in addressing complex issues that require innovative solutions, expertise and collaboration? Additionally, If you would like to work within an international environment appreciating an open and inclusive workplace, then CMS Wistrand is the right place for yo"
   },
   "values_section": {
     "header": "Our <span style=\"font-weight: 800;\">Values</span>",
     "team_members": [
       {
-        "role": "With you, we see new opportunities",
-        "description": "We know that a diversity of skills, perspectives, and experiences not only makes for a more enjoyable workplace but is also essential to providing our clients with the best advice. When you join us, you become part of an open and inviting culture where you have the space to be yourself – and where you can feel confident that your voice will be heard."
+        "role": "Together with you, we see new possibilities",
+        "description": "We know that a diversity of skills, perspectives and experiences not only makes for a more pleasant workplace, but it is also a prerequisite for providing our clients with superlative advice. At CMS Wistrand, you become part of an open and inviting culture where you will find the space to be yourself and have confidence that your voice will be heard."
       },
       {
         "role": "Innovation as tradition",
-        "description": "We see innovation as a driving factor behind success. Our industry is constantly evolving, and we ensure we are well-prepared for the future by finding new and more efficient ways to deliver business law services. This means encouraging our employees to think creatively and take initiative, whether it’s about using digital tools to streamline workflows or developing new services that meet clients’ changing needs."
+        "description": "We see innovation as a driving factor for success. Our sector is constantly changing, and we are laying the foundations to prepare for the future by finding new and more effective ways to deliver legal services for businesses. As a result, we encourage our employees to think creatively and take initiatives, whether it be by using digital tools to streamline workflows or developing new services to meet the changing needs of our clients."
       },
       {
-        "role": "Sustainability in large and small matters",
-        "description": "For us, it’s important to contribute to positive development in the area of sustainability. A large part of this work involves supporting and guiding our clients in ESG issues related to compliance, strategies, and policies. But creating a sustainable work environment is equally important – which is why we ensure you have the best conditions to perform in the long term, offering both support to handle work challenges and space for recovery."
+        "role": "Sustainability in all shapes and sizes",
+        "description": "For us, it is paramount to contribute to positive development regarding sustainability. A large part of our work is to support and guide our clients in environmental, social and governance (ESG) issues in respect of regulatory compliance, strategies and policies. \n\n Creating a sustainable work environment is an equally important component. Therefore, we ensure that you have the best conditions for long-term performance by offering you the support to deal with the challenges of work and the space and time for recovery."
       }
     ]
   }, 
