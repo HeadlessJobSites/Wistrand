@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     const savedLanguage = localStorage.getItem('selectedLanguage') || 'sv';
     let jobs = []; // Cache for job data
+    const isStudentPage = document.body.classList.contains('student-jobs-page'); // Check if it's the student jobs page
 
     i18next
       .use(i18nextHttpBackend)
@@ -22,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         updateContent();
         updateCurrentLanguageFlag(savedLanguage);
-        fetchJobs(); // Fetch jobs initially
-        fetchStudentJobs(); // Fetch Student jobs initially
+        fetchJobs(isStudentPage); // Fetch jobs initially with a condition based on the page type
       });
+
 
     function updateContent() {
       const elementsToUpdate = [
@@ -166,13 +167,23 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    function fetchJobs() {
+    // Fetch student jobs
+    function fetchJobs(isStudentPage) {
       const apiUrl = 'https://api.talentech.io/reachmee/feed/wistrand';
       fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => {
-          jobs = data; // Cache the jobs data
-          renderJobs(jobs); // Render the jobs on the page
+          if (isStudentPage) {
+            // Filter to include only 'Student' or 'Sommarjobb' jobs if on the student jobs page
+            jobs = data.filter(job => 
+                job.employment_level?.toLowerCase() === "student" || 
+                job.employment_level?.toLowerCase() === "sommarjobb"
+            );
+          } else {
+            // Include all jobs if on the general jobs page
+            jobs = data;
+          }
+          renderJobs(jobs); // Render the appropriate jobs on the page
         })
         .catch((error) => {
           console.error('Error fetching jobs:', error);
