@@ -82,37 +82,37 @@
     ]
   }, 
   "quote_section": {
-    "quote": "“It’s incredibly luxurious to work with such knowledgeable, generous, and actively friendly people.”",
+    "quote": "“It’s really gratifying to work together with such knowledgeable, generous and truly nice people.”",
     "author": "Nina Knobloch Blomqvist",
-    "role": "Associate Lawyer"
+    "role": "Associate, environmental grou"
   },
   "our_process": {
     "header": "Our <span style=\"font-weight: 800;\">Recruitment Process</span>",
     "steps": [
       {
-        "title": "Submit Your Application",
-        "description": "You apply by uploading your CV and other relevant application documents in our career portal."
+        "title": "Send in your application",
+        "description": "You apply by uploading your CV and other relevant documentation in our careers portal."
       },
       {
-        "title": "Initial Screening",
-        "description": "We review your application to see if your skills, experiences, and qualifications align with what we are looking for."
+        "title": "First selection",
+        "description": "We go through your application to see if your knowledge, experience and competence is in line with what we are looking for."
       },
       {
         "title": "Tests",
-        "description": "Depending on the role you are applying for, you may be asked to complete a personality test and a problem-solving ability test."
+        "description": "Depending on the role you have applied for, you may be asked to do a personality assessment and a test that measures your problem-solving abilities."
       },
       {
-        "title": "Interview Process",
-        "description": "Depending on the role you are applying for, you may be invited to one or more interviews so that we can get to know each other and hear more about your experiences and ambitions."
+        "title": "The interview process",
+        "description": "You may be called to one or more interviews so that we can get to know each other and for us to hear more about your experience and your ambitions."
       },
       {
-        "title": "Offer and Onboarding",
-        "description": "If there is a match, we will make you a job offer. Once you accept, onboarding begins, and we will guide you through every step!"
+        "title": "Offer and onboarding",
+        "description": "If there is a match, we will make an offer of employment. Onboarding begins when you accept the offer, and, naturally, we will guide you through every step."
       }
     ]
   },
   "jobs_section": {
-    "header": "Available <span style=\"font-weight: 800\">Positions</span>",
+    "header": "Open <span style=\"font-weight: 800\">vacancies</span>",
     "location_filter": "Location",
     "all_locations": "All Locations",
     "job_type_filter": "Job Type",
