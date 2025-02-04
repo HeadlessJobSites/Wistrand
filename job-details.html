@@ -586,7 +586,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 
-
 <section class="text-center bg-dark text-light py-5">
     <div class="container">
         <img src="./files/Logo-white.svg" alt="Wistrand Logo" class="mb-3" style="max-width: 180px;">
@@ -601,20 +600,39 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </section>
 
+-->
 
-
-<section class="bg-light text-dark">
-    <div class="container my-0 py-1 m-py-2">
-        <div class="d-flex align-items-center">
+<div class="container my-0 py-1 m-py-2">
+    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center"><!-- updated flex classes -->
+        <!-- "Powered by" section -->
+        <div>
             <span class="mr-1">Powered by</span>
-            <img src="./files/TT-fav.svg" alt="Talentech Logo" style="width: 20px; vertical-align: middle; position: relative; bottom: 1px;">
-            <span class="ml-1" style="">Talentech</span>
+            <a style="text-decoration:none; color: inherit;" href="https://talentech.com"><img src="./files/TT-fav.svg" alt="Talentech Logo" style="width: 20px; vertical-align: middle; position: relative; bottom: 1px;"></a>
+            <a style="text-decoration:none; color: inherit;" href="https://talentech.com"><span class="ml-1" style="">Talentech</span></a>
+        </div>
+
+        <!-- Share section -->
+        <div class="share-container mt-2 mt-sm-0 ml-sm-auto"><!-- updated margin and alignment classes -->
+            <span class="d-block d-sm-inline mb-1"><!-- updated responsive classes -->
+                Share on social media: 
+                <a href="#" id="facebook-share-link" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/facebook.svg" alt="Share on Facebook" width="16" height="16">
+                </a>
+                <a href="#" id="twitter-share-link" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/x.svg" alt="Share on X" width="16" height="16">
+                </a>
+                <a href="#" id="linkedin-share-link" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/linkedin.svg" alt="Share on LinkedIn" width="16" height="16">
+                </a>
+            </span>
         </div>
     </div>
-</section>
+</div>
 
 
--->
+
+
+
 
 
 
