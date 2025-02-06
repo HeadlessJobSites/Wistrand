@@ -143,6 +143,7 @@
   "expiration_label": "Application deadline",
   "expiration_value": "Application deadline"
 },
+  "gobi_header": "Meet <span style=\"font-weight: 800;\">our team</span>",
   "apply_button_submit": "Submit Application",
   "application_form_header": "Application Form",
   "similar_jobs_header": "Similar <span style=\"font-weight: 800\">Jobs</span>",
