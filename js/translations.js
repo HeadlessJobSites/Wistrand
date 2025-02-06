@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateContent() {
       const elementsToUpdate = [
+        { id: 'gobi_header', key: 'gobi_header' },
         { id: 'lang_herotext', key: 'lang_herotext' },
         { id: 'lang_studenthero', key: 'lang_studenthero' },
         { id: 'lang_herobtn_standard', key: 'lang_herobtn_standard' },
