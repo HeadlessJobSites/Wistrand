@@ -2,27 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>För dig som är student</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="./css/index-style.css">
-<link rel="stylesheet" href="./css/cms-index.css">
-<link rel="icon" type="image/x-icon" href="./files/favicon-16x16.webp">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/ca38a06270.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
-<!-- Language scripts -->
-<script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
-<script src="/js/i18nextHttpBackend.min.js"></script>
-<script src="/js/translations.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>För dig som är student</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/index-style.css">
+  <link rel="stylesheet" href="./css/cms-index.css">
+  <link rel="icon" type="image/x-icon" href="./files/favicon-16x16.webp">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/ca38a06270.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://widget.gobistories.com/gwi/6" async onload="gobi.discover()"></script>
+  <!-- Language scripts -->
+  <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
+  <script src="/js/i18nextHttpBackend.min.js"></script>
+  <script src="/js/translations.js"></script>
 
-	
+
   <meta property="og:title" content="Wistrand karriärportal - Studenter">
   <meta property="og:description" content="Vi söker nya perspektiv - add you.">
   <meta property="og:image" content="https://career.wistrand.se/files/CMS-Wistrand-social.jpg?raw=true">
@@ -31,269 +31,268 @@
   <meta name="twitter:title" content="Wistrand karriärportal - Studenter">
   <meta name="twitter:description" content="Vi söker nya perspektiv - add you.">
   <meta name="twitter:image" content="https://career.wistrand.se/files/CMS-Wistrand-social.jpg?raw=true">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:type" content="website">
-	
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+
 </head>
 
 <body class="front-page student-jobs-page">
 
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.0);">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(0, 0, 0, 0.0);">
     <div class="container">
-        <a class="navbar-brand" href="./" aria-label="Home">
-            <img src="./files/Logo-white.svg" height="24" class="d-inline-block align-top" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="./#jobs-anchor" id="navbar_jobs">Jobb</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./#meet-employees" id="navbar_meet_employees">Träffa de anställda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/student.html" id="navbar_students">För studenter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./#our-process" id="navbar_recruitment_process">Rekryteringsprocess</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://web106.reachmee.com/ext/I002/233/profile?site=5&validator=b026c105ea4a83b928726cb7cb18488c&lang=SE" id="navbar_login">Logga in</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="blank" href="https://cms.law/sv/swe/">cms.law <span class="sr-only">(current)</span></a>
-                </li>
-            	<li class="nav-item dropdown">
-            	  <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            	    <img id="currentLanguageFlag" src="./files/sv.svg" alt="Current Language" style="width: 20px; height: auto; vertical-align: middle;"> <!-- Default Flag -->
-            	  </a>
-            	  <div class="dropdown-menu" aria-labelledby="languageDropdown">
-            	    <a class="dropdown-item" href="#" id="switch-to-en">
-            	      <img src="./files/en.svg" alt="English" style="width: 20px; height: auto; vertical-align: middle;"> English
-            	    </a>
-            	    <a class="dropdown-item" href="#" id="switch-to-sv">
-            	      <img src="./files/sv.svg" alt="Swedish" style="width: 20px; height: auto; vertical-align: middle;"> Svenska
-            	    </a>
-            	  </div>
-            	</li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="./" aria-label="Home">
+        <img src="./files/Logo-white.svg" height="24" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./#jobs-anchor" id="navbar_jobs">Jobb</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./#meet-employees" id="navbar_meet_employees">Träffa de anställda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/student.html" id="navbar_students">För studenter</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./#our-process" id="navbar_recruitment_process">Rekryteringsprocess</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://web106.reachmee.com/ext/I002/233/profile?site=5&validator=b026c105ea4a83b928726cb7cb18488c&lang=SE" id="navbar_login">Logga in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="blank" href="https://cms.law/sv/swe/">cms.law <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img id="currentLanguageFlag" src="./files/sv.svg" alt="Current Language" style="width: 20px; height: auto; vertical-align: middle;"> <!-- Default Flag -->
+            </a>
+            <div class="dropdown-menu" aria-labelledby="languageDropdown">
+              <a class="dropdown-item" href="#" id="switch-to-en">
+                <img src="./files/en.svg" alt="English" style="width: 20px; height: auto; vertical-align: middle;"> English
+              </a>
+              <a class="dropdown-item" href="#" id="switch-to-sv">
+                <img src="./files/sv.svg" alt="Swedish" style="width: 20px; height: auto; vertical-align: middle;"> Svenska
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav> 
+  </nav>
 
 
 
-<script>
-$(document).ready(function() {
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > 56) {
-      $(".navbar").addClass("bg-dark");
-    } else {
-      $(".navbar").removeClass("bg-dark");
-    }
-  });
-  $(".navbar-toggler").click(function() {
-    if (!$(".navbar-collapse").hasClass("show")) {
-      $(".navbar").addClass("bg-dark");
-    } else {
-      if ($(window).scrollTop() < 56) {
-        $(".navbar").removeClass("bg-dark");
-      } else {
-      }
-    }
-  });
-});
-</script>
+  <script>
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > 56) {
+          $(".navbar").addClass("bg-dark");
+        } else {
+          $(".navbar").removeClass("bg-dark");
+        }
+      });
+      $(".navbar-toggler").click(function () {
+        if (!$(".navbar-collapse").hasClass("show")) {
+          $(".navbar").addClass("bg-dark");
+        } else {
+          if ($(window).scrollTop() < 56) {
+            $(".navbar").removeClass("bg-dark");
+          } else {
+          }
+        }
+      });
+    });
+  </script>
 
 
-	<div class="hero-section">
+  <div class="hero-section">
     <div class="custom-hero"></div>
     <video playsinline autoplay loop muted class="hero-video">
-        <source src="/files/CMS-webfilm.mp4" type="video/mp4">
+      <source src="/files/CMS-webfilm.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
-        <h1 id="lang_studenthero"><span style="font-weight: 800;">För dig</span> som är student</h1>
-	            <a href="#jobs-anchor" class="btn btn-primary btn-lg dark-btn" style="background: #0d535f !important;" id="lang_herobtn_standard"><strong>Se våra lediga tjänster</strong></a>
+      <h1 id="lang_studenthero"><span style="font-weight: 800;">För dig</span> som är student</h1>
+      <a href="#jobs-anchor" class="btn btn-primary btn-lg dark-btn" style="background: #0d535f !important;" id="lang_herobtn_standard"><strong>Se våra lediga tjänster</strong></a>
     </div>
-	</div>
+  </div>
 
-	
-<div class="talentech-section" id="student-company-section">
+
+  <div class="talentech-section" id="student-company-section">
     <div class="container mt-5 pt-4 m-mt-2">
-        <h2 id="student_welcome_header" class="m-px-2"><span style="font-weight: 800;">Welcome</span> here!</h2>
-        <p id="student_welcome_text" class="pt-3 m-px-2">
-            We are especially happy that you, as a student, have found your way here – after all, you are the future of law! We hope that you want to get to know us better by attending one of our events, writing your thesis with us, or working as a summer associate.<br><br><br>
-        </p>
-        
-        <h2 id="student_events_header" class="m-px-2"><span style="font-weight: 800;">Our events</span> – an excellent opportunity for a first impression!</h2>
-        <p id="student_events_text" class="pt-3 m-px-2">
-            Are you a student curious about CMS Wistrand? Then we think you should take the opportunity to meet us at university career fairs or other student events. Feel free to check our calendar for the next opportunity.<br><br>
-            It's a chance for you to learn a bit more about who we are, our culture, and how we work – and for us to get to know you and tell you more about how you can start your career at CMS Wistrand.
-        </p>
-        <p id="student_events_calendar" class="pt-3 m-px-2">
-            <strong>October</strong><br>
-            10 October – Juristdagarna, Stockholm<br>
-            15 October – JIF-dagen, Karlstad<br><br>
-            <strong>November</strong><br>
-            7 November – JiA-dagarna, Lund<br>
-            12 November – Kontaktdagen, Uppsala<br>
-            19 November – Juristmässan, Örebro<br>
-            28 November – Juristens dag, Umeå<br><br>
-            <strong>December</strong><br>
-            12 December – GAIUS, Gothenburg
-        </p>    
+      <h2 id="student_welcome_header" class="m-px-2"><span style="font-weight: 800;">Welcome</span> here!</h2>
+      <p id="student_welcome_text" class="pt-3 m-px-2">
+        We are especially happy that you, as a student, have found your way here – after all, you are the future of law! We hope that you want to get to know us better by attending one of our events, writing your thesis with us, or working as a summer associate.<br><br><br>
+      </p>
+
+      <h2 id="student_events_header" class="m-px-2"><span style="font-weight: 800;">Our events</span> – an excellent opportunity for a first impression!</h2>
+      <p id="student_events_text" class="pt-3 m-px-2">
+        Are you a student curious about CMS Wistrand? Then we think you should take the opportunity to meet us at university career fairs or other student events. Feel free to check our calendar for the next opportunity.<br><br>
+        It's a chance for you to learn a bit more about who we are, our culture, and how we work – and for us to get to know you and tell you more about how you can start your career at CMS Wistrand.
+      </p>
+      <!-- <p id="student_events_calendar" class="pt-3 m-px-2">
+        <strong>October</strong><br>
+        10 October – Juristdagarna, Stockholm<br>
+        15 October – JIF-dagen, Karlstad<br><br>
+        <strong>November</strong><br>
+        7 November – JiA-dagarna, Lund<br>
+        12 November – Kontaktdagen, Uppsala<br>
+        19 November – Juristmässan, Örebro<br>
+        28 November – Juristens dag, Umeå<br><br>
+        <strong>December</strong><br>
+        12 December – GAIUS, Gothenburg
+      </p> -->
     </div>
-</div>
+  </div>
 
 
 
 
 
-<div class="talentech-section mb-5 m-mb-3">
+  <div class="talentech-section mb-5 m-mb-3">
     <div class="container mt-4 pt-2 mb-5 pb-3 video-container m-my-0">
-        <div class="front-image"><img src="./files/A1080096.jpg"></div>
-    </div>
-</div>
-	
-
-
-<div class="talentech-section pb-5 m-pb-0">
-  <div class="container mt-5 pt-4 m-mt-2">
-    <h2 class="m-px-2" id="student_thesis_practice_header"></h2>
-    <p class="pt-3 m-px-2" id="student_thesis_practice_intro"></p>
-    <p class="pt-3 m-px-2" id="student_thesis_practice_details"></p>
-    <p class="pt-3 m-px-2" id="student_thesis_practice_apply"></p>
-
-    <h2 class="m-px-2" id="student_summer_clerk_header"></h2>
-    <p class="pt-3 m-px-2" id="student_summer_clerk_intro"></p>
-    <p class="pt-3 m-px-2" id="student_summer_clerk_training"></p>
-    <p class="pt-3 m-px-2" id="student_summer_clerk_apply"></p>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-	
-	
-
-	
-<div class="feature-section mt-5 pt-3 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
-<div class="container mt-3 mb-0 m-mb-0">
-    <h2 class="my-5 m-px-2 m-my-0" id="jobs_section_header"></h2>
-    <div id="jobList" class="row"></div>
-	<div class="text-center mt-2">
-    <button id="loadMore" class="btn btn-primary">Ladda mer</button>
-	</div>
-</div>
-</div>
-
-
-
-	
-	
-
-
-
-
-
-	
-<div class="container my-0 py-1 m-py-2">
-  <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center">
-    <div>
-      <span class="mr-1" id="delivered_by_text"></span>
-            <a style="text-decoration:none; color: inherit;" href="https://talentech.com"><img src="./files/TT-fav.svg" alt="Talentech Logo" style="width: 20px; vertical-align: middle; position: relative; bottom: 1px;"></a>
-            <a style="text-decoration:none; color: inherit;" href="https://talentech.com"><span class="ml-1" style="">Talentech</span></a>
-    </div>
-
-    <div class="share-container mt-2 mt-sm-0 ml-sm-auto">
-      <span class="d-block d-sm-inline mb-1">
-        <span id="share_on_social_text"></span>
-        <a href="#" id="facebook-share-link" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/facebook.svg" alt="Share on Facebook" width="16" height="16">
-        </a>
-        <a href="#" id="twitter-share-link" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/x.svg" alt="Share on X" width="16" height="16">
-        </a>
-        <a href="#" id="linkedin-share-link" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/linkedin.svg" alt="Share on LinkedIn" width="16" height="16">
-        </a>
-      </span>
+      <div class="front-image"><img src="./files/A1080096.jpg"></div>
     </div>
   </div>
-</div>
 
 
-	
-<script>
+
+  <div class="talentech-section pb-5 m-pb-0">
+    <div class="container mt-5 pt-4 m-mt-2">
+      <h2 class="m-px-2" id="student_thesis_practice_header"></h2>
+      <p class="pt-3 m-px-2" id="student_thesis_practice_intro"></p>
+      <p class="pt-3 m-px-2" id="student_thesis_practice_details"></p>
+      <p class="pt-3 m-px-2" id="student_thesis_practice_apply"></p>
+
+      <h2 class="m-px-2" id="student_summer_clerk_header"></h2>
+      <p class="pt-3 m-px-2" id="student_summer_clerk_intro"></p>
+      <p class="pt-3 m-px-2" id="student_summer_clerk_training"></p>
+      <p class="pt-3 m-px-2" id="student_summer_clerk_apply"></p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="feature-section mt-5 pt-3 pb-5" id="jobs-anchor" style="background-color: #eeeef2;">
+    <div class="container mt-3 mb-0 m-mb-0">
+      <h2 class="my-5 m-px-2 m-my-0" id="jobs_section_header"></h2>
+      <div id="jobList" class="row"></div>
+      <div class="text-center mt-2">
+        <button id="loadMore" class="btn btn-primary">Ladda mer</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container my-0 py-1 m-py-2">
+    <div class="d-flex flex-column flex-sm-row align-items-start align-items-sm-center">
+      <div>
+        <span class="mr-1" id="delivered_by_text"></span>
+        <a style="text-decoration:none; color: inherit;" href="https://talentech.com"><img src="./files/TT-fav.svg" alt="Talentech Logo" style="width: 20px; vertical-align: middle; position: relative; bottom: 1px;"></a>
+        <a style="text-decoration:none; color: inherit;" href="https://talentech.com"><span class="ml-1" style="">Talentech</span></a>
+      </div>
+
+      <div class="share-container mt-2 mt-sm-0 ml-sm-auto">
+        <span class="d-block d-sm-inline mb-1">
+          <span id="share_on_social_text"></span>
+          <a href="#" id="facebook-share-link" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/facebook.svg" alt="Share on Facebook" width="16" height="16">
+          </a>
+          <a href="#" id="twitter-share-link" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/x.svg" alt="Share on X" width="16" height="16">
+          </a>
+          <a href="#" id="linkedin-share-link" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons/icons/linkedin.svg" alt="Share on LinkedIn" width="16" height="16">
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
     // Function to dynamically set the URLs for social media sharing
     function setSocialMediaShareUrls() {
-        var facebookShareLink = document.getElementById('facebook-share-link');
-        var twitterShareLink = document.getElementById('twitter-share-link');
-        var linkedinShareLink = document.getElementById('linkedin-share-link');
-        var currentUrl = encodeURIComponent(window.location.href);
+      var facebookShareLink = document.getElementById('facebook-share-link');
+      var twitterShareLink = document.getElementById('twitter-share-link');
+      var linkedinShareLink = document.getElementById('linkedin-share-link');
+      var currentUrl = encodeURIComponent(window.location.href);
 
-        facebookShareLink.href = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
-        twitterShareLink.href = 'https://twitter.com/intent/tweet?url=' + currentUrl;
-        linkedinShareLink.href = 'https://www.linkedin.com/shareArticle?url=' + currentUrl;
+      facebookShareLink.href = 'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl;
+      twitterShareLink.href = 'https://twitter.com/intent/tweet?url=' + currentUrl;
+      linkedinShareLink.href = 'https://www.linkedin.com/shareArticle?url=' + currentUrl;
     }
 
     // Call the function to set social media share URLs
     setSocialMediaShareUrls();
-</script>
+  </script>
 
 
 
 
-	
-	<script>
-$(document).ready(function () {
-    let jobs = []; // Array to store all jobs
-    let displayedJobs = 0; // Counter for the number of jobs currently displayed
-    const jobsToShowDesktop = 12; // Number of jobs to show on desktop before "Load More"
-    const jobsToShowMobile = 6; // Number of jobs to show on mobile before "Load More"
-    let jobsToShow = window.innerWidth > 768 ? jobsToShowDesktop : jobsToShowMobile;
 
-    // Adjust jobsToShow based on window resize
-    $(window).resize(function() {
+  <script>
+    $(document).ready(function () {
+      let jobs = []; // Array to store all jobs
+      let displayedJobs = 0; // Counter for the number of jobs currently displayed
+      const jobsToShowDesktop = 12; // Number of jobs to show on desktop before "Load More"
+      const jobsToShowMobile = 6; // Number of jobs to show on mobile before "Load More"
+      let jobsToShow = window.innerWidth > 768 ? jobsToShowDesktop : jobsToShowMobile;
+
+      // Adjust jobsToShow based on window resize
+      $(window).resize(function () {
         jobsToShow = window.innerWidth > 768 ? jobsToShowDesktop : jobsToShowMobile;
         displayedJobs = Math.min(jobsToShow, jobs.length); // Adjust displayedJobs based on new jobsToShow
         displayJobs(); // Redisplay jobs based on new size
         updateLoadMoreVisibility(); // Update button visibility after resize
-    });
+      });
 
-    // Function to display jobs without filters
-    function displayJobs() {
+      // Function to display jobs without filters
+      function displayJobs() {
         $('#jobList').empty(); // Clear current jobs
 
         // Display jobs up to the limit of `displayedJobs`
         const jobsToDisplay = jobs.slice(0, displayedJobs);
 
         if (jobsToDisplay.length === 0) {
-            // Display a message if no jobs match the criteria
-            $('#jobList').html('<div class="talentech-section mt-4"><div class="container"><p class="m-px-2" style="font-size: 1.2em;text-align: left;">Det finns inga lediga tjänster för studenter just nu.</p></div></div>');
+          // Display a message if no jobs match the criteria
+          $('#jobList').html('<div class="talentech-section mt-4"><div class="container"><p class="m-px-2" style="font-size: 1.2em;text-align: left;">Det finns inga lediga tjänster för studenter just nu.</p></div></div>');
         } else {
-            // Otherwise, display the jobs
-            jobsToDisplay.forEach(job => {
-                $('#jobList').append(buildJobCard(job));
-            });
+          // Otherwise, display the jobs
+          jobsToDisplay.forEach(job => {
+            $('#jobList').append(buildJobCard(job));
+          });
         }
 
         updateLoadMoreVisibility();
-    }
+      }
 
-    // Function to build HTML for a job card
-    function buildJobCard(job) {
+      // Function to build HTML for a job card
+      function buildJobCard(job) {
         const jobDetailUrl = `job-details.html?jobId=${job.ad_id}`;
         const category = job.occupation_area || 'Wistrand'; // Use occupation_area or default to 'Wistrand'
 
@@ -312,55 +311,55 @@ $(document).ready(function () {
                 </div>
             </a>
         </div>`;
-    }
+      }
 
-    // Function to update the visibility of the "Load More" button
-    function updateLoadMoreVisibility() {
+      // Function to update the visibility of the "Load More" button
+      function updateLoadMoreVisibility() {
         if (displayedJobs >= jobs.length) {
-            $('#loadMore').hide();
+          $('#loadMore').hide();
         } else {
-            $('#loadMore').show();
+          $('#loadMore').show();
         }
-    }
+      }
 
-    // Fetch jobs from the API
-    function fetchJobs() {
+      // Fetch jobs from the API
+      function fetchJobs() {
         fetch('https://api.talentech.io/reachmee/feed/wistrand')
-            .then(response => response.json())
-            .then(data => {
-                // Only include jobs with employment_level "Student" or "Sommarjobb"
-                jobs = data.filter(job => 
-                    job.employment_level?.toLowerCase() === "student" || 
-                    job.employment_level?.toLowerCase() === "sommarjobb"
-                );
-                displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
-                displayJobs(); // Show initial jobs
-            })
-            .catch(error => {
-                console.error('Error fetching jobs:', error);
-            });
-    }
+          .then(response => response.json())
+          .then(data => {
+            // Only include jobs with employment_level "Student" or "Sommarjobb"
+            jobs = data.filter(job =>
+              job.employment_level?.toLowerCase() === "student" ||
+              job.employment_level?.toLowerCase() === "sommarjobb"
+            );
+            displayedJobs = Math.min(jobsToShow, jobs.length); // Initialize displayedJobs
+            displayJobs(); // Show initial jobs
+          })
+          .catch(error => {
+            console.error('Error fetching jobs:', error);
+          });
+      }
 
-    // Load jobs when the page is ready
-    fetchJobs();
+      // Load jobs when the page is ready
+      fetchJobs();
 
-    // Event listener for "Load More" button
-    $('#loadMore').click(function() {
+      // Event listener for "Load More" button
+      $('#loadMore').click(function () {
         displayedJobs += jobsToShow;
         displayJobs();
         updateLoadMoreVisibility();
+      });
     });
-});
-</script>
+  </script>
 
 
 
 
 
-	
 
-	
-	
+
+
+
 </body>
 
 </html>
